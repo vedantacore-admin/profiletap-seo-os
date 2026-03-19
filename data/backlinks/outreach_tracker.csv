@@ -1,1 +1,13 @@
-domain,contact_email,status,outcome
+domain,target_page_slug,contact_name,contact_email,status,first_contact_date,last_contact_date,next_follow_up_date,outcome,live_url,notes
+yourstory.com,/,,,not_started,,,,,,
+inc42.com,/digital-business-card-india,,,not_started,,,,,,
+entrackr.com,/digital-business-card-india,,,not_started,,,,,,
+businessworld.in,/nfc-business-card-india,,,not_started,,,,,,
+entrepreneur.com,/nfc-business-card-india,,,not_started,,,,,,
+exchange4media.com,/digital-business-card-for-creators,,,not_started,,,,,,
+socialsamosa.com,/digital-business-card-for-creators,,,not_started,,,,,,
+shoutmeloud.com,/linktree-alternative-for-professionals,,,not_started,,,,,,
+indianstartupnews.com,/hihello-alternative-india,,,not_started,,,,,,
+vccircle.com,/popl-alternative-india,,,not_started,,,,,,
+expresshealthcare.in,/digital-business-card-for-doctors,,,not_started,,,,,,
+housing.com,/digital-business-card-for-real-estate-agents,,,not_started,,,,,,

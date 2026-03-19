@@ -1,1 +1,23 @@
-keyword,page_slug,is_primary
+keyword,page_slug,is_primary,mapping_role,mapping_notes
+smart identity platform,/,yes,primary,
+digital business card india,/digital-business-card-india,yes,primary,
+digital visiting card india,/digital-business-card-india,no,secondary,regional wording variation of digital business card india
+virtual business card india,/digital-business-card-india,no,secondary,close transactional synonym
+smart business card india,/digital-business-card-india,no,secondary,close transactional synonym
+nfc business card india,/nfc-business-card-india,yes,primary,
+nfc digital business card,/nfc-business-card-india,no,secondary,close product variation
+qr business card,/qr-business-card,yes,primary,
+qr code business card,/qr-business-card,no,secondary,close product variation
+digital business card for doctors,/digital-business-card-for-doctors,yes,primary,
+digital business card for real estate agents,/digital-business-card-for-real-estate-agents,yes,primary,
+digital business card for freelancers,/digital-business-card-for-freelancers,yes,primary,
+digital business card for creators,/digital-business-card-for-creators,yes,primary,
+hihello alternative india,/hihello-alternative-india,yes,primary,
+popl alternative india,/popl-alternative-india,yes,primary,
+taponn alternative,/taponn-alternative,yes,primary,
+blinq alternative,/blinq-alternative,yes,primary,
+linktree alternative for professionals,/linktree-alternative-for-professionals,yes,primary,
+nfc business card vs qr code,/blog/nfc-business-card-vs-qr-code,yes,primary,
+paper business card vs digital business card,/blog/paper-vs-digital-business-card,yes,primary,
+best digital business card for doctors in india,/blog/best-digital-business-card-for-doctors-india,yes,primary,
+how to create a digital business card for your business,/blog/how-to-create-digital-business-card,yes,primary,

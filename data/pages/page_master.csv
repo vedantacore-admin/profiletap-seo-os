@@ -1,1 +1,18 @@
-page_slug,page_type,page_title,primary_keyword,status
+page_slug,page_type,page_title,primary_keyword,target_market,target_language,funnel_stage,conversion_goal,primary_cta,owner,status,target_publish_quarter,publish_date,last_updated,next_refresh,notes
+/,homepage,Smart Identity Platform for Digital Profiles | ProfileTap,smart identity platform,IN+GLOBAL,en,MOFU,create_profile,create_profile,,planned,Q1,,,,
+/digital-business-card-india,category,Digital Business Card India | ProfileTap,digital business card india,IN,en,BOFU,create_profile,create_profile,,planned,Q1,,,,
+/nfc-business-card-india,category,NFC Business Card India | ProfileTap,nfc business card india,IN,en,BOFU,create_profile,create_profile,,planned,Q1,,,,
+/qr-business-card,category,QR Business Card for Smart Profiles | ProfileTap,qr business card,IN+GLOBAL,en,BOFU,create_profile,create_profile,,planned,Q1,,,,
+/digital-business-card-for-doctors,use_case,Digital Business Card for Doctors | ProfileTap,digital business card for doctors,IN,en,BOFU,create_profile,create_profile,,planned,Q1,,,,
+/digital-business-card-for-real-estate-agents,use_case,Digital Business Card for Real Estate Agents | ProfileTap,digital business card for real estate agents,IN,en,BOFU,create_profile,create_profile,,planned,Q2,,,,
+/digital-business-card-for-freelancers,use_case,Digital Business Card for Freelancers | ProfileTap,digital business card for freelancers,IN,en,BOFU,create_profile,create_profile,,planned,Q2,,,,
+/digital-business-card-for-creators,use_case,Digital Business Card for Creators | ProfileTap,digital business card for creators,IN+GLOBAL,en,BOFU,create_profile,create_profile,,planned,Q3,,,,
+/hihello-alternative-india,comparison,HiHello Alternative in India | ProfileTap,hihello alternative india,IN,en,BOFU,create_profile,create_profile,,planned,Q2,,,,
+/popl-alternative-india,comparison,Popl Alternative in India | ProfileTap,popl alternative india,IN,en,BOFU,create_profile,create_profile,,planned,Q2,,,,
+/taponn-alternative,comparison,TapOnn Alternative | ProfileTap,taponn alternative,IN,en,BOFU,create_profile,create_profile,,planned,Q2,,,,
+/blinq-alternative,comparison,Blinq Alternative | ProfileTap,blinq alternative,IN+GLOBAL,en,BOFU,create_profile,create_profile,,planned,Q3,,,,
+/linktree-alternative-for-professionals,comparison,Linktree Alternative for Professionals | ProfileTap,linktree alternative for professionals,IN+GLOBAL,en,BOFU,create_profile,create_profile,,planned,Q3,,,,
+/blog/nfc-business-card-vs-qr-code,blog,NFC Business Card vs QR Code: Which One Converts Better?,nfc business card vs qr code,IN+GLOBAL,en,MOFU,assist_category_conversion,create_profile,,planned,Q2,,,link to nfc and qr category pages
+/blog/paper-vs-digital-business-card,blog,Paper Business Card vs Digital Business Card,paper business card vs digital business card,IN+GLOBAL,en,MOFU,assist_category_conversion,create_profile,,planned,Q2,,,link to digital business card India page
+/blog/best-digital-business-card-for-doctors-india,blog,Best Digital Business Card for Doctors in India,best digital business card for doctors in india,IN,en,MOFU,assist_use_case_conversion,create_profile,,planned,Q3,,,link to doctor use case page
+/blog/how-to-create-digital-business-card,blog,How to Create a Digital Business Card for Your Business,how to create a digital business card for your business,IN+GLOBAL,en,TOFU,assist_category_conversion,create_profile,,planned,Q4,,,link to digital business card India page

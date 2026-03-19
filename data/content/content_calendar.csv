@@ -1,1 +1,18 @@
-content_id,title,content_type,target_keyword,status
+content_id,page_slug,title,content_type,target_keyword,target_market,target_language,funnel_stage,priority,owner,status,brief_status,due_date,publish_date,refresh_date,target_quarter,notes
+PT-SEO-001,/,Homepage messaging refresh,homepage,smart identity platform,IN+GLOBAL,en,MOFU,P2,,planned,brief_pending,,,,Q1,core positioning page
+PT-SEO-002,/digital-business-card-india,Digital Business Card India landing page,landing_page,digital business card india,IN,en,BOFU,P1,,planned,brief_pending,,,,Q1,core money page
+PT-SEO-003,/nfc-business-card-india,NFC Business Card India landing page,landing_page,nfc business card india,IN,en,BOFU,P1,,planned,brief_pending,,,,Q1,core money page
+PT-SEO-004,/qr-business-card,QR Business Card landing page,landing_page,qr business card,IN+GLOBAL,en,BOFU,P1,,planned,brief_pending,,,,Q1,core money page
+PT-SEO-005,/digital-business-card-for-doctors,Digital Business Card for Doctors use case page,use_case_page,digital business card for doctors,IN,en,BOFU,P1,,planned,brief_pending,,,,Q1,high intent vertical
+PT-SEO-006,/digital-business-card-for-real-estate-agents,Digital Business Card for Real Estate Agents use case page,use_case_page,digital business card for real estate agents,IN,en,BOFU,P1,,planned,brief_pending,,,,Q2,high intent vertical
+PT-SEO-007,/digital-business-card-for-freelancers,Digital Business Card for Freelancers use case page,use_case_page,digital business card for freelancers,IN,en,BOFU,P1,,planned,brief_pending,,,,Q2,high intent vertical
+PT-SEO-008,/digital-business-card-for-creators,Digital Business Card for Creators use case page,use_case_page,digital business card for creators,IN+GLOBAL,en,BOFU,P2,,planned,brief_pending,,,,Q3,segment expansion
+PT-SEO-009,/hihello-alternative-india,HiHello Alternative India comparison page,comparison_page,hihello alternative india,IN,en,BOFU,P1,,planned,brief_pending,,,,Q2,competitor capture
+PT-SEO-010,/popl-alternative-india,Popl Alternative India comparison page,comparison_page,popl alternative india,IN,en,BOFU,P1,,planned,brief_pending,,,,Q2,competitor capture
+PT-SEO-011,/taponn-alternative,TapOnn Alternative comparison page,comparison_page,taponn alternative,IN,en,BOFU,P1,,planned,brief_pending,,,,Q2,competitor capture
+PT-SEO-012,/blinq-alternative,Blinq Alternative comparison page,comparison_page,blinq alternative,IN+GLOBAL,en,BOFU,P2,,planned,brief_pending,,,,Q3,secondary competitor capture
+PT-SEO-013,/linktree-alternative-for-professionals,Linktree Alternative for Professionals comparison page,comparison_page,linktree alternative for professionals,IN+GLOBAL,en,BOFU,P2,,planned,brief_pending,,,,Q3,adjacent competitor capture
+PT-SEO-014,/blog/nfc-business-card-vs-qr-code,NFC Business Card vs QR Code blog post,blog_post,nfc business card vs qr code,IN+GLOBAL,en,MOFU,P2,,planned,brief_pending,,,,Q2,support nfc and qr categories
+PT-SEO-015,/blog/paper-vs-digital-business-card,Paper Business Card vs Digital Business Card blog post,blog_post,paper business card vs digital business card,IN+GLOBAL,en,MOFU,P2,,planned,brief_pending,,,,Q2,support digital business card category
+PT-SEO-016,/blog/best-digital-business-card-for-doctors-india,Best Digital Business Card for Doctors in India blog post,blog_post,best digital business card for doctors in india,IN,en,MOFU,P2,,planned,brief_pending,,,,Q3,support doctor use case page
+PT-SEO-017,/blog/how-to-create-digital-business-card,How to Create a Digital Business Card for Your Business blog post,blog_post,how to create a digital business card for your business,IN+GLOBAL,en,TOFU,P3,,planned,brief_pending,,,,Q4,top funnel support content

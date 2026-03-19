@@ -1,0 +1,13 @@
+domain,site_type,target_page_slug,target_keyword,suggested_anchor,anchor_type,target_market,link_angle,priority,owner,status,notes
+yourstory.com,startup_media,/,smart identity platform,ProfileTap,brand,IN,founder_story,P1,,prospecting,
+inc42.com,startup_media,/digital-business-card-india,digital business card india,digital business card india,exact,IN,data_backed_category_story,P1,,prospecting,
+entrackr.com,startup_media,/digital-business-card-india,digital business card india,digital business card for Indian businesses,partial,IN,startup_growth_story,P1,,prospecting,
+businessworld.in,business_media,/nfc-business-card-india,nfc business card india,nfc business card india,exact,IN,enterprise_networking_angle,P1,,prospecting,
+entrepreneur.com,entrepreneur_media,/nfc-business-card-india,nfc business card india,nfc enabled business profiles,partial,IN+GLOBAL,productivity_angle,P2,,prospecting,
+exchange4media.com,marketing_media,/digital-business-card-for-creators,digital business card for creators,digital business card for creators,exact,IN,creator_marketing_angle,P1,,prospecting,
+socialsamosa.com,marketing_media,/digital-business-card-for-creators,digital business card for creators,smart identity profile for creators,partial,IN,creator_branding_angle,P1,,prospecting,
+shoutmeloud.com,marketing_blog,/linktree-alternative-for-professionals,linktree alternative for professionals,linktree alternative for professionals,exact,IN+GLOBAL,creator_tool_comparison,P2,,prospecting,
+indianstartupnews.com,startup_media,/hihello-alternative-india,hihello alternative india,hihello alternative india,exact,IN,comparison_roundup,P1,,prospecting,
+vccircle.com,startup_media,/popl-alternative-india,popl alternative india,popl alternative india,exact,IN,saas_comparison_roundup,P2,,prospecting,
+expresshealthcare.in,healthcare_media,/digital-business-card-for-doctors,digital business card for doctors,digital business card for doctors,exact,IN,doctor_networking_angle,P1,,prospecting,
+housing.com,real_estate_media,/digital-business-card-for-real-estate-agents,digital business card for real estate agents,digital business card for real estate agents,exact,IN,agent_branding_angle,P2,,prospecting,
