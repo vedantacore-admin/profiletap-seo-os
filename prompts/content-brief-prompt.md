@@ -1,0 +1,1 @@
+Generate SEO content brief from keyword and intent.
