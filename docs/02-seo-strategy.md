@@ -42,9 +42,67 @@ The operating assumption is that India transactional demand and India-focused co
 
 ## Keyword Model
 
-The keyword system is maintained in `data/keywords/master_keywords.csv` with a one-to-one mapping into `data/pages/page_keyword_map.csv`.
+The keyword system now has two layers:
 
-The file supports annual management, not only ideation. Use these fields actively:
+- `data/keywords/raw_keyword_bank.csv`
+  Retained import inventory for approved keyword families only
+- `data/keywords/execution_seo_master.csv`
+  Canonical page-owned keyword families for execution
+
+`data/keywords/master_keywords.csv` can still be used as a curated working subset, but it is no longer the right place to dump a large raw export.
+
+### Raw keyword bank role
+
+Use `raw_keyword_bank.csv` as the clean retained keyword bank.
+
+Critical fields:
+
+- `canonical_keyword`
+- `canonical_page_slug`
+- `keep_status`
+- `merge_reason`
+- `modifier_type`
+- `semrush_volume`
+- `semrush_kd`
+- `semrush_cpc`
+
+Allowed `keep_status` values:
+
+- `keep_primary`
+- `keep_secondary`
+
+The rebuild script may still reject imported rows internally, but those rows are not stored in the raw bank.
+
+### Execution SEO master role
+
+Use `execution_seo_master.csv` as the actual SEO planning sheet.
+
+Its job is:
+
+- one page owns one keyword family
+- secondary variations stay short and controlled
+- city and adjective variants do not become standalone execution rows
+- rejected ideas stay out of the publishing system until validated elsewhere
+
+### Rebuild rules
+
+Current rebuild assumptions:
+
+- city, `best`, `cheap`, `premium`, `custom`, `buy`, `online`, and similar variants are merged by default
+- unsupported professions are excluded instead of being force-mapped
+- comparison terms stay separate from category and hub intent
+- travel-agent business intent stays separate from travel utility intent
+- blogs only survive as support content tied to commercial parents
+
+### Semrush workflow
+
+After each import rebuild:
+
+- fill Semrush metrics in `raw_keyword_bank.csv`
+- validate `keep_status` and `canonical_page_slug` for the kept rows
+- promote only approved families into downstream mapping and content work
+
+If a curated planning subset is still needed, use these fields actively in `master_keywords.csv`:
 
 - `pillar` for portfolio planning
 - `funnel_stage` for balancing TOFU, MOFU, and BOFU output
@@ -81,8 +139,9 @@ These pages are the fixed launch architecture. They own the top-level product st
 - `/digital-business-card-for-freelancers`
 - `/hihello-alternative-india`
 - `/popl-alternative-india`
-- `/taponn-alternative`
-- `/blinq-alternative`
+- `/tapmo-alternative`
+- `/profiletap-vs-hihello`
+- `/profiletap-vs-tapmo`
 
 ### Creator child pages
 
@@ -91,10 +150,11 @@ These pages are the fixed launch architecture. They own the top-level product st
 
 ### Later support blogs
 
-- `/blog/nfc-business-card-vs-qr-code`
-- `/blog/paper-vs-digital-business-card`
-- `/blog/best-digital-business-card-for-doctors-india`
-- `/blog/how-to-create-digital-business-card`
+- `/blog/what-is-digital-business-card`
+- `/blog/how-nfc-business-cards-work`
+- `/blog/how-qr-code-works`
+- `/blog/nfc-vs-qr-business-card`
+- `/blog/digital-business-card-examples`
 
 Blogs are not part of the launch architecture and should only support existing hubs or child money pages.
 
@@ -174,16 +234,75 @@ Interpretation rules:
 
 - HiHello alternative India
 - Popl alternative India
-- TapOnn alternative
-- Blinq alternative
+- TapMo alternative
+- ProfileTap vs HiHello
+- ProfileTap vs TapMo
 - Linktree alternative for creators
 
 ### Phase 4: authority support content
 
-- NFC vs QR
-- paper vs digital business cards
-- doctor-focused roundup
-- digital business card how-to
+- what is digital business card
+- how NFC business cards work
+- how QR code works
+- NFC vs QR business card
+- digital business card examples
+
+## Blog Cluster Model
+
+Support content should scale through parent-child clusters, not isolated blog ideas.
+
+### Parent-child rule
+
+- every blog has one `parent_page_slug`
+- every blog has one `parent_keyword_family`
+- every blog should pass authority to one primary conversion page
+- a blog may link to multiple pages on-site, but the system should treat only one page as its primary parent
+
+### Required content-calendar fields
+
+Add and use these fields in `data/content/content_calendar.csv`:
+
+- `parent_page_slug`
+- `parent_keyword_family`
+- `content_role`
+- `cluster_name`
+- `primary_internal_link_target`
+- `secondary_internal_link_targets`
+- `serp_intent_type`
+- `refresh_priority`
+
+### Recommended `content_role` values
+
+- `money_page`
+- `definition`
+- `how_to`
+- `comparison`
+- `examples`
+- `use_case_support`
+- `feature_support`
+- `industry_support`
+- `problem_solution`
+
+### Cluster sizing by segment
+
+Recommended long-term blog-cluster range:
+
+| Segment | Cluster count |
+| --- | ---: |
+| Business | 12-18 |
+| Creator | 6-10 |
+| Family safety | 4-6 |
+| Pet | 4-6 |
+| Travel | 3-5 |
+| Vehicle | 4-6 |
+| Comparison support | 5-8 |
+| Platform / identity education | 4-6 |
+
+Rule of thumb:
+
+- 5 to 10 blogs per cluster
+- one money page can support multiple clusters
+- do not create a cluster unless the parent page is commercially important
 
 ## Management Cadence
 

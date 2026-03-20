@@ -26,8 +26,12 @@ Build ProfileTap into:
 
 ### Core data files
 
+- [data/keywords/raw_keyword_bank.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/raw_keyword_bank.csv)
+  Retained research inventory. Keeps only approved `keep_primary` and `keep_secondary` keyword rows.
+- [data/keywords/execution_seo_master.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/execution_seo_master.csv)
+  Final canonical keyword system. One page-owned keyword family per row for execution and planning.
 - [data/keywords/master_keywords.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/master_keywords.csv)
-  Source of truth for all tracked keywords.
+  Curated operating subset used for manual planning and legacy workflows; no longer the right place for large raw imports.
 - [data/pages/page_master.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/pages/page_master.csv)
   Master list of planned and mapped pages.
 - [data/pages/page_keyword_map.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/pages/page_keyword_map.csv)
@@ -50,7 +54,70 @@ Build ProfileTap into:
 - [prompts/content-brief-prompt.md](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/prompts/content-brief-prompt.md)
   Prompt scaffold for generating briefs from mapped keywords and architecture rows.
 
+### Rebuild tooling
+
+- [scripts/rebuild_keyword_system.py](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/scripts/rebuild_keyword_system.py)
+  Rebuilds `raw_keyword_bank.csv` and `execution_seo_master.csv` from the current source export in `Downloads`.
+
+## Keyword Workflow
+
+ProfileTap now uses a two-sheet keyword model for large imports:
+
+1. `raw_keyword_bank.csv`
+   Keeps every discovered keyword from the source export.
+2. `execution_seo_master.csv`
+   Keeps only canonical, page-worthy keyword families.
+3. `master_keywords.csv`
+   Remains available for smaller curated lists, manual tracking, and downstream operating work.
+
+Working rule:
+
+- raw export feeds `raw_keyword_bank.csv`
+- `raw_keyword_bank.csv` keeps only `keep_primary` and `keep_secondary` rows
+- `execution_seo_master.csv` becomes the page-ready keyword system
+- only validated execution rows should later flow into page mapping, briefs, and content production
+
 ## CSV Schemas
+
+### `raw_keyword_bank.csv`
+
+| Column | Meaning |
+| --- | --- |
+| `keyword` | Exact imported keyword from the source sheet |
+| `source_category` | Imported bucket such as `Business`, `Use Case`, or `Competitor` |
+| `observed_intent` | Source intent label normalized to lowercase |
+| `market` | `IN` or `IN+GLOBAL` based on modifier signals |
+| `modifier_type` | Primary modifier classification such as `city`, `best`, `comparison`, `profession`, or `feature` |
+| `root_topic` | Internal canonical family label |
+| `canonical_keyword` | Canonical keyword the row consolidates into |
+| `canonical_page_slug` | Canonical page that should own the keyword family |
+| `keep_status` | `keep_primary` or `keep_secondary` |
+| `merge_reason` | Why the row belongs to that canonical family |
+| `notes` | Free notes for research observations |
+| `semrush_volume` | Search volume to be filled later |
+| `semrush_kd` | Keyword difficulty to be filled later |
+| `semrush_cpc` | CPC to be filled later |
+| `semrush_last_checked` | Last Semrush refresh date |
+
+### `execution_seo_master.csv`
+
+| Column | Meaning |
+| --- | --- |
+| `page_slug` | Canonical page that owns the keyword family |
+| `page_type` | `homepage`, `solution_hub`, `category`, `use_case`, `comparison`, or `blog` |
+| `page_group` | Planning bucket for architecture and reporting |
+| `hub` | Main hub the page belongs to |
+| `primary_keyword` | The one keyword family the page should own |
+| `secondary_keywords` | A short list of approved supporting variants, not all raw variants |
+| `search_intent` | `commercial`, `transactional`, `comparison`, or `informational` |
+| `funnel_stage` | `TOFU`, `MOFU`, or `BOFU` |
+| `market` | Primary market target |
+| `priority` | `P1`, `P2`, or `P3` |
+| `publish_wave` | `launch`, `post_launch_q1`, `post_launch_q2`, or `later` |
+| `feature_set` | Embedded features relevant to that page family |
+| `pricing_visibility` | How plan-sensitive features should be qualified |
+| `keyword_family_notes` | Why the page owns that family |
+| `status` | Planning state for the row |
 
 ### `master_keywords.csv`
 
@@ -121,6 +188,10 @@ Build ProfileTap into:
 | `hub` | Main hub the content belongs to |
 | `title` | Working content title |
 | `content_type` | Page/content format |
+| `parent_page_slug` | Primary money page this content supports; mainly used for blogs and support content |
+| `parent_keyword_family` | Canonical keyword family the content is designed to strengthen |
+| `content_role` | Content job such as `money_page`, `definition`, `how_to`, `comparison`, `examples`, or `use_case_support` |
+| `cluster_name` | Cluster label used to group related support content around the same parent family |
 | `target_keyword` | Mapped keyword to support; may be blank for architecture rows pending keyword import |
 | `target_market` | Primary target market |
 | `target_language` | Content language |
@@ -128,6 +199,10 @@ Build ProfileTap into:
 | `priority` | Publishing priority |
 | `feature_set` | Relevant embedded features for the brief and page sections |
 | `pricing_visibility` | How to qualify plan-gated features in the content |
+| `primary_internal_link_target` | Main page this content should push authority to |
+| `secondary_internal_link_targets` | Optional supporting internal-link targets |
+| `serp_intent_type` | Search-intent format such as `informational`, `comparison`, `examples`, or `commercial_informational` |
+| `refresh_priority` | Relative refresh urgency such as `high`, `medium`, or `low` |
 | `owner` | Responsible person |
 | `status` | Overall execution status |
 | `brief_status` | Brief readiness status |
@@ -187,6 +262,48 @@ Launch rule:
 - homepage lists the full feature inventory once
 - hub and child pages only surface the relevant subset from `feature_set`
 - no standalone feature pages are planned at this stage
+
+## Current Keyword Rebuild
+
+The current rebuild was generated from the temporary source export in `Downloads` and produces:
+
+- `2023` raw keyword rows in `raw_keyword_bank.csv`
+- `29` canonical execution rows in `execution_seo_master.csv`
+
+Current consolidation rule:
+
+- city, adjective, and price-modified variants are excluded from the raw bank by default
+- only canonical page-worthy families surface in the execution master
+- unsupported profession/use-case rows are excluded instead of being forced into the wrong page family
+
+## Blog Cluster Model
+
+Blogs are managed as children of money pages, not as standalone topic ideas.
+
+Core rule:
+
+- every blog gets one `parent_page_slug`
+- every blog gets one `parent_keyword_family`
+- every blog exists to strengthen one conversion page first
+
+Recommended `content_role` values:
+
+- `money_page`
+- `definition`
+- `how_to`
+- `comparison`
+- `examples`
+- `use_case_support`
+- `feature_support`
+- `industry_support`
+- `problem_solution`
+
+Recommended cluster model:
+
+- one parent page
+- 5 to 10 child blogs
+- all child blogs link back to the parent page
+- strongest child blogs can cross-link within the same cluster
 
 ## Canonical Feature Inventory
 

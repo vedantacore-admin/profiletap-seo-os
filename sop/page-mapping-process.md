@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Map every keyword in `data/keywords/master_keywords.csv` to exactly one canonical page in `data/pages/page_keyword_map.csv`, using `data/pages/page_master.csv` as the page inventory and launch architecture source of truth.
+Map every approved keyword family in `data/keywords/execution_seo_master.csv` to exactly one canonical page in `data/pages/page_keyword_map.csv`, using `data/pages/page_master.csv` as the page inventory and launch architecture source of truth.
 
 This SOP exists to prevent cannibalization and keep content production tied to commercial outcomes.
 
@@ -14,6 +14,8 @@ Current architecture rule:
 
 ## Required Inputs
 
+- `data/keywords/raw_keyword_bank.csv`
+- `data/keywords/execution_seo_master.csv`
 - `data/keywords/master_keywords.csv`
 - `data/pages/page_master.csv`
 - `data/pages/page_keyword_map.csv`
@@ -26,6 +28,11 @@ Each keyword must end in one of these states:
 - mapped to an existing page
 - mapped to a newly created page entry in `page_master.csv`
 - held back because its intent is already covered by an existing page
+
+Before a keyword reaches page mapping, it should already have passed the raw-bank decision stage:
+
+- `keep_primary`
+- `keep_secondary`
 
 ## Mapping Hierarchy
 
@@ -125,13 +132,19 @@ If the answer to the first, second, or sixth question is yes, map the keyword to
 
 ## Mapping Workflow
 
-1. Review the keyword and assign `cluster`, `intent`, and `target_page_type` in `master_keywords.csv`.
-2. Check `page_master.csv` for the correct `hub`, `page_group`, and `feature_set` before deciding whether a new page is needed.
-3. Search `page_keyword_map.csv` for overlapping intent.
-4. If an existing page already covers the intent, append the keyword there with `is_primary=no`.
-5. If no page covers the intent, create a new row in `page_master.csv`.
-6. Add the canonical mapping row in `page_keyword_map.csv`.
-7. Add exactly one matching production row in `content_calendar.csv`.
+1. Process the raw import in `raw_keyword_bank.csv` and assign `canonical_keyword`, `canonical_page_slug`, and `keep_status`.
+2. Move only approved page-worthy families into `execution_seo_master.csv`.
+3. Check `page_master.csv` for the correct `hub`, `page_group`, and `feature_set` before deciding whether a new page is needed.
+4. Search `page_keyword_map.csv` for overlapping intent.
+5. If an existing page already covers the intent, append the keyword there with `is_primary=no`.
+6. If no page covers the intent, create a new row in `page_master.csv`.
+7. Add the canonical mapping row in `page_keyword_map.csv`.
+8. Add exactly one matching production row in `content_calendar.csv`.
+
+Decision rule:
+
+- only `keep_primary` and selected `keep_secondary` families should exist in the raw bank
+- only those families should reach the execution mapping layer
 
 ## Examples From Current Data
 
@@ -149,6 +162,7 @@ Reason:
 
 - same transactional intent as `digital business card india`
 - only wording variation changes, not page intent
+- this should stay a secondary family signal, not a separate execution row
 
 ### Example 2: new use-case page
 
@@ -211,6 +225,8 @@ Recommended architecture values:
 ## Failure Cases To Avoid
 
 - creating separate pages for `digital business card india` and `digital visiting card india`
+- using excluded keyword variants as if they were approved canonical rows
+- forcing unsupported professions into a generic category page just to “map everything”
 - turning every keyword variation into a blog post
 - mapping comparison keywords into category or hub pages
 - creating feature-only pages when the intent is already owned by a hub or child page
