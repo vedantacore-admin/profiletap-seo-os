@@ -1,6 +1,6 @@
 # ProfileTap SEO OS
 
-Structured SEO operating system for ProfileTap, a smart identity platform for digital profiles, NFC cards, QR sharing, and multi-use identity pages.
+Structured SEO operating system for ProfileTap, a smart identity management platform for digital profiles, NFC cards, QR sharing, reputation support, and multi-use identity pages.
 
 This repository is designed to run SEO work as a controlled system:
 
@@ -12,13 +12,14 @@ The operating rules are:
 - no content is created without a mapped target page
 - India-first transactional opportunities are prioritized before broader global expansion
 - comparisons, use cases, and blogs support commercial landing pages instead of competing with them
+- features are embedded into homepage, hub pages, and child pages instead of becoming standalone SEO pages by default
 
 ## Objective
 
 Build ProfileTap into:
 
 - the leading smart identity platform in India
-- a strong SEO authority in digital business cards and identity pages
+- a strong SEO authority across business and multi-use identity workflows
 - a conversion-focused landing page system with sustainable backlink growth
 
 ## Repository Structure
@@ -28,7 +29,7 @@ Build ProfileTap into:
 - [data/keywords/master_keywords.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/master_keywords.csv)
   Source of truth for all tracked keywords.
 - [data/pages/page_master.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/pages/page_master.csv)
-  Master list of pages that exist or should be created.
+  Master list of planned and mapped pages.
 - [data/pages/page_keyword_map.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/pages/page_keyword_map.csv)
   One-to-one mapping between keywords and pages.
 - [data/content/content_calendar.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/content/content_calendar.csv)
@@ -47,7 +48,7 @@ Build ProfileTap into:
 - [briefs/templates/page-brief-template.md](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/briefs/templates/page-brief-template.md)
   Template for page and content briefs.
 - [prompts/content-brief-prompt.md](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/prompts/content-brief-prompt.md)
-  Prompt scaffold for generating briefs from mapped keywords.
+  Prompt scaffold for generating briefs from mapped keywords and architecture rows.
 
 ## CSV Schemas
 
@@ -77,17 +78,24 @@ Build ProfileTap into:
 | Column | Meaning |
 | --- | --- |
 | `page_slug` | Canonical URL path |
-| `page_type` | `homepage`, `category`, `use_case`, `comparison`, `blog` |
+| `page_type` | `homepage`, `solution_hub`, `category`, `use_case`, `comparison`, or `blog` |
+| `page_group` | Planning bucket for architecture and rollup |
+| `parent_page_slug` | Logical parent page in the launch hierarchy |
+| `hub` | Main solution hub this page belongs to |
 | `page_title` | Working SEO title |
-| `primary_keyword` | Main keyword for the page |
+| `primary_keyword` | Main keyword for the page; may be blank for architecture rows pending keyword import |
+| `primary_intent` | Short description of the page's owned intent |
 | `target_market` | Primary market this page serves |
 | `target_language` | Page language |
 | `funnel_stage` | Primary funnel role |
 | `conversion_goal` | Main business outcome from the page |
+| `feature_set` | Embedded feature modules relevant to this page |
+| `pricing_visibility` | How pricing-sensitive features should be surfaced |
 | `primary_cta` | CTA the page should drive |
 | `owner` | Responsible person |
 | `status` | `planned`, `in_progress`, `published`, or `refresh_needed` |
-| `target_publish_quarter` | Quarter target for the annual plan |
+| `lifecycle_stage` | `launch_core`, `launch_secondary`, or `later_support` |
+| `publish_wave` | `launch`, `post_launch_q1`, `post_launch_q2`, or `later` |
 | `publish_date` | Actual publish date |
 | `last_updated` | Last significant update date |
 | `next_refresh` | Planned refresh date |
@@ -109,20 +117,24 @@ Build ProfileTap into:
 | --- | --- |
 | `content_id` | Internal content task ID |
 | `page_slug` | Canonical page the content supports |
+| `page_group` | Architecture bucket copied from the page inventory |
+| `hub` | Main hub the content belongs to |
 | `title` | Working content title |
 | `content_type` | Page/content format |
-| `target_keyword` | Mapped keyword to support |
+| `target_keyword` | Mapped keyword to support; may be blank for architecture rows pending keyword import |
 | `target_market` | Primary target market |
 | `target_language` | Content language |
 | `funnel_stage` | Funnel role |
 | `priority` | Publishing priority |
+| `feature_set` | Relevant embedded features for the brief and page sections |
+| `pricing_visibility` | How to qualify plan-gated features in the content |
 | `owner` | Responsible person |
 | `status` | Overall execution status |
 | `brief_status` | Brief readiness status |
 | `due_date` | Working due date |
 | `publish_date` | Actual publish date |
 | `refresh_date` | Planned refresh date |
-| `target_quarter` | Quarter target in the annual plan |
+| `publish_wave` | Release wave for launch planning |
 | `notes` | Internal production notes |
 
 ### `backlink_targets.csv`
@@ -158,6 +170,71 @@ Build ProfileTap into:
 | `live_url` | Published link URL when won |
 | `notes` | Internal notes |
 
+## Launch Architecture
+
+The fixed launch pages are:
+
+- `/`
+- `/business-identity`
+- `/creator-identity`
+- `/family-safety-profile`
+- `/pet-id-profile`
+- `/travel-profile`
+- `/vehicle-profile`
+
+Launch rule:
+
+- homepage lists the full feature inventory once
+- hub and child pages only surface the relevant subset from `feature_set`
+- no standalone feature pages are planned at this stage
+
+## Canonical Feature Inventory
+
+`feature_set` uses canonical internal tokens. These tokens are planning metadata, not final on-page copy.
+
+| Token | Human meaning | Notes |
+| --- | --- | --- |
+| `digital_profiles` | Digital profiles | Broad profile creation and sharing foundation |
+| `nfc_sharing` | NFC sharing | Tap-based profile sharing |
+| `qr_sharing` | QR sharing | Scan-based profile access |
+| `ai_review_assist` | AI review assist | Review support and related AI-assisted workflows |
+| `analytics` | Analytics | General engagement and interaction analytics |
+| `account_collaborators` | Manage account collaborators | Multiple collaborators helping manage one account |
+| `multi_account_team_management` | Manage multiple accounts / teams | Team, business, or multi-account management |
+| `multi_profile_type_profiles` | Multi-profile / multi-type profiles | Different profiles for different identity needs |
+| `call_masking` | Call masking | Privacy layer for phone sharing |
+| `whatsapp_masking` | WhatsApp masking | Privacy layer for WhatsApp sharing |
+| `theme_library` | Wide range of themes | Theme and presentation customization |
+| `advanced_creator_analytics` | Advanced analytics for creators | Creator-specific deeper analytics, likely plan-sensitive |
+
+Rules for future use:
+
+- use canonical tokens in CSVs
+- use human-facing labels in briefs and page copy
+- do not create new near-duplicate tokens for wording variations
+- if a feature is plan-sensitive, capture that in `pricing_visibility`, not in a new feature token
+
+## Feature Placement Model
+
+Feature logic for planning:
+
+- homepage shows the full inventory once
+- hub pages show only the subset relevant to that hub
+- child pages inherit only the features that help that page convert
+- comparison pages should surface only the features relevant to the switch decision
+- blog pages should mention features only where they support the informational intent
+
+Current hub logic:
+
+| Hub | Typical feature emphasis |
+| --- | --- |
+| `business` | digital profiles, NFC, QR, AI review assist, analytics, collaborators, teams, masking, themes |
+| `creator` | digital profiles, NFC, QR, AI review assist, analytics, teams, multi-profile types, themes, creator analytics |
+| `family_safety` | digital profiles, QR, multi-profile types, masking, themes |
+| `pet` | digital profiles, QR, multi-profile types, themes |
+| `travel` | digital profiles, QR, multi-profile types, masking, themes |
+| `vehicle` | digital profiles, QR, multi-profile types, masking, themes |
+
 ## Semrush Update Workflow
 
 When reviewing keywords in Semrush, update these fields in [master_keywords.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/master_keywords.csv):
@@ -178,75 +255,53 @@ Do not change:
 
 unless the underlying keyword intent has actually changed.
 
-## Annual Management Layer
-
-The management layer is now built around:
-
-- keyword scoring in `master_keywords.csv`
-- quarterly publishing targets in `page_master.csv`
-- execution status in `content_calendar.csv`
-- prospect qualification in `backlink_targets.csv`
-- follow-up control in `outreach_tracker.csv`
-
 ## Current Baseline
 
-The repository is initialized with a starting India-first SEO system:
+The repository is initialized with a launch-first SEO system:
 
-- 22 mapped keywords
-- 17 planned pages
-- 17 content items in the calendar
+- 22 mapped sample keywords
+- 23 planned pages
+- 23 content items in the calendar
 - 12 backlink prospects
 
-Priority emphasis:
+Current mapped sample keyword groups:
 
-- `P1` India transactional category pages
-- `P1` India comparison pages against direct competitors
-- `P1` high-conversion use cases for doctors, real estate, and freelancers
-- supporting blogs for authority and internal linking
-
-Current `P1` keyword groups:
-
+- `smart identity platform`
 - `digital business card india`
-- `digital visiting card india`
 - `nfc business card india`
 - `qr business card`
 - `digital business card for doctors`
-- `digital business card for real estate agents`
-- `digital business card for freelancers`
+- `digital business card for creators`
 - `hihello alternative india`
 - `popl alternative india`
 - `taponn alternative`
+- `linktree alternative for creators`
 
 ## Default Workflow
 
 1. Update `master_keywords.csv` with cleaned keywords and intent clusters.
-2. Check `page_keyword_map.csv` before creating any new page.
-3. Add or update the canonical page in `page_master.csv`.
-4. Add the corresponding content task in `content_calendar.csv`.
-5. Add backlink prospects in `backlink_targets.csv`.
-6. Track contact progress in `outreach_tracker.csv`.
+2. Create or update architecture rows in `page_master.csv`, including `page_group`, `hub`, `feature_set`, and `publish_wave`.
+3. Check `page_keyword_map.csv` before turning a planned row into a keyword-owned page.
+4. Add or update the corresponding task in `content_calendar.csv`.
+5. Only surface features inside the relevant hub or child page; do not create standalone feature pages without distinct keyword intent.
+6. Add backlink prospects in `backlink_targets.csv`.
+7. Track contact progress in `outreach_tracker.csv`.
 
 ## Guardrails
 
 - Never create duplicate pages for the same keyword intent.
 - Never assign one keyword to multiple pages.
-- Never add content ideas without a mapped keyword.
+- Never add content ideas without a mapped or planned target page.
 - Prioritize India transactional demand before low-intent traffic.
 - Use comparison and blog pages to strengthen commercial pages, not cannibalize them.
-
-## Next Operations
-
-- populate `volume` and `kd` fields with validated keyword data
-- expand India category and use-case coverage
-- create briefs for all `P1` pages first
-- qualify backlink targets with named contacts and outreach angles
+- Do not create standalone feature pages unless keyword research proves distinct feature-led intent.
 
 ## Document Index
 
 - `README.md`
   Operating summary and file contracts.
 - `docs/02-seo-strategy.md`
-  Market strategy, keyword buckets, and current execution priorities.
+  Market strategy, launch architecture, and execution priorities.
 - `sop/page-mapping-process.md`
   Mapping logic and anti-cannibalization rules.
 - `briefs/templates/page-brief-template.md`

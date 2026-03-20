@@ -2,21 +2,21 @@
 
 ## Positioning
 
-ProfileTap is positioned as a smart identity platform, not only as an NFC card or link-in-bio tool.
+ProfileTap is positioned as a smart identity management platform, not only as an NFC card or link-in-bio tool.
 
 Core capability areas:
 
 - digital business cards using NFC and QR
 - smart profile pages for business and personal identity
-- multi-use identity for professionals, creators, families, pets, travel, and vehicles
-- analytics, AI-assisted profile content, and privacy features
+- multi-use identity for creators, families, pets, travel, and vehicles
+- analytics, AI-assisted review support, and privacy features
 
 ## Market Priority
 
 - Primary market: India
 - Secondary market: global English demand
 
-The operating assumption is that India transactional demand and India-focused competitor comparisons produce the fastest commercial SEO wins.
+The operating assumption is that India transactional demand and India-focused competitor comparisons produce the fastest commercial SEO wins, but the launch architecture must already reflect the broader platform.
 
 ## Competitor Landscape
 
@@ -36,15 +36,15 @@ The operating assumption is that India transactional demand and India-focused co
 
 ### Strategic implication
 
-- Global competitors are useful for discovering demand and comparison terms.
-- India competitors and India-modified commercial terms are the faster path to page-one opportunities.
-- Informational content exists to support commercial pages, not replace them as the primary growth engine.
+- global competitors are useful for discovering demand and comparison terms
+- India competitors and India-modified commercial terms are the faster path to page-one opportunities
+- informational content exists to support commercial pages, not replace them as the primary growth engine
 
 ## Keyword Model
 
 The keyword system is maintained in `data/keywords/master_keywords.csv` with a one-to-one mapping into `data/pages/page_keyword_map.csv`.
 
-The file now supports annual management, not only ideation. Use these fields actively:
+The file supports annual management, not only ideation. Use these fields actively:
 
 - `pillar` for portfolio planning
 - `funnel_stage` for balancing TOFU, MOFU, and BOFU output
@@ -53,103 +53,137 @@ The file now supports annual management, not only ideation. Use these fields act
 - `volume`, `kd`, and `cpc` for Semrush-backed reprioritization
 - `semrush_last_checked` to keep research current
 
-### Priority buckets
-
-- `P1`: India-first transactional and high-intent comparison terms
-- `P2`: supporting transactional variations, secondary comparisons, and commercial education
-- `P3`: lower-priority informational expansion
-
-### Current clusters
-
-| Cluster | Intent | Priority focus | Page type |
-| --- | --- | --- | --- |
-| `digital_business_card` | transactional | India commercial demand | category |
-| `nfc_business_card` | transactional | product-led commercial demand | category |
-| `qr_business_card` | transactional | product-led commercial demand | category |
-| `doctor_use_case` | transactional | vertical conversion | use_case |
-| `real_estate_use_case` | transactional | vertical conversion | use_case |
-| `freelancer_use_case` | transactional | vertical conversion | use_case |
-| `creator_use_case` | transactional | creator segment expansion | use_case |
-| `hihello_comparison` | comparison | competitor capture | comparison |
-| `popl_comparison` | comparison | competitor capture | comparison |
-| `taponn_comparison` | comparison | India competitor capture | comparison |
-| `blinq_comparison` | comparison | secondary competitor capture | comparison |
-| `linktree_comparison` | comparison | adjacent demand capture | comparison |
-| `nfc_vs_qr` | informational | mid-funnel education | blog |
-| `paper_vs_digital` | informational | demand reframing | blog |
-| `doctor_roundup` | informational | vertical authority | blog |
-| `how_to_digital_card` | informational | low-priority education | blog |
-| `brand_positioning` | commercial | homepage narrative | homepage |
-
-## Page Architecture
+## Launch Architecture
 
 ### Homepage
 
 - `/`
-  Owns the broad positioning term `smart identity platform`
+  Owns broad platform positioning and lists the full feature inventory once
 
-### Category pages
+### Fixed launch hubs
+
+- `/business-identity`
+- `/creator-identity`
+- `/family-safety-profile`
+- `/pet-id-profile`
+- `/travel-profile`
+- `/vehicle-profile`
+
+These pages are the fixed launch architecture. They own the top-level product story by audience or life category, and they repeat only the feature subset relevant to that hub.
+
+### Business child pages
 
 - `/digital-business-card-india`
 - `/nfc-business-card-india`
 - `/qr-business-card`
-
-These pages should absorb generic transactional demand and link outward to vertical and comparison pages.
-
-### Use-case pages
-
 - `/digital-business-card-for-doctors`
 - `/digital-business-card-for-real-estate-agents`
 - `/digital-business-card-for-freelancers`
-- `/digital-business-card-for-creators`
-
-These pages should convert vertical demand using segment-specific proof, workflows, and CTAs.
-
-### Comparison pages
-
 - `/hihello-alternative-india`
 - `/popl-alternative-india`
 - `/taponn-alternative`
 - `/blinq-alternative`
-- `/linktree-alternative-for-professionals`
 
-These pages should target switch intent and product evaluation intent.
+### Creator child pages
 
-### Blog pages
+- `/digital-business-card-for-creators`
+- `/linktree-alternative-for-creators`
+
+### Later support blogs
 
 - `/blog/nfc-business-card-vs-qr-code`
 - `/blog/paper-vs-digital-business-card`
 - `/blog/best-digital-business-card-for-doctors-india`
 - `/blog/how-to-create-digital-business-card`
 
-These pages should internally link to the relevant category or use-case money pages.
+Blogs are not part of the launch architecture and should only support existing hubs or child money pages.
+
+## Feature Handling
+
+Features are reusable modules, not standalone SEO pages in the current architecture.
+
+Rules:
+
+- homepage lists the full feature inventory once
+- top-level hubs only surface the subset of features relevant to that category
+- child pages inherit only the features that support their conversion intent
+- pricing sensitivity is managed in page messaging through `pricing_visibility`, not by splitting features into separate URLs
+- if later keyword data proves distinct standalone feature demand, a dedicated feature page can be added later
+
+### Canonical feature glossary
+
+Use these canonical `feature_set` tokens in planning data:
+
+| Token | Human label |
+| --- | --- |
+| `digital_profiles` | Digital profiles |
+| `nfc_sharing` | NFC sharing |
+| `qr_sharing` | QR sharing |
+| `ai_review_assist` | AI review assist |
+| `analytics` | Analytics |
+| `account_collaborators` | Manage account collaborators |
+| `multi_account_team_management` | Manage multiple accounts / teams |
+| `multi_profile_type_profiles` | Multi-profile / multi-type profiles |
+| `call_masking` | Call masking |
+| `whatsapp_masking` | WhatsApp masking |
+| `theme_library` | Wide range of themes |
+| `advanced_creator_analytics` | Advanced analytics for creators |
+
+Interpretation rules:
+
+- token names are for internal consistency in CSVs
+- page copy should use natural human phrasing
+- `advanced_creator_analytics` is creator-specific and likely subscription-sensitive
+- masking features are privacy tools, not separate privacy-page intents
+- collaboration and team management should usually appear on business and creator pages, not safety-led hubs
+
+### Hub-level feature emphasis
+
+| Hub | Main embedded features |
+| --- | --- |
+| `business` | profiles, NFC, QR, AI review assist, analytics, collaborators, team management, masking, themes |
+| `creator` | profiles, NFC, QR, AI review assist, analytics, team management, multi-profile types, themes, creator analytics |
+| `family_safety` | profiles, QR, multi-profile types, masking, themes |
+| `pet` | profiles, QR, multi-profile types, themes |
+| `travel` | profiles, QR, multi-profile types, masking, themes |
+| `vehicle` | profiles, QR, multi-profile types, masking, themes |
 
 ## Current Execution Sequence
 
-### Phase 1: commercial foundation
+### Phase 1: launch architecture
 
 - homepage messaging refresh
+- business identity hub
+- creator identity hub
+- family safety hub
+- pet hub
+- travel hub
+- vehicle hub
+
+### Phase 2: business and creator child pages
+
 - digital business card India category page
 - NFC business card India category page
 - QR business card category page
-
-### Phase 2: high-conversion vertical pages
-
 - doctors
 - real estate agents
 - freelancers
+- creators
 
 ### Phase 3: competitor capture
 
 - HiHello alternative India
 - Popl alternative India
 - TapOnn alternative
+- Blinq alternative
+- Linktree alternative for creators
 
 ### Phase 4: authority support content
 
 - NFC vs QR
 - paper vs digital business cards
 - doctor-focused roundup
+- digital business card how-to
 
 ## Management Cadence
 
@@ -164,13 +198,13 @@ These pages should internally link to the relevant category or use-case money pa
 - refresh Semrush metrics for active clusters
 - re-rank `P1`, `P2`, and `P3` using business score plus demand
 - review pages due for refresh
-- compare published output vs quarter plan
+- compare published output vs launch and post-launch waves
 
 ### Quarterly
 
-- decide the next cluster expansion
+- decide the next cluster expansion beneath the launch hubs
 - review whether India-first focus is still returning the best commercial outcomes
-- expand feature-led or vertical-led coverage based on live performance
+- expand feature-led or vertical-led coverage only when keyword data shows distinct intent
 
 ## Backlink Strategy
 
@@ -178,12 +212,12 @@ The backlink system is maintained in `data/backlinks/backlink_targets.csv` and e
 
 ### Current target themes
 
-- startup and founder media for homepage and category pages
-- marketing publications for creator and professional identity positioning
+- startup and founder media for homepage and business category pages
+- marketing publications for creator positioning
 - healthcare media for the doctor vertical
 - real estate media for the agent vertical
 
-### Current `P1` backlink support
+### Current seeded support
 
 | Target page | Example domains |
 | --- | --- |
@@ -198,22 +232,24 @@ The backlink system is maintained in `data/backlinks/backlink_targets.csv` and e
 
 - one keyword intent maps to one page only
 - no new page is created without checking existing mapped intent
-- no content item is added without a target keyword
+- no content item is added without a target keyword or planned architecture row
 - every backlink target must support an existing page slug
 - India commercial demand outranks global top-of-funnel traffic until core pages are live
+- do not create standalone feature pages unless keyword intent is clearly distinct from the parent hub
 
 ## Data Gaps
 
 - `volume` is not populated yet
 - `kd` is not populated yet
 - `cpc` is not populated yet
+- launch hub rows still need full keyword import
 - page statuses are still `planned`
 - content statuses are still `brief_pending`
 - outreach contacts have not been qualified yet
 
 ## Immediate Next Actions
 
-1. populate `volume` and `kd` for all existing keywords
-2. brief all `P1` pages first
-3. qualify outreach contacts for the 12 seeded backlink targets
-4. expand India-specific vertical and city-intent keyword coverage after the first commercial pages are published
+1. import the full keyword master and map it into the launch hub architecture
+2. brief all launch-core hub pages first
+3. re-rank child pages after Semrush enrichment
+4. qualify outreach contacts for the seeded backlink targets

@@ -2,9 +2,15 @@
 
 ## Purpose
 
-Map every keyword in `data/keywords/master_keywords.csv` to exactly one canonical page in `data/pages/page_master.csv`, then record that decision in `data/pages/page_keyword_map.csv`.
+Map every keyword in `data/keywords/master_keywords.csv` to exactly one canonical page in `data/pages/page_keyword_map.csv`, using `data/pages/page_master.csv` as the page inventory and launch architecture source of truth.
 
 This SOP exists to prevent cannibalization and keep content production tied to commercial outcomes.
+
+Current architecture rule:
+
+- homepage plus six launch solution hubs are fixed
+- features are embedded into those pages via `feature_set`
+- no standalone feature pages should be created unless later keyword research proves distinct intent
 
 ## Required Inputs
 
@@ -26,10 +32,11 @@ Each keyword must end in one of these states:
 Use this order when deciding the canonical page:
 
 1. intent
-2. market modifier
-3. audience or use case
-4. competitor or comparison angle
-5. format specificity
+2. hub fit
+3. market modifier
+4. audience or use case
+5. competitor or comparison angle
+6. format specificity
 
 If two keywords express the same underlying intent, they belong to one page.
 
@@ -37,11 +44,29 @@ If two keywords express the same underlying intent, they belong to one page.
 
 ### Homepage
 
-Use only for broad brand or category-defining commercial positioning.
+Use only for broad brand or platform-defining commercial positioning.
 
 Current example:
 
 - `smart identity platform` -> `/`
+
+### Solution hub page
+
+Use for top-level launch pages that organize the product by audience or life category before the full keyword universe is imported.
+
+Current examples:
+
+- `/business-identity`
+- `/creator-identity`
+- `/family-safety-profile`
+- `/pet-id-profile`
+- `/travel-profile`
+- `/vehicle-profile`
+
+Important:
+
+- a solution hub may exist in `page_master.csv` before it has a finalized primary keyword
+- solution hubs should embed relevant features rather than behave like standalone feature pages
 
 ### Category page
 
@@ -56,13 +81,14 @@ Current examples:
 
 ### Use-case page
 
-Use when the keyword includes a professional segment, vertical, or audience-specific workflow.
+Use when the keyword includes a profession, vertical, or audience-specific workflow.
 
 Current examples:
 
 - `digital business card for doctors` -> `/digital-business-card-for-doctors`
 - `digital business card for real estate agents` -> `/digital-business-card-for-real-estate-agents`
 - `digital business card for freelancers` -> `/digital-business-card-for-freelancers`
+- `digital business card for creators` -> `/digital-business-card-for-creators`
 
 ### Comparison page
 
@@ -73,6 +99,7 @@ Current examples:
 - `hihello alternative india` -> `/hihello-alternative-india`
 - `popl alternative india` -> `/popl-alternative-india`
 - `taponn alternative` -> `/taponn-alternative`
+- `linktree alternative for creators` -> `/linktree-alternative-for-creators`
 
 ### Blog page
 
@@ -88,21 +115,23 @@ Current examples:
 Before creating a new page, answer these checks:
 
 1. Does a page already target the same solution with minor wording changes?
-2. Is the market modifier the only difference, and is the current page already built for that market?
+2. Is the keyword better served by an existing hub or child page under the same hub?
 3. Is the audience modifier strong enough to justify a dedicated use-case page?
-4. Is this a comparison keyword that should live on a competitor page instead of a category page?
+4. Is this a comparison keyword that should live on a competitor page instead of a category or hub page?
 5. Is the query informational and better handled as a support article instead of a new commercial landing page?
+6. Is the idea actually a feature block that belongs inside an existing hub or child page rather than a new SEO page?
 
-If the answer to the first question is yes, map the keyword to the existing page and mark `is_primary=no`.
+If the answer to the first, second, or sixth question is yes, map the keyword to the existing page and mark `is_primary=no`.
 
 ## Mapping Workflow
 
 1. Review the keyword and assign `cluster`, `intent`, and `target_page_type` in `master_keywords.csv`.
-2. Search `page_keyword_map.csv` for overlapping intent.
-3. If an existing page already covers the intent, append the keyword there with `is_primary=no`.
-4. If no page covers the intent, create a new row in `page_master.csv`.
-5. Add the canonical mapping row in `page_keyword_map.csv`.
-6. Add exactly one matching production row in `content_calendar.csv`.
+2. Check `page_master.csv` for the correct `hub`, `page_group`, and `feature_set` before deciding whether a new page is needed.
+3. Search `page_keyword_map.csv` for overlapping intent.
+4. If an existing page already covers the intent, append the keyword there with `is_primary=no`.
+5. If no page covers the intent, create a new row in `page_master.csv`.
+6. Add the canonical mapping row in `page_keyword_map.csv`.
+7. Add exactly one matching production row in `content_calendar.csv`.
 
 ## Examples From Current Data
 
@@ -133,7 +162,7 @@ Decision:
 
 Reason:
 
-- strong vertical intent
+- strong profession-specific intent
 - dedicated proof, CTA, and examples are required
 
 ### Example 3: comparison isolation
@@ -149,7 +178,22 @@ Decision:
 Reason:
 
 - switch intent differs from generic category demand
-- comparison content should not be merged into the category page
+- comparison content should not be merged into the category or hub page
+
+### Example 4: feature containment
+
+Idea:
+
+- AI review assist
+
+Decision:
+
+- keep it inside homepage, business, creator, and relevant child pages unless feature-led keyword research later proves standalone demand
+
+Reason:
+
+- current architecture treats features as reusable content modules
+- a standalone feature page would likely cannibalize stronger hub or child page intent
 
 ## Status Conventions
 
@@ -157,13 +201,19 @@ Recommended status values:
 
 - `master_keywords.csv`: `new`, `mapped`, `deferred`
 - `page_master.csv`: `planned`, `in_progress`, `published`
-- `content_calendar.csv`: `brief_pending`, `writing`, `review`, `published`
+- `content_calendar.csv`: `planned`, `in_progress`, `published`
+
+Recommended architecture values:
+
+- `lifecycle_stage`: `launch_core`, `launch_secondary`, `later_support`
+- `publish_wave`: `launch`, `post_launch_q1`, `post_launch_q2`, `later`
 
 ## Failure Cases To Avoid
 
 - creating separate pages for `digital business card india` and `digital visiting card india`
 - turning every keyword variation into a blog post
-- mapping comparison keywords into category pages
+- mapping comparison keywords into category or hub pages
+- creating feature-only pages when the intent is already owned by a hub or child page
 - adding blog topics that do not point back to a commercial page
 - creating backlinks for pages that do not exist in `page_master.csv`
 

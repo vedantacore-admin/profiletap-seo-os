@@ -4,7 +4,7 @@ Use this prompt to generate a brief only after checking the repository CSV files
 
 ## Prompt
 
-You are generating an SEO content brief for ProfileTap, a smart identity platform.
+You are generating an SEO content brief for ProfileTap, a smart identity management platform.
 
 Before writing the brief:
 
@@ -19,8 +19,11 @@ Then generate a brief for the requested target page using the rules below.
 ### Rules
 
 - use the mapped keyword and page slug exactly as defined in the CSVs
+- if `target_keyword` is blank, use the page's architecture role and `primary_intent` from `page_master.csv`
 - do not invent a second primary keyword
 - keep the brief aligned to the page type
+- treat features as embedded modules from `feature_set`, not as standalone page intent
+- translate internal feature tokens into human-facing labels in the brief
 - if the keyword is India-first transactional, keep conversion intent central
 - if the keyword is a comparison term, make switch intent central
 - if the keyword is informational, route the reader toward a mapped commercial page
@@ -44,27 +47,40 @@ Return the brief with these sections:
 
 - page slug
 - page type
+- page group
+- parent page slug
+- hub
 - primary keyword
 - mapped secondary keywords
 - cluster
 - intent
 - priority
 - content calendar ID if available
+- feature set
+- pricing visibility
 
 ### Structure guidance by page type
 
 For `homepage`:
 
 - positioning
+- full feature inventory
 - feature overview
 - use-case coverage
+- CTA
+
+For `solution_hub`:
+
+- hub-specific positioning
+- relevant feature subset
+- use cases or workflows for that hub
 - CTA
 
 For `category`:
 
 - category definition
 - benefits
-- how ProfileTap works
+- how ProfileTap works in that hub context
 - use-case examples
 - CTA
 
@@ -72,7 +88,7 @@ For `use_case`:
 
 - audience pain points
 - ProfileTap use cases for that audience
-- feature proof
+- feature proof inherited from the hub
 - CTA
 
 For `comparison`:
@@ -99,7 +115,9 @@ For `blog`:
 - no duplicate intent with another page
 - include conversion goal and internal link targets
 - include FAQs only when they match the keyword intent
+- do not create standalone feature-page framing unless the page inventory explicitly requires it
+- do not expose raw token names like `multi_profile_type_profiles` in final brief output without translating them
 
 ## Example invocation
 
-Generate a brief for `/digital-business-card-india` using the mapped keyword data and the current content calendar entry.
+Generate a brief for `/business-identity` using the current page inventory and content calendar entry.

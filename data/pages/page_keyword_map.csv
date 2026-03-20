@@ -1,5 +1,5 @@
 keyword,page_slug,is_primary,mapping_role,mapping_notes
-smart identity platform,/,yes,primary,
+smart identity platform,/,yes,primary,homepage seed mapping
 digital business card india,/digital-business-card-india,yes,primary,
 digital visiting card india,/digital-business-card-india,no,secondary,regional wording variation of digital business card india
 virtual business card india,/digital-business-card-india,no,secondary,close transactional synonym
@@ -16,7 +16,7 @@ hihello alternative india,/hihello-alternative-india,yes,primary,
 popl alternative india,/popl-alternative-india,yes,primary,
 taponn alternative,/taponn-alternative,yes,primary,
 blinq alternative,/blinq-alternative,yes,primary,
-linktree alternative for professionals,/linktree-alternative-for-professionals,yes,primary,
+linktree alternative for creators,/linktree-alternative-for-creators,yes,primary,creator comparison page aligned to launch hub model
 nfc business card vs qr code,/blog/nfc-business-card-vs-qr-code,yes,primary,
 paper business card vs digital business card,/blog/paper-vs-digital-business-card,yes,primary,
 best digital business card for doctors in india,/blog/best-digital-business-card-for-doctors-india,yes,primary,
