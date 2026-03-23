@@ -148,6 +148,69 @@ These pages are the fixed launch architecture. They own the top-level product st
 - `/digital-business-card-for-creators`
 - `/linktree-alternative-for-creators`
 
+## Product Catalog Layer
+
+ProfileTap also has a future product-catalog branch that is distinct from the current solution-page system.
+
+This layer is documented now, but product rows are intentionally not added to the live page inventory yet.
+
+### Product vs solution intent
+
+- solution pages own use-case, workflow, and identity intent
+- product pages own physical-product buying intent
+- solution pages can recommend product families
+- product pages can link back to solution pages
+- overlapping product and solution areas must be separated by intent, not merged into one page by default
+
+Examples of intentional overlap:
+
+- `pet tags` vs `pet ID profile`
+- `luggage card` vs `qr luggage tag`
+- `vehicle sticker` vs `vehicle qr code sticker`
+- `google review card` vs review-assist or review-solution messaging
+
+### Current documented product families
+
+- metal business cards
+- wooden NFC cards
+- PVC business cards
+- business standees
+- keychains
+- pet tags
+- google review cards
+- travel safety kit / luggage card
+- vehicle sticker
+
+### Recommended product-page model
+
+- use a dedicated `/products/...` area
+- use product-family pages first
+- keep colors, finishes, QR-only, NFC+QR, and similar options on the family page by default
+- only create variant pages later when keyword demand and SERP behavior justify them
+- do not create profession-specific product pages such as `metal business card for doctors` by default
+
+Documented future product-family examples:
+
+- `/products/metal-business-cards`
+- `/products/wooden-nfc-cards`
+- `/products/pvc-business-cards`
+- `/products/business-standees`
+- `/products/keychains`
+- `/products/pet-tags`
+- `/products/google-review-cards`
+- `/products/luggage-cards`
+- `/products/vehicle-stickers`
+
+### Reserved future page-model support
+
+These fields are reserved for future product-page planning, but should not be added to live CSV rows yet:
+
+- `page_type=product_family`
+- `page_group=product_catalog`
+- `page_subtype`
+- `variant_strategy`
+- `commercial_model=physical_product`
+
 ### Later support blogs
 
 - `/blog/what-is-digital-business-card`

@@ -13,6 +13,7 @@ The operating rules are:
 - India-first transactional opportunities are prioritized before broader global expansion
 - comparisons, use cases, and blogs support commercial landing pages instead of competing with them
 - features are embedded into homepage, hub pages, and child pages instead of becoming standalone SEO pages by default
+- physical product-family pages are documented separately from solution pages and are not added to the live page inventory until validated
 
 ## Objective
 
@@ -262,6 +263,76 @@ Launch rule:
 - homepage lists the full feature inventory once
 - hub and child pages only surface the relevant subset from `feature_set`
 - no standalone feature pages are planned at this stage
+
+## Product Catalog Model
+
+ProfileTap also has a future product-catalog layer. This is documented now, but not yet added to `page_master.csv`.
+
+Two parallel commercial layers are planned:
+
+- `solution pages`
+  Hubs, categories, use cases, and comparisons that explain the workflow, audience, or use case
+- `product pages`
+  Physical product-family buying pages intended to live under `/products/...`
+
+Current documented product families:
+
+- metal business cards
+- wooden NFC cards
+- PVC business cards
+- business standees
+- keychains
+- pet tags
+- google review cards
+- travel safety kit / luggage card
+- vehicle sticker
+
+Product-intent rules:
+
+- product pages own buyable physical-product intent
+- solution pages own use-case, workflow, and identity intent
+- solution pages can recommend product families
+- product pages can link back to relevant solution pages
+- overlapping families must be separated by intent, not merged blindly
+
+Key overlap examples:
+
+- `pet tags` vs `pet ID profile`
+- `luggage card` vs `qr luggage tag`
+- `vehicle sticker` vs `vehicle qr code sticker`
+- `google review card` vs review-assist or review-solution messaging
+
+Recommended future product-page model:
+
+- use a dedicated `/products/...` catalog area
+- start with family pages, not variant pages
+- keep colors, finishes, QR-only, NFC+QR, and similar options on the family page
+- create standalone variant pages only when keyword demand and SERP behavior justify them
+- do not create profession-specific product pages like `metal business card for doctors` by default
+
+Documented future product-family examples:
+
+- `/products/metal-business-cards`
+- `/products/wooden-nfc-cards`
+- `/products/pvc-business-cards`
+- `/products/business-standees`
+- `/products/keychains`
+- `/products/pet-tags`
+- `/products/google-review-cards`
+- `/products/luggage-cards`
+- `/products/vehicle-stickers`
+
+Reserved future schema support for product pages:
+
+- `page_type=product_family`
+- `page_group=product_catalog`
+- `page_subtype`
+- `variant_strategy`
+- `commercial_model=physical_product`
+
+Operating rule:
+
+- do not add product rows to `page_master.csv` until keyword validation and page decisions are finalized
 
 ## Current Keyword Rebuild
 

@@ -11,6 +11,7 @@ Current architecture rule:
 - homepage plus six launch solution hubs are fixed
 - features are embedded into those pages via `feature_set`
 - no standalone feature pages should be created unless later keyword research proves distinct intent
+- future physical product pages are documented separately and should not be added to `page_master.csv` until product-intent keyword validation is complete
 
 ## Required Inputs
 
@@ -86,6 +87,11 @@ Current examples:
 - `nfc business card india` -> `/nfc-business-card-india`
 - `qr business card` -> `/qr-business-card`
 
+Important:
+
+- this rule covers solution-category demand, not future physical product-family pages
+- product-family pages such as `/products/metal-business-cards` are a separate planned layer and are not active in the current page inventory
+
 ### Use-case page
 
 Use when the keyword includes a profession, vertical, or audience-specific workflow.
@@ -117,6 +123,29 @@ Current examples:
 - `nfc business card vs qr code` -> `/blog/nfc-business-card-vs-qr-code`
 - `paper business card vs digital business card` -> `/blog/paper-vs-digital-business-card`
 
+### Future product-family page
+
+Use later for physical-product buying intent once product keywords are validated.
+
+Documented, but not yet active, examples:
+
+- `/products/metal-business-cards`
+- `/products/wooden-nfc-cards`
+- `/products/pvc-business-cards`
+- `/products/business-standees`
+- `/products/keychains`
+- `/products/pet-tags`
+- `/products/google-review-cards`
+- `/products/luggage-cards`
+- `/products/vehicle-stickers`
+
+Rules:
+
+- product-family pages own physical-product purchase intent
+- solution pages still own use-case and workflow intent
+- colors, finishes, QR-only, NFC+QR, and similar variants stay on the family page by default
+- profession-specific product pages such as `metal business card for doctors` should not be created by default
+
 ## Anti-Cannibalization Tests
 
 Before creating a new page, answer these checks:
@@ -127,8 +156,9 @@ Before creating a new page, answer these checks:
 4. Is this a comparison keyword that should live on a competitor page instead of a category or hub page?
 5. Is the query informational and better handled as a support article instead of a new commercial landing page?
 6. Is the idea actually a feature block that belongs inside an existing hub or child page rather than a new SEO page?
+7. Is the idea really a future physical-product page that should stay documented until product keyword validation is complete?
 
-If the answer to the first, second, or sixth question is yes, map the keyword to the existing page and mark `is_primary=no`.
+If the answer to the first, second, sixth, or seventh question is yes, map the keyword to the existing page or hold it in documentation and mark `is_primary=no` when appropriate.
 
 ## Mapping Workflow
 
@@ -208,6 +238,22 @@ Reason:
 
 - current architecture treats features as reusable content modules
 - a standalone feature page would likely cannibalize stronger hub or child page intent
+
+### Example 5: product-page deferral
+
+Idea:
+
+- `metal business card for doctors`
+
+Decision:
+
+- do not create a page by default
+
+Reason:
+
+- this mixes profession intent and physical-product intent
+- the default architecture should use a solution page for doctors and, later, a separate product-family page for metal business cards
+- only create the hybrid page if keyword demand and SERP behavior later prove distinct intent
 
 ## Status Conventions
 
