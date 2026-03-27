@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 import csv
 import re
+import subprocess
 import sys
+import xml.etree.ElementTree as ET
+import zipfile
 from collections import Counter, OrderedDict, defaultdict
 from pathlib import Path
 
@@ -26,6 +29,18 @@ CITIES = [
     "gurgaon",
     "gurugram",
 ]
+
+XLSX_NS = {"a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+
+SHEET_CATEGORY_MAP = {
+    "Identity Platform": "Platform",
+    "Travel Tags": "Use Case",
+    "AI Assist": "AI",
+    "Google reviews": "Business",
+    "Pet": "Use Case",
+    "Family&Child": "Use Case",
+    "Vehicle": "Use Case",
+}
 
 NON_NFC_QR_FEATURES = [
     "ai review",
@@ -98,6 +113,8 @@ CANON_PRIORITY = {
     "/digital-business-card-india": "P1",
     "/nfc-business-card-india": "P1",
     "/qr-business-card": "P1",
+    "/ai-review-assist": "P2",
+    "/google-review-management": "P2",
     "/digital-business-card-for-doctors": "P1",
     "/digital-business-card-for-real-estate-agents": "P1",
     "/digital-business-card-for-freelancers": "P1",
@@ -212,14 +229,14 @@ PAGE_DEFS = OrderedDict(
                 page_type="solution_hub",
                 page_group="solution_hub",
                 hub="travel",
-                primary_keyword="travel profile",
-                search_intent="commercial",
+                primary_keyword="travel qr code",
+                search_intent="transactional",
                 funnel_stage="MOFU",
                 market="IN+GLOBAL",
                 publish_wave="launch",
                 feature_set="digital_profiles|qr_sharing|multi_profile_type_profiles|call_masking|whatsapp_masking|theme_library",
                 pricing_visibility="contextual",
-                keyword_family_notes="Architecture-led launch hub; current sheet mixes travel-agent business use cases with travel utility terms.",
+                keyword_family_notes="Travel identity hub seeded from travel QR code and digital travel profile phrasing.",
                 status="needs_validation",
             ),
         ),
@@ -229,14 +246,14 @@ PAGE_DEFS = OrderedDict(
                 page_type="solution_hub",
                 page_group="solution_hub",
                 hub="vehicle",
-                primary_keyword="vehicle profile",
-                search_intent="commercial",
+                primary_keyword="vehicle qr code",
+                search_intent="transactional",
                 funnel_stage="MOFU",
                 market="IN+GLOBAL",
                 publish_wave="launch",
                 feature_set="digital_profiles|qr_sharing|multi_profile_type_profiles|call_masking|whatsapp_masking|theme_library",
                 pricing_visibility="contextual",
-                keyword_family_notes="Architecture-led launch hub; current sheet supports vehicle utility child pages more strongly than the broad hub.",
+                keyword_family_notes="Vehicle identity hub seeded from vehicle QR code, RC QR code, and automotive QR phrasing.",
                 status="needs_validation",
             ),
         ),
@@ -288,6 +305,40 @@ PAGE_DEFS = OrderedDict(
                 feature_set="digital_profiles|qr_sharing|analytics|account_collaborators|multi_account_team_management|call_masking|whatsapp_masking|theme_library",
                 pricing_visibility="contextual",
                 keyword_family_notes="Owns QR business card and QR code business card family.",
+                status="planned",
+            ),
+        ),
+        (
+            "/ai-review-assist",
+            dict(
+                page_type="category",
+                page_group="category",
+                hub="business",
+                primary_keyword="ai review management",
+                search_intent="commercial",
+                funnel_stage="BOFU",
+                market="IN+GLOBAL",
+                publish_wave="post_launch_q2",
+                feature_set="digital_profiles|qr_sharing|ai_review_assist|analytics|account_collaborators|multi_account_team_management|theme_library",
+                pricing_visibility="contextual",
+                keyword_family_notes="Business review-assist family for AI-led review workflows and QR-driven review capture support.",
+                status="planned",
+            ),
+        ),
+        (
+            "/google-review-management",
+            dict(
+                page_type="category",
+                page_group="category",
+                hub="business",
+                primary_keyword="google review management",
+                search_intent="commercial",
+                funnel_stage="BOFU",
+                market="IN+GLOBAL",
+                publish_wave="post_launch_q2",
+                feature_set="digital_profiles|qr_sharing|ai_review_assist|analytics|account_collaborators|multi_account_team_management|theme_library",
+                pricing_visibility="contextual",
+                keyword_family_notes="Business review-management family for Google review growth, request, and local-SEO workflow intent.",
                 status="planned",
             ),
         ),
@@ -688,6 +739,50 @@ UTILITY_KEYWORD_SETS = {
     },
 }
 
+TRAVEL_PROFILE_TERMS = {
+    "travel qr code",
+    "travel digital card",
+    "tourist qr code",
+    "travel contact qr code",
+    "travel emergency qr code",
+    "travel identity card",
+    "digital travel profile",
+    "travel safety qr",
+}
+
+VEHICLE_PROFILE_TERMS = {
+    "vehicle qr code",
+    "rc qr code",
+    "vehicle verification qr code",
+    "vehicle details qr code",
+    "car qr code",
+    "automotive qr code",
+    "qr code for vehicle registration",
+}
+
+AI_RELEVANT_TERMS = {
+    "ai assist reviews",
+    "ai review management",
+    "ai reviews for business",
+    "ai review qr",
+    "ai review system",
+    "ai reviews app",
+    "ai review online",
+}
+
+FAMILY_RELEVANT_TERMS = {
+    "family safety app apk",
+    "family safety app kya hai",
+    "family safety tags",
+    "family safety tool",
+    "safety tags for children",
+    "children safety tags",
+    "child safety tags",
+    "child safe tag",
+    "kids safety name tags",
+    "school bag safety tags",
+}
+
 SUPPLEMENTAL_KEYWORDS = [
     {
         "Keyword": keyword,
@@ -733,10 +828,10 @@ RAW_FIELDS = [
     "keep_status",
     "merge_reason",
     "notes",
-    "semrush_volume",
-    "semrush_kd",
-    "semrush_cpc",
-    "semrush_last_checked",
+    "ubersuggest_volume",
+    "ubersuggest_kd",
+    "ubersuggest_cpc",
+    "ubersuggest_last_checked",
 ]
 
 RAW_KEEP_STATUSES = {"keep_primary", "keep_secondary"}
@@ -813,7 +908,26 @@ def map_row(row: dict) -> dict:
     keyword = clean_keyword(row["Keyword"])
     text = keyword.lower()
     category = row["Category"].strip()
+    source_sheet = row.get("Source Sheet", "").strip()
     mod = modifier_type(text)
+
+    if source_sheet == "Google reviews" or (source_sheet != "AI Assist" and ("google review" in text or "google reviews" in text)):
+        return mapped(
+            "google_review_management",
+            "google review management",
+            "/google-review-management",
+            "keep_primary" if text == "google review management" else "keep_secondary",
+            "google review management family",
+        )
+
+    if source_sheet == "AI Assist" and text in AI_RELEVANT_TERMS:
+        return mapped(
+            "ai_review_assist",
+            "ai review management",
+            "/ai-review-assist",
+            "keep_primary" if text == "ai review management" else "keep_secondary",
+            "ai review assist family",
+        )
 
     if category == "AI" or "ai review" in text or "review assist" in text:
         return mapped(
@@ -987,6 +1101,38 @@ def map_row(row: dict) -> dict:
             "keep_primary" if text == "pet id tag qr code" else ("keep_secondary" if text in PET_ID_TERMS else "merge_into_primary"),
             "pet identity hub family",
         )
+    if ("pet" in text and "qr" in text) or text in {"pet safety tag"}:
+        return mapped(
+            "pet_id_profile",
+            "pet id tag qr code",
+            "/pet-id-profile",
+            "keep_secondary" if text in {"pet safety qr", "pets qr code", "pet safety tag"} else "merge_into_primary",
+            "pet identity hub family",
+        )
+    if source_sheet == "Family&Child" and text in FAMILY_RELEVANT_TERMS:
+        return mapped(
+            "family_safety_profile",
+            "family safety profile",
+            "/family-safety-profile",
+            "keep_secondary",
+            "family safety hub family",
+        )
+    if text in TRAVEL_PROFILE_TERMS or ("travel" in text and "qr" in text):
+        return mapped(
+            "travel_profile",
+            "travel qr code",
+            "/travel-profile",
+            "keep_primary" if text == "travel qr code" else ("keep_secondary" if text in TRAVEL_PROFILE_TERMS else "merge_into_primary"),
+            "travel profile utility family",
+        )
+    if text in VEHICLE_PROFILE_TERMS:
+        return mapped(
+            "vehicle_profile",
+            "vehicle qr code",
+            "/vehicle-profile",
+            "keep_primary" if text == "vehicle qr code" else "keep_secondary",
+            "vehicle profile utility family",
+        )
     if text in VEHICLE_TERMS or "vehicle qr code sticker" in text or "bike qr code tag" in text or "car qr code sticker" in text:
         return mapped(
             "vehicle_qr_code_sticker",
@@ -1082,14 +1228,177 @@ def map_row(row: dict) -> dict:
         "",
         "",
         "defer",
-        "outside the initial canonical page inventory; hold for Semrush-driven review",
+        "outside the initial canonical page inventory; hold for Ubersuggest-driven review",
     )
 
 
 def load_source_rows():
     source_csv = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else DEFAULT_SOURCE_CSV
+    if source_csv.suffix.lower() == ".xlsx":
+        return load_xlsx_rows(source_csv)
     with source_csv.open(newline="", encoding="utf-8-sig") as handle:
         return list(csv.DictReader(handle))
+
+
+def xlsx_cell_value(cell, shared_strings):
+    cell_type = cell.attrib.get("t")
+    value = cell.find("a:v", XLSX_NS)
+    if cell_type == "inlineStr":
+        inline = cell.find("a:is", XLSX_NS)
+        if inline is None:
+            return ""
+        return "".join(text.text or "" for text in inline.iterfind(".//a:t", XLSX_NS))
+    if value is None:
+        return ""
+    raw_value = value.text or ""
+    if cell_type == "s":
+        return shared_strings[int(raw_value)]
+    return raw_value
+
+
+def choose_first(row, keys):
+    for key in keys:
+        value = clean_keyword(row.get(key, ""))
+        if value:
+            return value
+    return ""
+
+
+def normalize_sheet_intent(raw_category: str, cluster: str, content_type: str) -> str:
+    category = raw_category.strip().lower()
+    if category in {"transactional", "informational", "navigational", "commercial", "comparison"}:
+        return category
+    cluster_text = cluster.strip().lower()
+    content_text = content_type.strip().lower()
+    if "awareness" in cluster_text or "blog" in content_text or "guide" in content_text:
+        return "informational"
+    if "tool" in cluster_text or "tool" in content_text:
+        return "navigational"
+    if "conversion" in cluster_text or "landing page" in content_text or "product" in content_text:
+        return "transactional"
+    return "commercial"
+
+
+def normalize_xlsx_row(sheet_name: str, raw_row: dict) -> dict:
+    sheet_label = sheet_name.strip()
+    raw_category = clean_keyword(raw_row.get("Category", ""))
+    cluster = choose_first(raw_row, ["Intent Cluster", "Cluster", "Intent Type"])
+    content_type = choose_first(raw_row, ["Content Type", "Best Content Strategy"])
+    suggested_page = choose_first(raw_row, ["Suggested Use/Page", "Suggested Page"])
+    primary_secondary = choose_first(raw_row, ["Primary/Secondary"])
+    search_volume = choose_first(raw_row, ["Search Volume"])
+    notes_parts = [f"source_sheet={sheet_label}"]
+    if suggested_page:
+        notes_parts.append(f"suggested_page={suggested_page}")
+    if primary_secondary:
+        notes_parts.append(f"priority_hint={primary_secondary.lower()}")
+    if search_volume:
+        notes_parts.append(f"volume_hint={search_volume.lower()}")
+    return {
+        "Keyword": clean_keyword(raw_row.get("Keyword", "")),
+        "Category": SHEET_CATEGORY_MAP.get(sheet_label, "Use Case"),
+        "Intent": normalize_sheet_intent(raw_category, cluster, content_type),
+        "Notes": "; ".join(notes_parts),
+        "Source Sheet": sheet_label,
+        "Raw Category": raw_category,
+        "Cluster": cluster,
+        "Content Type": content_type,
+        "Suggested Page": suggested_page,
+        "Primary/Secondary": primary_secondary,
+        "Search Volume": search_volume,
+    }
+
+
+def load_xlsx_rows(source_xlsx: Path):
+    sheet_rows = OrderedDict()
+    with zipfile.ZipFile(source_xlsx) as workbook:
+        shared_strings = []
+        if "xl/sharedStrings.xml" in workbook.namelist():
+            root = ET.fromstring(workbook.read("xl/sharedStrings.xml"))
+            for item in root.findall("a:si", XLSX_NS):
+                shared_strings.append("".join(text.text or "" for text in item.iterfind(".//a:t", XLSX_NS)))
+
+        workbook_root = ET.fromstring(workbook.read("xl/workbook.xml"))
+        rels_root = ET.fromstring(workbook.read("xl/_rels/workbook.xml.rels"))
+        rel_map = {rel.attrib["Id"]: rel.attrib["Target"] for rel in rels_root}
+
+        for sheet in workbook_root.find("a:sheets", XLSX_NS):
+            sheet_name = sheet.attrib["name"].strip()
+            rel_id = sheet.attrib["{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"]
+            sheet_path = "xl/" + rel_map[rel_id]
+            sheet_root = ET.fromstring(workbook.read(sheet_path))
+            rows = sheet_root.findall(".//a:sheetData/a:row", XLSX_NS)
+            if not rows:
+                sheet_rows[sheet_name] = []
+                continue
+            header = [clean_keyword(xlsx_cell_value(cell, shared_strings)) for cell in rows[0].findall("a:c", XLSX_NS)]
+            normalized_rows = []
+            for row in rows[1:]:
+                cells = [clean_keyword(xlsx_cell_value(cell, shared_strings)) for cell in row.findall("a:c", XLSX_NS)]
+                if not any(cells):
+                    continue
+                record = dict(zip(header, cells))
+                normalized = normalize_xlsx_row(sheet_name, record)
+                if normalized["Keyword"]:
+                    normalized_rows.append(normalized)
+            sheet_rows[sheet_name] = normalized_rows
+
+    return [row for rows in sheet_rows.values() for row in rows]
+
+
+def load_existing_raw_rows():
+    try:
+        result = subprocess.run(
+            ["git", "show", "HEAD:data/keywords/raw_keyword_bank.csv"],
+            cwd=REPO_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        rows = list(csv.DictReader(result.stdout.splitlines()))
+    except Exception:
+        if not RAW_OUT.exists():
+            return []
+        with RAW_OUT.open(newline="", encoding="utf-8-sig") as handle:
+            rows = list(csv.DictReader(handle))
+
+    for row in rows:
+        if "ubersuggest_volume" not in row and "semrush_volume" in row:
+            row["ubersuggest_volume"] = row.get("semrush_volume", "")
+        if "ubersuggest_kd" not in row and "semrush_kd" in row:
+            row["ubersuggest_kd"] = row.get("semrush_kd", "")
+        if "ubersuggest_cpc" not in row and "semrush_cpc" in row:
+            row["ubersuggest_cpc"] = row.get("semrush_cpc", "")
+        if "ubersuggest_last_checked" not in row and "semrush_last_checked" in row:
+            row["ubersuggest_last_checked"] = row.get("semrush_last_checked", "")
+        row.pop("semrush_volume", None)
+        row.pop("semrush_kd", None)
+        row.pop("semrush_cpc", None)
+        row.pop("semrush_last_checked", None)
+    return rows
+
+
+def merge_raw_rows_with_existing(raw_rows, source_path: Path):
+    if source_path.suffix.lower() != ".xlsx":
+        return raw_rows
+
+    merged = OrderedDict()
+    for row in load_existing_raw_rows():
+        keyword = clean_keyword(row.get("keyword", ""))
+        if keyword:
+            merged[keyword.lower()] = row
+
+    for row in raw_rows:
+        key = row["keyword"].lower()
+        existing = merged.get(key, {})
+        merged_row = dict(existing)
+        merged_row.update(row)
+        for metric_field in ["ubersuggest_volume", "ubersuggest_kd", "ubersuggest_cpc", "ubersuggest_last_checked"]:
+            if not merged_row.get(metric_field) and existing.get(metric_field):
+                merged_row[metric_field] = existing[metric_field]
+        merged[key] = merged_row
+
+    return list(merged.values())
 
 
 def build_raw_rows(source_rows):
@@ -1115,10 +1424,10 @@ def build_raw_rows(source_rows):
                 "modifier_type": modifier_type(text),
                 **mapping,
                 "notes": mapping["notes"] or row.get("Notes", "").strip(),
-                "semrush_volume": "",
-                "semrush_kd": "",
-                "semrush_cpc": "",
-                "semrush_last_checked": "",
+                "ubersuggest_volume": "",
+                "ubersuggest_kd": "",
+                "ubersuggest_cpc": "",
+                "ubersuggest_last_checked": "",
             }
         )
     return raw_rows
@@ -1169,7 +1478,7 @@ def write_execution_master(family_secondaries):
 def main():
     source_path = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else DEFAULT_SOURCE_CSV
     source_rows = load_source_rows()
-    raw_rows = build_raw_rows(source_rows)
+    raw_rows = merge_raw_rows_with_existing(build_raw_rows(source_rows), source_path)
     family_secondaries = build_secondary_keywords(raw_rows)
     write_raw_bank(raw_rows)
     write_execution_master(family_secondaries)

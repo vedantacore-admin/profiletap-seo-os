@@ -8,9 +8,9 @@ You are generating an SEO content brief for ProfileTap, a smart identity managem
 
 Before writing the brief:
 
-1. Read `data/keywords/master_keywords.csv`
+1. Read `data/keywords/raw_keyword_bank.csv`
 2. Read `data/pages/page_master.csv`
-3. Read `data/pages/page_keyword_map.csv`
+3. Read `data/keywords/execution_seo_master.csv`
 4. Read `data/content/content_calendar.csv`
 5. If relevant, read `data/backlinks/backlink_targets.csv`
 
@@ -18,7 +18,7 @@ Then generate a brief for the requested target page using the rules below.
 
 ### Rules
 
-- use the mapped keyword and page slug exactly as defined in the CSVs
+- use the canonical keyword family and page slug exactly as defined in the CSVs
 - if `target_keyword` is blank, use the page's architecture role and `primary_intent` from `page_master.csv`
 - do not invent a second primary keyword
 - keep the brief aligned to the page type
@@ -52,8 +52,7 @@ Return the brief with these sections:
 - hub
 - primary keyword
 - mapped secondary keywords
-- cluster
-- intent
+- search intent
 - priority
 - content calendar ID if available
 - feature set

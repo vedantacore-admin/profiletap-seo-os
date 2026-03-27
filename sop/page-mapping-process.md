@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Map every approved keyword family in `data/keywords/execution_seo_master.csv` to exactly one canonical page in `data/pages/page_keyword_map.csv`, using `data/pages/page_master.csv` as the page inventory and launch architecture source of truth.
+Map every approved keyword family in `data/keywords/execution_seo_master.csv` to exactly one canonical page in the execution sheet itself, using `data/pages/page_master.csv` as the page inventory and launch architecture source of truth.
 
 This SOP exists to prevent cannibalization and keep content production tied to commercial outcomes.
 
@@ -17,9 +17,7 @@ Current architecture rule:
 
 - `data/keywords/raw_keyword_bank.csv`
 - `data/keywords/execution_seo_master.csv`
-- `data/keywords/master_keywords.csv`
 - `data/pages/page_master.csv`
-- `data/pages/page_keyword_map.csv`
 - `data/content/content_calendar.csv`
 
 ## Output Rule
@@ -158,17 +156,17 @@ Before creating a new page, answer these checks:
 6. Is the idea actually a feature block that belongs inside an existing hub or child page rather than a new SEO page?
 7. Is the idea really a future physical-product page that should stay documented until product keyword validation is complete?
 
-If the answer to the first, second, sixth, or seventh question is yes, map the keyword to the existing page or hold it in documentation and mark `is_primary=no` when appropriate.
+If the answer to the first, second, sixth, or seventh question is yes, map the keyword to the existing page family or hold it in documentation when appropriate.
 
 ## Mapping Workflow
 
 1. Process the raw import in `raw_keyword_bank.csv` and assign `canonical_keyword`, `canonical_page_slug`, and `keep_status`.
 2. Move only approved page-worthy families into `execution_seo_master.csv`.
 3. Check `page_master.csv` for the correct `hub`, `page_group`, and `feature_set` before deciding whether a new page is needed.
-4. Search `page_keyword_map.csv` for overlapping intent.
-5. If an existing page already covers the intent, append the keyword there with `is_primary=no`.
+4. Search `execution_seo_master.csv` for overlapping intent.
+5. If an existing page already covers the intent, append the keyword there as a secondary variation.
 6. If no page covers the intent, create a new row in `page_master.csv`.
-7. Add the canonical mapping row in `page_keyword_map.csv`.
+7. Add or update the canonical family row in `execution_seo_master.csv`.
 8. Add exactly one matching production row in `content_calendar.csv`.
 
 Decision rule:
@@ -228,16 +226,16 @@ Reason:
 
 Idea:
 
-- AI review assist
+- unsupported feature-only concept
 
 Decision:
 
-- keep it inside homepage, business, creator, and relevant child pages unless feature-led keyword research later proves standalone demand
+- keep it inside homepage, business, creator, or relevant child pages unless keyword demand proves a distinct approved family
 
 Reason:
 
-- current architecture treats features as reusable content modules
-- a standalone feature page would likely cannibalize stronger hub or child page intent
+- current architecture treats most features as reusable content modules
+- only approved canonical feature families should become execution rows
 
 ### Example 5: product-page deferral
 
@@ -259,7 +257,6 @@ Reason:
 
 Recommended status values:
 
-- `master_keywords.csv`: `new`, `mapped`, `deferred`
 - `page_master.csv`: `planned`, `in_progress`, `published`
 - `content_calendar.csv`: `planned`, `in_progress`, `published`
 
@@ -283,8 +280,7 @@ Recommended architecture values:
 
 A mapping task is complete only when:
 
-- the keyword exists in `master_keywords.csv`
 - the canonical page exists in `page_master.csv`
-- the keyword is mapped once in `page_keyword_map.csv`
+- the keyword family exists once in `execution_seo_master.csv`
 - the content task exists in `content_calendar.csv`
 - the chosen page does not conflict with another page's primary intent

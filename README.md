@@ -31,12 +31,8 @@ Build ProfileTap into:
   Retained research inventory. Keeps only approved `keep_primary` and `keep_secondary` keyword rows.
 - [data/keywords/execution_seo_master.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/execution_seo_master.csv)
   Final canonical keyword system. One page-owned keyword family per row for execution and planning.
-- [data/keywords/master_keywords.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/master_keywords.csv)
-  Curated operating subset used for manual planning and legacy workflows; no longer the right place for large raw imports.
 - [data/pages/page_master.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/pages/page_master.csv)
   Master list of planned and mapped pages.
-- [data/pages/page_keyword_map.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/pages/page_keyword_map.csv)
-  One-to-one mapping between keywords and pages.
 - [data/content/content_calendar.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/content/content_calendar.csv)
   Content production queue.
 - [data/backlinks/backlink_targets.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/backlinks/backlink_targets.csv)
@@ -58,7 +54,7 @@ Build ProfileTap into:
 ### Rebuild tooling
 
 - [scripts/rebuild_keyword_system.py](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/scripts/rebuild_keyword_system.py)
-  Rebuilds `raw_keyword_bank.csv` and `execution_seo_master.csv` from the current source export in `Downloads`.
+  Rebuilds `raw_keyword_bank.csv` and `execution_seo_master.csv` from the current source export in `Downloads`, including direct `.xlsx` imports.
 
 ## Keyword Workflow
 
@@ -68,8 +64,6 @@ ProfileTap now uses a two-sheet keyword model for large imports:
    Keeps every discovered keyword from the source export.
 2. `execution_seo_master.csv`
    Keeps only canonical, page-worthy keyword families.
-3. `master_keywords.csv`
-   Remains available for smaller curated lists, manual tracking, and downstream operating work.
 
 Working rule:
 
@@ -95,10 +89,10 @@ Working rule:
 | `keep_status` | `keep_primary` or `keep_secondary` |
 | `merge_reason` | Why the row belongs to that canonical family |
 | `notes` | Free notes for research observations |
-| `semrush_volume` | Search volume to be filled later |
-| `semrush_kd` | Keyword difficulty to be filled later |
-| `semrush_cpc` | CPC to be filled later |
-| `semrush_last_checked` | Last Semrush refresh date |
+| `ubersuggest_volume` | Search volume to be filled later |
+| `ubersuggest_kd` | Keyword difficulty to be filled later |
+| `ubersuggest_cpc` | CPC to be filled later |
+| `ubersuggest_last_checked` | Last Ubersuggest refresh date |
 
 ### `execution_seo_master.csv`
 
@@ -119,27 +113,6 @@ Working rule:
 | `pricing_visibility` | How plan-sensitive features should be qualified |
 | `keyword_family_notes` | Why the page owns that family |
 | `status` | Planning state for the row |
-
-### `master_keywords.csv`
-
-| Column | Meaning |
-| --- | --- |
-| `keyword` | Exact target keyword |
-| `cluster` | Intent cluster or topic group |
-| `pillar` | Broad strategic theme for annual planning |
-| `intent` | `transactional`, `comparison`, `commercial`, or `informational` |
-| `funnel_stage` | `TOFU`, `MOFU`, or `BOFU` |
-| `target_market` | `IN`, `GLOBAL`, or `IN+GLOBAL` |
-| `target_language` | Primary language for the target page |
-| `volume` | Search volume when available |
-| `kd` | Keyword difficulty when available |
-| `cpc` | Paid CPC reference from Semrush when available |
-| `business_score` | Manual value score for commercial importance |
-| `priority` | `P1`, `P2`, `P3` |
-| `status` | Current workflow state |
-| `target_page_type` | Intended page type |
-| `semrush_last_checked` | Date of last metric refresh |
-| `notes` | Normalization or research notes |
 
 ### `page_master.csv`
 
@@ -168,16 +141,6 @@ Working rule:
 | `last_updated` | Last significant update date |
 | `next_refresh` | Planned refresh date |
 | `notes` | Internal page notes |
-
-### `page_keyword_map.csv`
-
-| Column | Meaning |
-| --- | --- |
-| `keyword` | Keyword being assigned |
-| `page_slug` | Target page |
-| `is_primary` | `yes` or `no` |
-| `mapping_role` | `primary` or `secondary` |
-| `mapping_notes` | Why the keyword belongs to this page |
 
 ### `content_calendar.csv`
 
@@ -423,25 +386,15 @@ Current hub logic:
 | `travel` | digital profiles, QR, multi-profile types, masking, themes |
 | `vehicle` | digital profiles, QR, multi-profile types, masking, themes |
 
-## Semrush Update Workflow
+## Ubersuggest Update Workflow
 
-When reviewing keywords in Semrush, update these fields in [master_keywords.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/master_keywords.csv):
+When reviewing keywords in Ubersuggest, update these fields in [raw_keyword_bank.csv](/Users/hariomshah/Documents/GitHub/profiletap-seo-os/data/keywords/raw_keyword_bank.csv):
 
-- `volume`
-- `kd`
-- `cpc`
-- `semrush_last_checked`
-- `priority` if the market data changes the order
+- `ubersuggest_volume`
+- `ubersuggest_kd`
+- `ubersuggest_cpc`
+- `ubersuggest_last_checked`
 - `notes` for useful SERP observations
-
-Do not change:
-
-- `cluster`
-- `pillar`
-- `intent`
-- `target_page_type`
-
-unless the underlying keyword intent has actually changed.
 
 ## Current Baseline
 
@@ -467,9 +420,9 @@ Current mapped sample keyword groups:
 
 ## Default Workflow
 
-1. Update `master_keywords.csv` with cleaned keywords and intent clusters.
-2. Create or update architecture rows in `page_master.csv`, including `page_group`, `hub`, `feature_set`, and `publish_wave`.
-3. Check `page_keyword_map.csv` before turning a planned row into a keyword-owned page.
+1. Import and clean keywords into `raw_keyword_bank.csv`.
+2. Promote approved families into `execution_seo_master.csv`.
+3. Create or update architecture rows in `page_master.csv`, including `page_group`, `hub`, `feature_set`, and `publish_wave`.
 4. Add or update the corresponding task in `content_calendar.csv`.
 5. Only surface features inside the relevant hub or child page; do not create standalone feature pages without distinct keyword intent.
 6. Add backlink prospects in `backlink_targets.csv`.

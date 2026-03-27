@@ -49,8 +49,6 @@ The keyword system now has two layers:
 - `data/keywords/execution_seo_master.csv`
   Canonical page-owned keyword families for execution
 
-`data/keywords/master_keywords.csv` can still be used as a curated working subset, but it is no longer the right place to dump a large raw export.
-
 ### Raw keyword bank role
 
 Use `raw_keyword_bank.csv` as the clean retained keyword bank.
@@ -62,9 +60,9 @@ Critical fields:
 - `keep_status`
 - `merge_reason`
 - `modifier_type`
-- `semrush_volume`
-- `semrush_kd`
-- `semrush_cpc`
+- `ubersuggest_volume`
+- `ubersuggest_kd`
+- `ubersuggest_cpc`
 
 Allowed `keep_status` values:
 
@@ -94,22 +92,13 @@ Current rebuild assumptions:
 - travel-agent business intent stays separate from travel utility intent
 - blogs only survive as support content tied to commercial parents
 
-### Semrush workflow
+### Ubersuggest workflow
 
 After each import rebuild:
 
-- fill Semrush metrics in `raw_keyword_bank.csv`
+- fill Ubersuggest metrics in `raw_keyword_bank.csv`
 - validate `keep_status` and `canonical_page_slug` for the kept rows
 - promote only approved families into downstream mapping and content work
-
-If a curated planning subset is still needed, use these fields actively in `master_keywords.csv`:
-
-- `pillar` for portfolio planning
-- `funnel_stage` for balancing TOFU, MOFU, and BOFU output
-- `target_market` and `target_language` for India-first expansion control
-- `business_score` for commercial weighting
-- `volume`, `kd`, and `cpc` for Semrush-backed reprioritization
-- `semrush_last_checked` to keep research current
 
 ## Launch Architecture
 
@@ -377,7 +366,7 @@ Rule of thumb:
 
 ### Monthly
 
-- refresh Semrush metrics for active clusters
+- refresh Ubersuggest metrics for active clusters
 - re-rank `P1`, `P2`, and `P3` using business score plus demand
 - review pages due for refresh
 - compare published output vs launch and post-launch waves
@@ -433,5 +422,5 @@ The backlink system is maintained in `data/backlinks/backlink_targets.csv` and e
 
 1. import the full keyword master and map it into the launch hub architecture
 2. brief all launch-core hub pages first
-3. re-rank child pages after Semrush enrichment
+3. re-rank child pages after Ubersuggest enrichment
 4. qualify outreach contacts for the seeded backlink targets
