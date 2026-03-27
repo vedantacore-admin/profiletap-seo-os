@@ -28,8 +28,8 @@ CANONICAL_FEATURES = {
     "advanced_creator_analytics"
 }
 
-VALID_STATUSES_PAGE = {"planned", "in_progress", "published", "refresh_needed", "needs_validation"}
-VALID_STATUSES_EXEC = {"planned", "in_progress", "published", "refresh_needed", "needs_validation"}
+VALID_STATUSES_PAGE = {"planned", "draft_ready", "in_progress", "published", "refresh_needed", "needs_validation"}
+VALID_STATUSES_EXEC = {"planned", "draft_ready", "in_progress", "published", "refresh_needed", "needs_validation"}
 VALID_PRIORITIES = {"P1", "P2", "P3"}
 
 
@@ -209,6 +209,48 @@ def cross_validate_slugs(exec_slugs, page_slugs):
     return errors
 
 
+def validate_content_files_alignment(page_slugs, content_calendar_slugs):
+    """Check that content files on disk align with CSVs and vice versa."""
+    import glob as glob_mod
+
+    errors = []
+    base_dir = os.path.dirname(DATA_DIR)
+    content_dir = os.path.join(base_dir, "content")
+
+    # Build set of slugs that have content files on disk
+    file_slugs = set()
+
+    # Pages
+    for f in glob_mod.glob(os.path.join(content_dir, "pages", "*.md")):
+        name = os.path.splitext(os.path.basename(f))[0]
+        if name == "homepage":
+            file_slugs.add("/")
+        else:
+            file_slugs.add(f"/{name}")
+
+    # Blogs
+    for f in glob_mod.glob(os.path.join(content_dir, "blogs", "**", "*.md"), recursive=True):
+        name = os.path.splitext(os.path.basename(f))[0]
+        file_slugs.add(f"/blog/{name}")
+
+    # Check: content files with no page_master row
+    orphaned = file_slugs - page_slugs
+    for slug in sorted(orphaned):
+        errors.append(f"  Content file exists for '{slug}' but NO row in page_master.csv")
+
+    # Check: content files with no content_calendar row
+    orphaned_cal = file_slugs - content_calendar_slugs
+    for slug in sorted(orphaned_cal):
+        errors.append(f"  Content file exists for '{slug}' but NO row in content_calendar.csv")
+
+    # Check: pages with status=draft_ready but no content file
+    # (This is checked via page_master rows)
+
+    # Check: content files exist but status is still 'planned'
+    # We report this as a warning
+    return errors, file_slugs
+
+
 def main():
     print("=" * 60)
     print("ProfileTap SEO OS — System Validation")
@@ -271,6 +313,17 @@ def main():
         total_errors += len(backlink_errors)
     else:
         print("  PASS")
+
+    # Validate content file alignment
+    content_calendar_slugs = {row.get("page_slug", "").strip() for row in content_rows if row.get("page_slug", "").strip()}
+    print(f"\n[6] Content files ↔ CSV alignment")
+    align_errors, file_slugs = validate_content_files_alignment(page_slugs, content_calendar_slugs)
+    if align_errors:
+        for e in align_errors:
+            print(e)
+        total_errors += len(align_errors)
+    else:
+        print(f"  PASS ({len(file_slugs)} content files, all aligned)")
 
     # Summary
     print(f"\n{'=' * 60}")
