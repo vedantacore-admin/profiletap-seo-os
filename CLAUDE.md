@@ -76,7 +76,7 @@ skills/
 5. **Features embedded into pages via feature_set** — no standalone feature pages unless keyword data proves distinct intent
 6. **Product catalog pages documented separately** — not added until validated
 
-## Canonical Features (12 tokens)
+## Canonical Features (13 tokens)
 
 | Token | Human Label |
 |-------|-------------|
@@ -84,6 +84,7 @@ skills/
 | `nfc_sharing` | NFC sharing |
 | `qr_sharing` | QR sharing |
 | `ai_review_assist` | AI review assist |
+| `business_ai` | Business AI tools |
 | `analytics` | Analytics |
 | `account_collaborators` | Manage account collaborators |
 | `multi_account_team_management` | Manage multiple accounts / teams |
@@ -97,8 +98,8 @@ skills/
 
 | Hub | Features | Child Focus |
 |-----|----------|-------------|
-| platform | All 12 | Homepage only |
-| business | 11 (no advanced_creator_analytics) | Cards, professions, comparisons |
+| platform | All 13 | Homepage only |
+| business | 12 (no advanced_creator_analytics, adds business_ai) | Cards, professions, comparisons, Business AI |
 | creator | 10 (no masking, adds creator analytics) | Creator tools, Linktree alternative |
 | family_safety | 6 | Safety tags, emergency QR |
 | pet | 4 | Pet ID, lost & found |

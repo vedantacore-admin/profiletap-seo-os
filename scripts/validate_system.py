@@ -22,9 +22,10 @@ CANONICAL_PAGE_TYPES = {
 }
 
 CANONICAL_FEATURES = {
-    "digital_profiles", "nfc_sharing", "qr_sharing", "ai_review_assist", "analytics",
-    "account_collaborators", "multi_account_team_management", "multi_profile_type_profiles",
-    "call_masking", "whatsapp_masking", "theme_library", "advanced_creator_analytics"
+    "digital_profiles", "nfc_sharing", "qr_sharing", "ai_review_assist", "business_ai",
+    "analytics", "account_collaborators", "multi_account_team_management",
+    "multi_profile_type_profiles", "call_masking", "whatsapp_masking", "theme_library",
+    "advanced_creator_analytics"
 }
 
 VALID_STATUSES_PAGE = {"planned", "in_progress", "published", "refresh_needed", "needs_validation"}

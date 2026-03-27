@@ -20,6 +20,7 @@ These are the only approved feature tokens. Use tokens in CSVs; use human labels
 | `nfc_sharing` | NFC sharing | Tap-based profile sharing via NFC-enabled cards |
 | `qr_sharing` | QR sharing | Scan-based profile access via QR codes |
 | `ai_review_assist` | AI review assist | Review support and AI-assisted review workflows |
+| `business_ai` | Business AI tools | AI-powered business management tools (smart assistant, automation, insights) |
 | `analytics` | Analytics | General engagement and interaction analytics |
 | `account_collaborators` | Manage account collaborators | Multiple collaborators helping manage one account |
 | `multi_account_team_management` | Manage multiple accounts / teams | Team, business, or multi-account management |
@@ -67,8 +68,8 @@ India-first messaging rules:
 
 | Hub | Feature Count | Features |
 | --- | --- | --- |
-| `platform` (homepage) | 12 | All 12 features |
-| `business` | 11 | All except `advanced_creator_analytics` |
+| `platform` (homepage) | 13 | All 13 features |
+| `business` | 12 | All except `advanced_creator_analytics`; includes `business_ai` |
 | `creator` | 10 | All except `call_masking` and `whatsapp_masking`; adds `advanced_creator_analytics` |
 | `family_safety` | 6 | `digital_profiles`, `qr_sharing`, `multi_profile_type_profiles`, `call_masking`, `whatsapp_masking`, `theme_library` |
 | `pet` | 4 | `digital_profiles`, `qr_sharing`, `multi_profile_type_profiles`, `theme_library` |

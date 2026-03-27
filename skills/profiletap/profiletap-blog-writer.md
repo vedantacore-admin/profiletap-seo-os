@@ -85,6 +85,7 @@ When the brief's feature_set includes these tokens, use the human labels in copy
 | `nfc_sharing` | NFC sharing / tap-to-share | "Share your profile with a single tap using NFC sharing" |
 | `qr_sharing` | QR code sharing | "Scan the QR code to instantly access the full profile" |
 | `ai_review_assist` | AI-powered review tools | "Collect and manage reviews with AI-powered review tools" |
+| `business_ai` | Business AI tools | "Use ProfileTap Business AI to automate tasks and get smart insights" |
 | `analytics` | profile analytics | "Track who viewed your profile and when with built-in analytics" |
 | `account_collaborators` | team collaboration | "Add collaborators to manage your business profiles together" |
 | `multi_account_team_management` | multi-account management | "Manage multiple business accounts from one dashboard" |

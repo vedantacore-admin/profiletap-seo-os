@@ -38,12 +38,13 @@ ProfileTap serves the full breadth of Indian professional life.
 
 ## Business Features
 
-ProfileTap's business hub includes eleven features built for professional use.
+ProfileTap's business hub includes twelve features built for professional use.
 
 - **Digital profiles** — A live, rich profile page for your business identity. Update it any time; changes reflect instantly everywhere your profile is shared.
 - **NFC sharing** — Tap your ProfileTap card on any smartphone and your profile opens. No app needed for the recipient.
 - **QR code sharing** — Every profile has a unique QR code. Print it on your packaging, display it at your counter, or add it to an email signature.
 - **AI-powered review tools** — Collect Google and platform reviews, get AI-generated response suggestions, and track your review volume over time.
+- **[Business AI tools](/business-ai)** — AI-powered business intelligence built into your profile. Get smart follow-up suggestions, automated weekly reports, client engagement insights, and review management — all driven by your real profile data.
 - **Profile analytics** — See how many people viewed your profile, what links they clicked, and where your traffic came from.
 - **Team collaboration** — Add employees or partners to your account so your whole team operates under a consistent brand identity.
 - **Multi-account management** — If you run multiple businesses or manage profiles for clients, handle everything from a single dashboard.
