@@ -1,13 +1,36 @@
-domain,site_type,target_page_slug,target_keyword,suggested_anchor,anchor_type,target_market,link_angle,priority,owner,status,notes
-yourstory.com,startup_media,/,smart identity platform,ProfileTap,brand,IN,founder_story,P1,,prospecting,
-inc42.com,startup_media,/digital-business-card-india,digital business card india,digital business card india,exact,IN,data_backed_category_story,P1,,prospecting,
-entrackr.com,startup_media,/digital-business-card-india,digital business card india,digital business card for Indian businesses,partial,IN,startup_growth_story,P1,,prospecting,
-businessworld.in,business_media,/nfc-business-card-india,nfc business card india,nfc business card india,exact,IN,enterprise_networking_angle,P1,,prospecting,
-entrepreneur.com,entrepreneur_media,/nfc-business-card-india,nfc business card india,nfc enabled business profiles,partial,IN+GLOBAL,productivity_angle,P2,,prospecting,
-exchange4media.com,marketing_media,/digital-business-card-for-creators,digital business card for creators,digital business card for creators,exact,IN,creator_marketing_angle,P1,,prospecting,
-socialsamosa.com,marketing_media,/digital-business-card-for-creators,digital business card for creators,smart identity profile for creators,partial,IN,creator_branding_angle,P1,,prospecting,
-shoutmeloud.com,marketing_blog,/linktree-alternative-for-creators,linktree alternative for creators,linktree alternative for creators,exact,IN+GLOBAL,creator_tool_comparison,P2,,prospecting,
-indianstartupnews.com,startup_media,/hihello-alternative-india,hihello alternative india,hihello alternative india,exact,IN,comparison_roundup,P1,,prospecting,
-vccircle.com,startup_media,/popl-alternative-india,popl alternative india,popl alternative india,exact,IN,saas_comparison_roundup,P2,,prospecting,
-expresshealthcare.in,healthcare_media,/digital-business-card-for-doctors,digital business card for doctors,digital business card for doctors,exact,IN,doctor_networking_angle,P1,,prospecting,
-housing.com,real_estate_media,/digital-business-card-for-real-estate-agents,digital business card for real estate agents,digital business card for real estate agents,exact,IN,agent_branding_angle,P2,,prospecting,
+domain,site_type,da_score,monthly_traffic,target_page_slug,target_keyword,suggested_anchor,anchor_type,target_market,link_angle,priority,owner,status,notes
+yourstory.com,startup_media,,,,smart identity platform,ProfileTap,brand,IN,founder_story,P1,,prospecting,top India startup media
+inc42.com,startup_media,,,/digital-business-card-india,digital business card india,digital business card india,exact,IN,data_backed_category,P1,,prospecting,India tech/startup news
+entrackr.com,startup_media,,,/digital-business-card-india,digital business card india,digital business card for Indian businesses,partial,IN,startup_growth,P1,,prospecting,India startup tracking
+businessworld.in,business_media,,,/nfc-business-card-india,nfc business card india,nfc business card india,exact,IN,enterprise_networking,P1,,prospecting,India business publication
+entrepreneur.com,entrepreneur_media,,,/nfc-business-card-india,nfc business card india,nfc enabled business profiles,partial,IN+GLOBAL,productivity,P2,,prospecting,global entrepreneur media
+exchange4media.com,marketing_media,,,/digital-business-card-for-creators,digital business card for creators,digital business card for creators,exact,IN,creator_marketing,P1,,prospecting,India marketing media
+socialsamosa.com,marketing_media,,,/digital-business-card-for-creators,digital business card for creators,smart identity profile for creators,partial,IN,creator_branding,P1,,prospecting,India social media marketing
+shoutmeloud.com,marketing_blog,,,/linktree-alternative-for-creators,linktree alternative for creators,linktree alternative for creators,exact,IN+GLOBAL,creator_tool_comparison,P2,,prospecting,popular India marketing blog
+indianstartupnews.com,startup_media,,,/hihello-alternative-india,hihello alternative india,hihello alternative india,exact,IN,comparison_roundup,P1,,prospecting,India startup news
+vccircle.com,startup_media,,,/popl-alternative-india,popl alternative india,popl alternative india,exact,IN,saas_comparison_roundup,P2,,prospecting,India VC/startup media
+expresshealthcare.in,healthcare_media,,,/digital-business-card-for-doctors,digital business card for doctors,digital business card for doctors,exact,IN,doctor_networking,P1,,prospecting,India healthcare publication
+housing.com,real_estate_media,,,/digital-business-card-for-real-estate-agents,digital business card for real estate agents,digital business card for real estate agents,exact,IN,agent_branding,P2,,prospecting,India real estate platform
+livemint.com,business_media,,,/business-identity,business identity management platform,ProfileTap business identity,branded,IN,business_tools,P1,,prospecting,top India business daily
+economictimes.com,business_media,,,/,smart identity platform,ProfileTap,brand,IN,founder_story,P1,,prospecting,India's largest business publication
+techcircle.in,tech_media,,,/business-identity,business identity management platform,digital identity platform,partial,IN,tech_innovation,P2,,prospecting,India tech business media
+siliconindia.com,tech_media,,,/digital-business-card-india,digital business card india,digital business card solutions,partial,IN,tech_roundup,P2,,prospecting,India tech publication
+nextbigwhat.com,startup_blog,,,/tapmo-alternative,tapmo alternative,ProfileTap vs TapMo,branded,IN,comparison_roundup,P2,,prospecting,India startup blog
+techpp.com,tech_blog,,,/nfc-business-card-india,nfc business card india,best NFC business cards,partial,IN,product_review,P2,,prospecting,India tech review blog
+freelancermap.com,freelance_platform,,,/digital-business-card-for-freelancers,digital business card for freelancers,digital business card for freelancers,exact,IN+GLOBAL,freelancer_tools,P2,,prospecting,freelance marketplace
+petfed.org,pet_media,,,/pet-id-profile,pet id tag qr code,pet identity QR tags,partial,IN,pet_safety,P2,,prospecting,India pet federation
+dogexpress.in,pet_blog,,,/pet-id-profile,pet id tag qr code,pet ID QR code tag,partial,IN,pet_identification,P2,,prospecting,India dog/pet blog
+petbacker.com,pet_platform,,,/lost-and-found-qr-tag,lost and found qr tag,lost pet QR tag,partial,IN+GLOBAL,lost_pet_recovery,P3,,prospecting,pet services platform
+momjunction.com,parenting_media,,,/family-safety-profile,family safety profile,child safety profile tags,partial,IN+GLOBAL,child_safety,P2,,prospecting,India parenting media
+parentcircle.com,parenting_blog,,,/emergency-qr-code,emergency qr code,emergency QR code for kids,partial,IN,child_emergency,P3,,prospecting,India parenting blog
+sheroes.com,women_platform,,,/family-safety-profile,family safety profile,family safety digital profile,partial,IN,family_safety_tools,P3,,prospecting,India women's platform
+traveltriangle.com,travel_media,,,/travel-profile,travel qr code,travel safety QR code,partial,IN,travel_safety,P2,,prospecting,India travel planning
+thrillophilia.com,travel_platform,,,/travel-profile,travel qr code,digital travel profile,partial,IN,travel_identity,P3,,prospecting,India adventure travel
+tripoto.com,travel_blog,,,/qr-luggage-tag,qr luggage tag,smart luggage tag QR,partial,IN,luggage_safety,P3,,prospecting,India travel community
+autocarindia.com,automotive_media,,,/vehicle-profile,vehicle qr code,vehicle QR code profile,partial,IN,vehicle_safety,P2,,prospecting,India automotive publication
+cardekho.com,automotive_platform,,,/vehicle-qr-code-sticker,vehicle qr code sticker,car QR code sticker,partial,IN,parking_contact,P3,,prospecting,India car platform
+bikedekho.com,automotive_platform,,,/vehicle-qr-code-sticker,vehicle qr code sticker,bike QR code tag,partial,IN,two_wheeler_safety,P3,,prospecting,India bike platform
+saasworthy.com,saas_directory,,,/business-identity,business identity management platform,ProfileTap,brand,IN+GLOBAL,product_listing,P2,,prospecting,SaaS comparison directory
+g2.com,review_platform,,,/,smart identity platform,ProfileTap,brand,IN+GLOBAL,product_review,P1,,prospecting,software review platform
+capterra.com,review_platform,,,/,smart identity platform,ProfileTap,brand,IN+GLOBAL,product_listing,P2,,prospecting,software discovery platform
+producthunt.com,tech_community,,,/,smart identity platform,ProfileTap,brand,IN+GLOBAL,product_launch,P1,,prospecting,product launch platform

@@ -142,6 +142,29 @@ Describe what this page must achieve in business terms. Examples:
 - Secondary CTA:
 - Lead capture angle:
 
+## Schema Markup
+
+- Required schema types: (based on page type — see `sop/schema-markup-implementation.md`)
+- BreadcrumbList: Yes / No
+- FAQPage: Yes / No (if FAQ section present)
+- Article: Yes / No (blog posts only)
+- HowTo: Yes / No (step-by-step blog posts only)
+- Notes:
+
+## Image SEO
+
+- Hero image alt text:
+- Key images needed: (list with descriptions)
+- OG image: (describe the 1200x630 social share image)
+- Image naming: follow `profiletap-{page-slug}-{description}.webp` convention
+
+## Core Web Vitals Target
+
+- LCP: < 2.5s
+- INP: < 200ms
+- CLS: < 0.1
+- Notes: (any page-specific performance considerations)
+
 ## Notes For Writer
 
 - avoid generic NFC-only positioning unless the keyword is specifically NFC-led

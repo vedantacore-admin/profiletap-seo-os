@@ -182,6 +182,8 @@ Working rule:
 | --- | --- |
 | `domain` | Target publication or website |
 | `site_type` | Publication category |
+| `da_score` | Domain authority score |
+| `monthly_traffic` | Estimated monthly traffic |
 | `target_page_slug` | Page the link should support |
 | `target_keyword` | Primary keyword the link should strengthen |
 | `suggested_anchor` | Recommended anchor text |
@@ -208,6 +210,38 @@ Working rule:
 | `outcome` | Result summary |
 | `live_url` | Published link URL when won |
 | `notes` | Internal notes |
+
+### `rank_tracker.csv`
+
+| Column | Meaning |
+| --- | --- |
+| `keyword` | Tracked keyword |
+| `page_slug` | Page owning the keyword |
+| `hub` | Hub the keyword belongs to |
+| `priority` | Keyword priority (P1/P2/P3) |
+| `position` | Current SERP position |
+| `previous_position` | Previous SERP position |
+| `change` | Position change (+/-) |
+| `serp_features` | SERP features present (featured snippet, PAA, etc.) |
+| `date` | Date of measurement |
+| `notes` | Observations |
+
+### `monthly_metrics.csv`
+
+| Column | Meaning |
+| --- | --- |
+| `month` | Reporting month (YYYY-MM) |
+| `organic_traffic` | Total organic sessions |
+| `organic_users` | Total organic users |
+| `conversions_create_profile` | Profile creation conversions from organic |
+| `top_keyword` | Best performing keyword |
+| `top_page` | Best performing page |
+| `backlinks_acquired` | New backlinks acquired |
+| `new_referring_domains` | New referring domains |
+| `indexed_pages` | Total indexed pages |
+| `avg_position_p1` | Average position for P1 keywords |
+| `cwv_pass_rate` | Core Web Vitals pass rate |
+| `notes` | Monthly observations |
 
 ## Launch Architecture
 
@@ -400,10 +434,10 @@ When reviewing keywords in Ubersuggest, update these fields in [raw_keyword_bank
 
 The repository is initialized with a launch-first SEO system:
 
-- 22 mapped sample keywords
-- 23 planned pages
-- 23 content items in the calendar
-- 12 backlink prospects
+- 46 mapped keyword families in execution_seo_master.csv
+- 46 planned pages in page_master.csv
+- 40 content items in the calendar
+- 35 backlink prospects
 
 Current mapped sample keyword groups:
 
@@ -439,13 +473,58 @@ Current mapped sample keyword groups:
 
 ## Document Index
 
-- `README.md`
-  Operating summary and file contracts.
-- `docs/02-seo-strategy.md`
-  Market strategy, launch architecture, and execution priorities.
-- `sop/page-mapping-process.md`
-  Mapping logic and anti-cannibalization rules.
-- `briefs/templates/page-brief-template.md`
-  Standard brief template for pages and content.
-- `prompts/content-brief-prompt.md`
-  Prompt for generating briefs from the structured datasets.
+### Strategy Docs
+
+- `docs/02-seo-strategy.md` — Market strategy, launch architecture, and execution priorities
+- `docs/03-technical-seo.md` — Schema markup, meta tags, Core Web Vitals, sitemaps, canonicals
+- `docs/04-internal-linking-strategy.md` — Cross-linking matrix, anchor text rules, link equity flow
+- `docs/05-measurement-plan.md` — KPIs, tools, reporting cadence, alert thresholds
+- `docs/06-competitor-serp-analysis.md` — SERP analysis workflow, competitor monitoring
+- `docs/07-content-distribution.md` — Social, community, email distribution channels
+- `docs/08-image-seo-guidelines.md` — Alt text, file naming, OG/Twitter Card templates
+
+### SOPs
+
+- `sop/page-mapping-process.md` — Anti-cannibalization, keyword-to-page mapping
+- `sop/content-review-process.md` — Brief-to-publish QA workflow
+- `sop/keyword-refresh-cycle.md` — Monthly/quarterly keyword refresh
+- `sop/backlink-audit-process.md` — Prospect qualification, outreach templates
+- `sop/content-refresh-triggers.md` — When and how to refresh published pages
+- `sop/schema-markup-implementation.md` — JSON-LD templates by page type
+
+### Prompts & Templates
+
+- `prompts/content-brief-prompt.md` — Brief generation rules (12-section output)
+- `prompts/competitor-analysis-prompt.md` — SERP competitor analysis
+- `prompts/blog-cluster-expansion-prompt.md` — Blog cluster plans per hub
+- `prompts/schema-markup-prompt.md` — JSON-LD generation by page type
+- `briefs/templates/page-brief-template.md` — Standard brief template (12 sections)
+
+### Scripts
+
+- `scripts/rebuild_keyword_system.py` — Rebuild keyword CSVs from source exports
+- `scripts/validate_system.py` — Cross-file integrity checks (run with `python3 scripts/validate_system.py`)
+
+### Skills (Claude Code Slash Commands)
+
+**General SEO** (reusable across projects — `skills/general-seo/`):
+- `/keyword-research` — Keyword research methodology
+- `/content-optimization` — On-page SEO optimization
+- `/technical-seo-audit` — Technical SEO audit
+- `/backlink-strategy` — Link building strategy
+- `/serp-analysis` — SERP analysis
+- `/content-cluster-planning` — Topic cluster design
+- `/local-seo` — Local SEO strategy
+- `/rank-tracking-analytics` — Measurement and analytics
+- `/content-refresh-strategy` — Content refresh methodology
+- `/programmatic-seo` — Programmatic SEO
+- `/blog-writer` — Full blog draft generation from briefs
+
+**ProfileTap-Specific** (`skills/profiletap/`):
+- `/profiletap-context` — Product, features, market, competitors
+- `/profiletap-architecture` — Page architecture and structure
+- `/profiletap-keywords` — Keyword system management
+- `/profiletap-brief` — Content brief generation
+- `/profiletap-backlinks` — Backlink operations
+- `/profiletap-measurement` — Performance measurement
+- `/profiletap-blog-writer` — Full blog drafts with ProfileTap voice and context

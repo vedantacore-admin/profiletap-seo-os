@@ -41,7 +41,10 @@ Return the brief with these sections:
 6. Recommended Structure
 7. Internal Linking
 8. CTA
-9. Notes For Writer
+9. Schema Markup (required types + template from `sop/schema-markup-implementation.md`)
+10. Image SEO (alt text for hero image, key images needed, OG image description)
+11. Core Web Vitals Target
+12. Notes For Writer
 
 ### Metadata fields to include
 
