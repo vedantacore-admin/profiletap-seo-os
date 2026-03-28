@@ -10,6 +10,7 @@ Usage:
 """
 
 import csv
+import json
 import os
 import sys
 
@@ -18,7 +19,8 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__
 CANONICAL_HUBS = {"platform", "business", "creator", "family_safety", "pet", "travel", "vehicle"}
 
 CANONICAL_PAGE_TYPES = {
-    "homepage", "solution_hub", "category", "use_case", "comparison", "blog", "product_family"
+    "homepage", "solution_hub", "category", "use_case", "comparison", "blog",
+    "product_family", "product_index"
 }
 
 CANONICAL_FEATURES = {
@@ -233,6 +235,14 @@ def validate_content_files_alignment(page_slugs, content_calendar_slugs):
         name = os.path.splitext(os.path.basename(f))[0]
         file_slugs.add(f"/blog/{name}")
 
+    # Products
+    for f in glob_mod.glob(os.path.join(content_dir, "products", "*.md")):
+        name = os.path.splitext(os.path.basename(f))[0]
+        if name == "products-index":
+            file_slugs.add("/products")
+        else:
+            file_slugs.add(f"/products/{name}")
+
     # Check: content files with no page_master row
     orphaned = file_slugs - page_slugs
     for slug in sorted(orphaned):
@@ -249,6 +259,56 @@ def validate_content_files_alignment(page_slugs, content_calendar_slugs):
     # Check: content files exist but status is still 'planned'
     # We report this as a warning
     return errors, file_slugs
+
+
+def validate_product_catalog(page_slugs):
+    """Validate data/products/product_catalog.json."""
+    errors = []
+    filepath = os.path.join(DATA_DIR, "products", "product_catalog.json")
+
+    if not os.path.exists(filepath):
+        errors.append("  WARNING: product_catalog.json not found")
+        return errors
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        try:
+            catalog = json.load(f)
+        except json.JSONDecodeError as e:
+            errors.append(f"  Invalid JSON: {e}")
+            return errors
+
+    products = catalog.get("products", [])
+    product_ids = []
+
+    for i, p in enumerate(products):
+        pid = p.get("product_id", "")
+        slug = p.get("page_slug", "")
+
+        # Duplicate product_id
+        if pid in product_ids:
+            errors.append(f"  Product {i+1}: Duplicate product_id '{pid}'")
+        product_ids.append(pid)
+
+        # page_slug exists in page_master
+        if slug and slug not in page_slugs:
+            errors.append(f"  Product '{pid}': page_slug '{slug}' not in page_master.csv")
+
+        # Hub validation
+        for hub in p.get("hubs", []):
+            if hub not in CANONICAL_HUBS:
+                errors.append(f"  Product '{pid}': Invalid hub '{hub}'")
+
+        # Feature set validation
+        for feat in p.get("feature_set", []):
+            if feat not in CANONICAL_FEATURES:
+                errors.append(f"  Product '{pid}': Invalid feature '{feat}'")
+
+        # relevant_pages exist in page_master
+        for rp in p.get("relevant_pages", []):
+            if rp not in page_slugs:
+                errors.append(f"  Product '{pid}': relevant_page '{rp}' not in page_master.csv")
+
+    return errors
 
 
 def main():
@@ -314,9 +374,19 @@ def main():
     else:
         print("  PASS")
 
+    # Validate product catalog
+    print(f"\n[6] product_catalog.json")
+    product_errors = validate_product_catalog(page_slugs)
+    if product_errors:
+        for e in product_errors:
+            print(e)
+        total_errors += len(product_errors)
+    else:
+        print("  PASS")
+
     # Validate content file alignment
     content_calendar_slugs = {row.get("page_slug", "").strip() for row in content_rows if row.get("page_slug", "").strip()}
-    print(f"\n[6] Content files ↔ CSV alignment")
+    print(f"\n[7] Content files ↔ CSV alignment")
     align_errors, file_slugs = validate_content_files_alignment(page_slugs, content_calendar_slugs)
     if align_errors:
         for e in align_errors:

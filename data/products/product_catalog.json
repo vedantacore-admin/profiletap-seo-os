@@ -1,0 +1,374 @@
+{
+  "$schema_version": "1.0",
+  "last_updated": "2026-03-28",
+  "products": [
+    {
+      "product_id": "metal-business-cards",
+      "product_family": "Metal Business Cards",
+      "product_name": "ProfileTap Metal Business Card",
+      "description": "Premium NFC-enabled metal business cards with tap-to-share and QR code. Available in black, silver, and gold finishes.",
+      "product_type": "physical",
+      "hubs": ["business"],
+      "technology": ["nfc", "qr"],
+      "feature_set": ["digital_profiles", "nfc_sharing", "qr_sharing", "analytics"],
+      "variants": [
+        {"variant_id": "metal-black", "variant_name": "Black Metal Card", "variant_type": "color", "variant_value": "black"},
+        {"variant_id": "metal-silver", "variant_name": "Silver Metal Card", "variant_type": "color", "variant_value": "silver"},
+        {"variant_id": "metal-gold", "variant_name": "Gold Metal Card", "variant_type": "color", "variant_value": "gold"}
+      ],
+      "pricing_tier": "premium",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/metal-business-cards",
+      "seo": {
+        "primary_keyword": "metal business card india",
+        "secondary_keywords": "NFC metal card|metal NFC business card|premium business card NFC|metal visiting card",
+        "meta_description": "Premium metal business cards with NFC and QR sharing. Available in black, silver, and gold. Tap to share your digital profile instantly.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/business-identity",
+        "/digital-business-card-india",
+        "/nfc-business-card-india",
+        "/digital-business-card-for-doctors",
+        "/digital-business-card-for-real-estate-agents",
+        "/digital-business-card-for-freelancers"
+      ],
+      "relevant_blogs": [
+        "/blog/nfc-business-card-vs-qr-code",
+        "/blog/paper-vs-digital-business-card",
+        "/blog/how-to-use-nfc-business-card"
+      ],
+      "status": "active",
+      "notes": "3 color variants on single family page; flagship physical product"
+    },
+    {
+      "product_id": "business-standees",
+      "product_family": "Business Standees",
+      "product_name": "ProfileTap Business Standee",
+      "description": "NFC and QR-enabled business standees for reception desks, countertops, and event tables. Multiple design options.",
+      "product_type": "physical",
+      "hubs": ["business"],
+      "technology": ["nfc", "qr"],
+      "feature_set": ["digital_profiles", "nfc_sharing", "qr_sharing", "analytics", "ai_review_assist"],
+      "variants": [
+        {"variant_id": "standee-classic", "variant_name": "Classic Standee", "variant_type": "design", "variant_value": "classic"},
+        {"variant_id": "standee-premium", "variant_name": "Premium Standee", "variant_type": "design", "variant_value": "premium"},
+        {"variant_id": "standee-minimal", "variant_name": "Minimal Standee", "variant_type": "design", "variant_value": "minimal"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/business-standees",
+      "seo": {
+        "primary_keyword": "NFC business standee",
+        "secondary_keywords": "business standee QR code|NFC standee india|reception desk NFC standee|review standee",
+        "meta_description": "NFC and QR business standees for your reception desk or event table. Customers tap or scan to view your profile and leave reviews.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/business-identity",
+        "/digital-business-card-india",
+        "/qr-business-card",
+        "/business-ai"
+      ],
+      "relevant_blogs": [
+        "/blog/how-to-create-digital-business-card",
+        "/blog/ai-business-review-management-guide"
+      ],
+      "status": "active",
+      "notes": "5-10 design options; strong review collection angle for doctors, restaurants, salons"
+    },
+    {
+      "product_id": "pvc-business-cards",
+      "product_family": "PVC Business Cards",
+      "product_name": "ProfileTap PVC Business Card",
+      "description": "Durable NFC-enabled PVC business cards in white and black. Affordable alternative to metal cards with the same smart sharing features.",
+      "product_type": "physical",
+      "hubs": ["business"],
+      "technology": ["nfc", "qr"],
+      "feature_set": ["digital_profiles", "nfc_sharing", "qr_sharing", "analytics"],
+      "variants": [
+        {"variant_id": "pvc-white", "variant_name": "White PVC Card", "variant_type": "color", "variant_value": "white"},
+        {"variant_id": "pvc-black", "variant_name": "Black PVC Card", "variant_type": "color", "variant_value": "black"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/pvc-business-cards",
+      "seo": {
+        "primary_keyword": "PVC business card NFC",
+        "secondary_keywords": "PVC NFC card|white PVC business card|black PVC card NFC|affordable NFC business card",
+        "meta_description": "Durable PVC business cards with NFC and QR sharing. Available in white and black. Affordable smart sharing for Indian professionals.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/business-identity",
+        "/digital-business-card-india",
+        "/nfc-business-card-india",
+        "/digital-business-card-for-freelancers"
+      ],
+      "relevant_blogs": [
+        "/blog/paper-vs-digital-business-card",
+        "/blog/how-to-create-digital-business-card"
+      ],
+      "status": "active",
+      "notes": "White + black as color variants on single page; budget-friendly entry point"
+    },
+    {
+      "product_id": "keychains",
+      "product_family": "Keychains",
+      "product_name": "ProfileTap NFC Keychain",
+      "description": "Compact NFC keychains for instant profile sharing on the go. Attach to your keys, bag, or lanyard.",
+      "product_type": "physical",
+      "hubs": ["business", "family_safety"],
+      "technology": ["nfc", "qr"],
+      "feature_set": ["digital_profiles", "nfc_sharing", "qr_sharing", "analytics"],
+      "variants": [
+        {"variant_id": "keychain-round", "variant_name": "Round Keychain", "variant_type": "design", "variant_value": "round"},
+        {"variant_id": "keychain-tag", "variant_name": "Tag Keychain", "variant_type": "design", "variant_value": "tag"},
+        {"variant_id": "keychain-disc", "variant_name": "Disc Keychain", "variant_type": "design", "variant_value": "disc"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/keychains",
+      "seo": {
+        "primary_keyword": "NFC keychain",
+        "secondary_keywords": "NFC keychain india|digital keychain|smart keychain NFC|profile sharing keychain",
+        "meta_description": "NFC keychains for instant profile sharing. Tap to share your business card, emergency contacts, or safety profile. Multiple designs available.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/business-identity",
+        "/digital-business-card-india",
+        "/family-safety-profile"
+      ],
+      "relevant_blogs": [
+        "/blog/how-to-use-nfc-business-card",
+        "/blog/emergency-contact-card-for-kids"
+      ],
+      "status": "active",
+      "notes": "2-3 design options; dual-hub product (business networking + family safety)"
+    },
+    {
+      "product_id": "pet-collar-tags",
+      "product_family": "Pet Collar Tags",
+      "product_name": "ProfileTap Pet QR Tag",
+      "description": "Durable QR-enabled pet collar tags for instant lost-pet recovery. Finders scan the tag to see your pet's profile and contact you.",
+      "product_type": "physical",
+      "hubs": ["pet"],
+      "technology": ["qr"],
+      "feature_set": ["digital_profiles", "qr_sharing", "call_masking"],
+      "variants": [
+        {"variant_id": "pet-tag-bone", "variant_name": "Bone Shape Tag", "variant_type": "design", "variant_value": "bone"},
+        {"variant_id": "pet-tag-round", "variant_name": "Round Tag", "variant_type": "design", "variant_value": "round"},
+        {"variant_id": "pet-tag-paw", "variant_name": "Paw Shape Tag", "variant_type": "design", "variant_value": "paw"},
+        {"variant_id": "pet-tag-custom", "variant_name": "Custom Engraved Tag", "variant_type": "design", "variant_value": "custom"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/pet-collar-tags",
+      "seo": {
+        "primary_keyword": "pet collar tag QR code",
+        "secondary_keywords": "smart pet tag india|QR pet tag|dog tag QR code|pet ID tag QR|lost pet tag",
+        "meta_description": "QR-enabled pet collar tags for instant lost-pet recovery. Finders scan to see your pet's profile and contact you privately. Multiple designs.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/pet-id-profile"
+      ],
+      "relevant_blogs": [
+        "/blog/how-pet-qr-tags-work",
+        "/blog/best-pet-id-solutions-india",
+        "/blog/lost-pet-prevention-tips-qr",
+        "/blog/how-to-make-dog-id-tag-qr"
+      ],
+      "status": "active",
+      "notes": "5-10 design options; primary physical product for pet hub"
+    },
+    {
+      "product_id": "review-cards",
+      "product_family": "Review Cards",
+      "product_name": "ProfileTap Google Review Card",
+      "description": "NFC and QR cards that direct customers straight to your Google review page. Collect more reviews with a single tap or scan.",
+      "product_type": "physical",
+      "hubs": ["business"],
+      "technology": ["nfc", "qr"],
+      "feature_set": ["digital_profiles", "nfc_sharing", "qr_sharing", "ai_review_assist", "analytics"],
+      "variants": [
+        {"variant_id": "review-card-standard", "variant_name": "Standard Review Card", "variant_type": "design", "variant_value": "standard"},
+        {"variant_id": "review-card-premium", "variant_name": "Premium Review Card", "variant_type": "design", "variant_value": "premium"},
+        {"variant_id": "review-card-standee", "variant_name": "Review Standee Card", "variant_type": "design", "variant_value": "standee"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/review-cards",
+      "seo": {
+        "primary_keyword": "google review card NFC",
+        "secondary_keywords": "google review NFC card|review card for business|NFC review card india|tap to review card",
+        "meta_description": "NFC and QR review cards that direct customers to your Google review page. Collect more reviews with a single tap. AI-assisted review prompts.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/business-identity",
+        "/business-ai",
+        "/digital-business-card-for-doctors"
+      ],
+      "relevant_blogs": [
+        "/blog/ai-business-review-management-guide",
+        "/blog/best-digital-business-card-for-doctors-india"
+      ],
+      "status": "active",
+      "notes": "Multiple design options; strong tie to AI review assist and Business AI features"
+    },
+    {
+      "product_id": "car-stickers",
+      "product_family": "Car Stickers",
+      "product_name": "ProfileTap Vehicle QR Sticker",
+      "description": "Weatherproof QR stickers for cars and bikes. Display your contact profile for parking issues and emergencies without exposing your phone number.",
+      "product_type": "physical",
+      "hubs": ["vehicle"],
+      "technology": ["qr"],
+      "feature_set": ["digital_profiles", "qr_sharing", "call_masking", "whatsapp_masking"],
+      "variants": [
+        {"variant_id": "car-sticker-dashboard", "variant_name": "Dashboard Sticker", "variant_type": "placement", "variant_value": "dashboard"},
+        {"variant_id": "car-sticker-rear", "variant_name": "Rear Window Sticker", "variant_type": "placement", "variant_value": "rear"},
+        {"variant_id": "car-sticker-bike", "variant_name": "Bike Sticker", "variant_type": "placement", "variant_value": "bike"},
+        {"variant_id": "car-sticker-helmet", "variant_name": "Helmet Sticker", "variant_type": "placement", "variant_value": "helmet"}
+      ],
+      "pricing_tier": "budget",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/car-stickers",
+      "seo": {
+        "primary_keyword": "car QR code sticker india",
+        "secondary_keywords": "vehicle QR sticker|parking contact sticker|bike QR sticker|car parking sticker QR",
+        "meta_description": "Weatherproof QR stickers for cars and bikes. Others scan to contact you for parking issues without seeing your number. Call masking included.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/vehicle-profile"
+      ],
+      "relevant_blogs": [
+        "/blog/parking-contact-qr-code-guide",
+        "/blog/vehicle-emergency-sticker-guide",
+        "/blog/bike-qr-code-tag-india"
+      ],
+      "status": "active",
+      "notes": "Multiple placement options; call masking is key selling point for vehicle hub"
+    },
+    {
+      "product_id": "luggage-tags",
+      "product_family": "Luggage Tags",
+      "product_name": "ProfileTap Smart Luggage Tag",
+      "description": "QR-enabled luggage tags for travel safety. Finders scan to see your contact profile. Available in fixed and customisable designs.",
+      "product_type": "physical",
+      "hubs": ["travel"],
+      "technology": ["qr"],
+      "feature_set": ["digital_profiles", "qr_sharing", "call_masking"],
+      "variants": [
+        {"variant_id": "luggage-tag-fixed", "variant_name": "Fixed Design Tag", "variant_type": "customisation", "variant_value": "fixed"},
+        {"variant_id": "luggage-tag-custom", "variant_name": "Custom Design Tag", "variant_type": "customisation", "variant_value": "custom"},
+        {"variant_id": "luggage-tag-premium", "variant_name": "Premium Leather Tag", "variant_type": "material", "variant_value": "leather"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/luggage-tags",
+      "seo": {
+        "primary_keyword": "smart luggage tag QR",
+        "secondary_keywords": "QR luggage tag india|smart luggage tag|travel luggage tag QR|custom luggage tag",
+        "meta_description": "Smart QR luggage tags for travel safety. Finders scan to contact you privately. Fixed and customisable designs with call masking.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/travel-profile"
+      ],
+      "relevant_blogs": [
+        "/blog/smart-luggage-tag-guide",
+        "/blog/travel-safety-tips-qr-codes"
+      ],
+      "status": "active",
+      "notes": "Fixed + customised options; intent separation from /qr-luggage-tag (solution page)"
+    },
+    {
+      "product_id": "family-safety-tags",
+      "product_family": "Family Safety Tags",
+      "product_name": "ProfileTap Family Safety Tag",
+      "description": "QR-enabled keychains and tags for children and elderly family members. Emergency contacts, medical info, and call masking for privacy.",
+      "product_type": "physical",
+      "hubs": ["family_safety"],
+      "technology": ["qr"],
+      "feature_set": ["digital_profiles", "qr_sharing", "call_masking", "whatsapp_masking"],
+      "variants": [
+        {"variant_id": "safety-keychain", "variant_name": "Safety Keychain", "variant_type": "form_factor", "variant_value": "keychain"},
+        {"variant_id": "safety-wristband", "variant_name": "Safety Wristband", "variant_type": "form_factor", "variant_value": "wristband"},
+        {"variant_id": "safety-bag-tag", "variant_name": "School Bag Tag", "variant_type": "form_factor", "variant_value": "bag_tag"},
+        {"variant_id": "safety-clip", "variant_name": "Belt Clip Tag", "variant_type": "form_factor", "variant_value": "clip"}
+      ],
+      "pricing_tier": "standard",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/family-safety-tags",
+      "seo": {
+        "primary_keyword": "family safety tag QR",
+        "secondary_keywords": "child safety tag QR|emergency QR keychain|kids safety tag india|elderly safety tag QR",
+        "meta_description": "QR safety tags for children and elderly. Emergency contacts and medical info accessible with a scan. Call masking keeps your number private.",
+        "search_intent": "transactional",
+        "target_market": "IN"
+      },
+      "relevant_pages": [
+        "/family-safety-profile"
+      ],
+      "relevant_blogs": [
+        "/blog/emergency-contact-card-for-kids",
+        "/blog/child-safety-tags-guide-india",
+        "/blog/medical-emergency-qr-code-guide"
+      ],
+      "status": "active",
+      "notes": "Keychains + QR variants; intent separation from /emergency-qr-code (solution page)"
+    },
+    {
+      "product_id": "digital-profiles",
+      "product_family": "Digital Profiles",
+      "product_name": "ProfileTap Digital Profile",
+      "description": "Create your digital identity profile online. Free tier for basic profiles, paid tier for advanced features including analytics, AI review tools, and masking.",
+      "product_type": "digital",
+      "hubs": ["platform", "business", "creator", "family_safety", "pet", "travel", "vehicle"],
+      "technology": ["qr"],
+      "feature_set": ["digital_profiles", "qr_sharing", "analytics", "theme_library"],
+      "variants": [
+        {"variant_id": "digital-free", "variant_name": "Free Digital Profile", "variant_type": "plan", "variant_value": "free"},
+        {"variant_id": "digital-paid", "variant_name": "Pro Digital Profile", "variant_type": "plan", "variant_value": "paid"}
+      ],
+      "pricing_tier": "freemium",
+      "pricing_visibility": "on_page",
+      "page_slug": "/products/digital-profiles",
+      "seo": {
+        "primary_keyword": "digital profile free",
+        "secondary_keywords": "free digital business profile|digital visiting card online|create digital profile free|digital identity profile",
+        "meta_description": "Create your digital profile free. Share via QR code, add to your NFC card, or use as your link-in-bio. Upgrade for analytics, AI tools, and masking.",
+        "search_intent": "transactional",
+        "target_market": "IN+GLOBAL"
+      },
+      "relevant_pages": [
+        "/",
+        "/business-identity",
+        "/creator-identity",
+        "/family-safety-profile",
+        "/pet-id-profile",
+        "/travel-profile",
+        "/vehicle-profile"
+      ],
+      "relevant_blogs": [
+        "/blog/how-to-create-digital-business-card",
+        "/blog/how-to-build-personal-brand-online",
+        "/blog/best-link-in-bio-tools-india"
+      ],
+      "status": "active",
+      "notes": "Free + paid tiers; distinct from future /pricing page (this targets discovery intent, pricing targets plan comparison)"
+    }
+  ]
+}

@@ -16,6 +16,7 @@ data/
   backlinks/outreach_tracker.csv      # Outreach execution status
   tracking/rank_tracker.csv           # Rank tracking data
   tracking/monthly_metrics.csv        # Monthly metrics rollup
+  products/product_catalog.json       # Product catalog with variants, hub mapping, page mapping
 
 docs/
   02-seo-strategy.md                  # Market strategy, launch architecture, execution phases
@@ -67,6 +68,8 @@ skills/
 
 **outreach_tracker.csv**: domain, target_page_slug, contact_name, contact_email, status, first_contact_date, last_contact_date, next_follow_up_date, outcome, live_url, notes
 
+**product_catalog.json**: product_id, product_family, product_name, description, product_type, hubs[], technology[], feature_set[], variants[], pricing_tier, pricing_visibility, page_slug, seo{primary_keyword, secondary_keywords, meta_description, search_intent, target_market}, relevant_pages[], relevant_blogs[], status, notes
+
 ## Operating Rules
 
 1. **One keyword intent maps to one page only** — no cannibalization
@@ -74,7 +77,7 @@ skills/
 3. **India-first transactional demand prioritized** before global expansion
 4. **Comparisons, use cases, and blogs support commercial pages** — never cannibalize
 5. **Features embedded into pages via feature_set** — no standalone feature pages unless keyword data proves distinct intent
-6. **Product catalog pages documented separately** — not added until validated
+6. **Product catalog lives in `data/products/product_catalog.json`** — product family pages own buying intent, solution pages own use-case intent
 
 ## Canonical Features (13 tokens)
 
@@ -126,6 +129,15 @@ skills/
 3. Generate the full draft: `/profiletap-blog-writer` with the `page_slug`
 4. Review, edit, and publish
 5. Update `content_calendar.csv`: `status` → `published`, `publish_date` → today
+
+### Add a new product family
+1. Add product entry to `data/products/product_catalog.json`
+2. Add page row to `page_master.csv` with `page_type=product_family`, `page_group=product_catalog`
+3. Add keyword family row to `execution_seo_master.csv`
+4. Add content task to `content_calendar.csv`
+5. Add product keywords to `raw_keyword_bank.csv` with `canonical_page_slug` pointing to the product page
+6. Verify intent separation: product page owns buying intent, solution page owns use-case intent
+7. Run `python scripts/validate_system.py` to check integrity
 
 ### Check system consistency
 Run `python scripts/validate_system.py` to verify cross-file integrity.
