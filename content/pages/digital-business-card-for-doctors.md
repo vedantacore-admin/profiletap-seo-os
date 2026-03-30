@@ -10,6 +10,34 @@ funnel_stage: "BOFU"
 parent: "/business-identity"
 schema: "WebPage, FAQPage, BreadcrumbList"
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /digital-business-card-for-doctors
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ WebPage          — name, description, url
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Business Identity > Digital Business Card for Doctors
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/digital-business-card-for-doctors">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # Digital Business Card for Doctors: Share Your Practice Details, Collect Reviews, and Protect Your Privacy
 

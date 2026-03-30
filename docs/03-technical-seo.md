@@ -249,6 +249,74 @@ Sitemap: https://profiletap.com/sitemap.xml
 
 ---
 
+## 6b. AI Crawler & Generative Search Visibility
+
+### Why It Matters
+
+Google AI Overviews, Perplexity, ChatGPT Browse, and Claude extract structured content to surface direct answers. FAQPage schema is a primary extraction signal. Without explicit `Allow` directives, AI crawlers may be blocked by default robots.txt configurations, silently removing ProfileTap from AI-generated answers.
+
+### robots.txt — Add AI Crawler Allowances
+
+Extend the robots.txt above with explicit allow rules for all major AI crawlers. Place these **after** the main `User-agent: *` block:
+
+```
+# AI crawlers — required for Google AI Overviews and LLM visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+```
+
+### Schema for AI Visibility
+
+| Schema Type | AI Impact |
+|---|---|
+| `FAQPage` | Primary signal for Google AI Overviews and Perplexity answer extraction |
+| `Article` with `datePublished` | Freshness signal — AI models prefer recently-dated content |
+| `Organization` with `areaServed` | Entity disambiguation for India-market queries |
+| `Speakable` | Marks content suitable for voice AI and audio extraction |
+
+**FAQPage answer rules for AI extraction:**
+- Answer text in schema `≤ 300 characters` (AI extraction favors concise, self-contained answers)
+- No "see above" or "as mentioned" references — answers must stand alone
+- Mirror People Also Ask phrasing for question text
+
+**Additional fields for India-market AI disambiguation (add to Organization on homepage):**
+```json
+"areaServed": { "@type": "Country", "name": "India" },
+"inLanguage": "en-IN"
+```
+
+**Add to Article schema on all blog posts:**
+```json
+"inLanguage": "en-IN"
+```
+
+### Developer Validation Headers
+
+All 56 content files have a `<!-- DEVELOPER VALIDATION -->` block immediately after their frontmatter listing required schemas, BreadcrumbList path, validation URLs, and an AI visibility checklist. Regenerate with:
+
+```bash
+python scripts/add_dev_headers.py
+```
+
+Full AI visibility guidance: `sop/schema-markup-implementation.md § 7`
+
+---
+
 ## 7. Core Web Vitals Targets
 
 | Metric | Target | What It Measures |

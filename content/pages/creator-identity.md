@@ -5,6 +5,33 @@ url: "/creator-identity"
 primary_keyword: "personal branding platform india"
 hub: "creator"
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /creator-identity
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Creator Identity
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/creator-identity">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # Personal Branding Platform for Indian Creators — Beyond the Link-in-Bio
 

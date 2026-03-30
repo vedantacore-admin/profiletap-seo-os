@@ -7,6 +7,35 @@ hub: travel
 word_count: approx 1650
 schema: Article, FAQPage, BreadcrumbList
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /blog/travel-safety-tips-qr-codes
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ Article          — headline, description, author, publisher, datePublished, dateModified, image
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+  ☐ (optional) HowTo            — name, description, step[] — only for step-by-step guides
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Travel > Travel Safety Tips QR Codes
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/blog/travel-safety-tips-qr-codes">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # Travel Safety Tips: How QR Codes Keep You Safe on Every Journey
 

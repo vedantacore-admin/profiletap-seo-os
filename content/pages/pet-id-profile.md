@@ -5,6 +5,33 @@ url: "/pet-id-profile"
 primary_keyword: "pet id tag qr code"
 hub: "pet"
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /pet-id-profile
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Pet ID Profile
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/pet-id-profile">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # Pet ID QR Code Tags — The Smartest Way to Keep Your Pet Safe
 

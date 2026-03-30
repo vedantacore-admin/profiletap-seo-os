@@ -7,6 +7,35 @@ hub: business
 word_count: approx 1900
 schema: Article, FAQPage, BreadcrumbList
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /blog/best-digital-business-card-for-doctors-india
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ Article          — headline, description, author, publisher, datePublished, dateModified, image
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+  ☐ (optional) HowTo            — name, description, step[] — only for step-by-step guides
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Business > Best Digital Business Card for Doctors in India
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/blog/best-digital-business-card-for-doctors-india">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # Best Digital Business Card for Doctors in India (2026 Guide)
 

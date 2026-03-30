@@ -8,6 +8,34 @@ hub: "business"
 parent: "/business-identity"
 schema: "WebPage, FAQPage, BreadcrumbList"
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /blinq-alternative
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ WebPage          — name, description, url
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Business Identity > Blinq Alternative
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/blinq-alternative">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # Blinq Alternative for Indian Professionals: Why ProfileTap Is the Better Fit
 

@@ -6,6 +6,35 @@ primary_keyword: "ai business assistant india"
 hub: "business"
 schema: "Article, FAQPage, BreadcrumbList"
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /blog/ai-assistant-indian-business-guide
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ Article          — headline, description, author, publisher, datePublished, dateModified, image
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+  ☐ (optional) HowTo            — name, description, step[] — only for step-by-step guides
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Business Identity > Business AI > AI Business Assistant India Guide
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/blog/ai-assistant-indian-business-guide">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # AI Business Assistant for Indian SMBs: What It Is and How to Use It
 

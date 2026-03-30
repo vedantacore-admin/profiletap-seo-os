@@ -295,3 +295,106 @@ Replace `PARENT_PAGE_TITLE`, `PARENT_SLUG`, `CURRENT_PAGE_TITLE`, `CURRENT_SLUG`
 - When prices change on product pages, update Product schema's `offers.price`
 - Never add schema for content that doesn't exist on the visible page
 - Schema must accurately reflect on-page content (Google penalizes mismatches)
+
+---
+
+## 7. AI Visibility
+
+### Why This Matters
+
+Google AI Overviews, ChatGPT Browse, Perplexity, and other AI models extract structured content to answer queries directly. FAQPage schema is a primary signal for AI-surfaced answers. Blocking AI crawlers in `robots.txt` silently removes ProfileTap from AI-generated responses.
+
+### robots.txt Rules for AI Crawlers
+
+Add the following to `robots.txt` on the live site. Blocking any of these removes ProfileTap content from that AI product's answers:
+
+```
+# Allow all AI crawlers (required for AI Overviews and LLM visibility)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+```
+
+### FAQPage Optimization for AI Overviews
+
+FAQPage schema is how Google AI Overviews and Perplexity pull ProfileTap answers into generated responses. Rules:
+
+- Keep answer text in schema `≤ 300 characters` — AI extraction favors concise, self-contained answers
+- Questions must be natural-language, conversational phrasing (match voice search intent)
+- Answers must be self-contained — no "see above" or "as mentioned earlier" references
+- Use 4–8 Q&A pairs per page; prioritize the most common search queries
+- Schema answers can differ from on-page answers — schema can be shorter summaries
+
+### Speakable Schema (Blogs and Solution Hubs)
+
+Add `speakable` to `Article` or `WebPage` schema when the page has a clear introductory summary paragraph or FAQ answers suited for voice/AI extraction:
+
+```json
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".page-summary", "h1", ".faq-answer"]
+  }
+}
+</script>
+```
+
+Implement the CSS classes `.page-summary` and `.faq-answer` in the frontend for this to activate.
+
+### Additional Structured Data for AI Disambiguation
+
+Add these fields to the existing Organization schema on the homepage:
+
+```json
+{
+  "@type": "Organization",
+  "name": "ProfileTap",
+  "url": "https://profiletap.com",
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "inLanguage": "en-IN"
+}
+```
+
+Add to Article schema on all blog posts:
+
+```json
+{
+  "inLanguage": "en-IN",
+  "about": {
+    "@type": "Thing",
+    "name": "Digital Business Cards"
+  }
+}
+```
+
+These fields help AI models correctly associate ProfileTap content with India-market queries and avoid entity confusion with similar global products.
+
+### Developer Validation Headers
+
+Every content file in `content/pages/`, `content/blogs/`, and `content/products/` has a `<!-- DEVELOPER VALIDATION -->` block immediately after its frontmatter. This block lists required schema types, the BreadcrumbList path, and the AI visibility checklist.
+
+To regenerate or add headers to new files:
+
+```bash
+python scripts/add_dev_headers.py
+```

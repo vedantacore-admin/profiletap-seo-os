@@ -6,6 +6,41 @@ primary_keyword: "ai tools for small business india"
 hub: "business"
 schema: "WebPage, BreadcrumbList, FAQPage"
 ---
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║        DEVELOPER VALIDATION — COMPLETE BEFORE PUBLISHING               ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+PAGE : /business-ai
+
+SCHEMAS REQUIRED (add as <script type="application/ld+json"> in <head>):
+  ☐ WebPage          — name, description, url
+  ☐ BreadcrumbList   — itemListElement[] with position, name, item
+  ☐ (optional) FAQPage          — mainEntity[] — Q&A pairs (see schema comments at bottom of file)
+
+BREADCRUMB:
+  ☐ BreadcrumbList path: Home > Business Identity > Business AI -->
+
+<!-- SCHEMA: FAQPage -->
+<!-- Q1: What is ProfileTap Business AI? | A1: ProfileTap Business AI is a set of AI-powered tools built into your ProfileTap business profile, including AI review management, smart follow-up suggestions, engagement analytics, and automated weekly business reports. -->
+<!-- Q2: Does Business AI cost extra? | A2: Business AI features are included with ProfileTap business profiles. Some advanced features like team intelligence may require a premium plan. -->
+<!-- Q3: How is this different from using ChatGPT for my business? | A3: ChatGPT is general-purpose with no access to your business data. ProfileTap Business AI is connected to your actual profile engagement data and gives specific, actionable recommendations. -->
+<!-- Q4: Do I need technical skills to use Business AI? | A4: No. Business AI works automatically inside your existing ProfileTap profile with nothing to configure. -->
+<!-- Q5: Is my business data safe with AI processing? | A5: ProfileTap processes your data securely, never shares it with third parties, and never uses it to train external models.
+
+VALIDATE RICH RESULTS : https://search.google.com/test/rich-results
+CHECK IN GSC          : Search Console → Enhancements → after indexing
+
+AI VISIBILITY CHECKLIST:
+  ☐ robots.txt: GPTBot, PerplexityBot, Anthropic-AI, Google-Extended NOT blocked
+  ☐ FAQPage schema active → surfaces in Google AI Overviews
+  ☐ Canonical tag: <link rel="canonical" href="https://profiletap.com/business-ai">
+  ☐ Content is factual, entity-rich, and citable by AI models
+  ☐ Answer text in FAQPage schema is ≤ 300 chars (AI extraction friendly)
+
+Full JSON-LD templates → sop/schema-markup-implementation.md
+AI visibility guidance → sop/schema-markup-implementation.md § 7
+-->
 
 # ProfileTap Business AI — Smart AI Tools for Indian Businesses
 
