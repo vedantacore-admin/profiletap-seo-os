@@ -1,7 +1,7 @@
 # ProfileTap Blog Writer — Full Draft Generation
 
 > Claude Code Skill: Generate complete, publish-ready blog drafts for ProfileTap pages.
-> References: `skills/general-seo/blog-writer.md` for structure, this file for ProfileTap-specific voice, features, and domain rules.
+> References: use the `/blog-writer` generic skill (from root `skills/general-seo/blog-writer.md`) for base structure, this file for ProfileTap-specific voice, features, and domain rules.
 
 ---
 

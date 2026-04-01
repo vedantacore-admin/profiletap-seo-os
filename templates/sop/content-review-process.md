@@ -45,7 +45,7 @@ After content is written, before publish:
 - [ ] Content matches the approved brief's structure and goals
 - [ ] Content is original (not copied from competitor pages)
 - [ ] Feature tokens are displayed as human labels (e.g., "QR sharing" not "qr_sharing")
-- [ ] ProfileTap is positioned as "smart identity platform" (not just "NFC card tool")
+- [ ] [PROJECT_NAME] is positioned as "smart identity platform" (not just "NFC card tool")
 - [ ] India-first messaging is present for IN-market pages
 - [ ] Comparison pages include a feature comparison table
 - [ ] FAQ section includes 4-6 questions (matching PAA where possible)

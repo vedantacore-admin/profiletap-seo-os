@@ -1,8 +1,8 @@
-# Image SEO Guidelines — ProfileTap
+# Image SEO Guidelines — [PROJECT_NAME]
 
 ## Purpose
 
-Define image optimization standards for all ProfileTap pages: alt text, file naming, compression, Open Graph/Twitter Cards, and image sitemap rules.
+Define image optimization standards for all [PROJECT_NAME] pages: alt text, file naming, compression, Open Graph/Twitter Cards, and image sitemap rules.
 
 ---
 
@@ -11,19 +11,19 @@ Define image optimization standards for all ProfileTap pages: alt text, file nam
 ### Standard Format
 
 ```
-{Descriptive text of what the image shows} - {feature or context} | ProfileTap
+{Descriptive text of what the image shows} - {feature or context} | [PROJECT_NAME]
 ```
 
 ### Examples by Page Type
 
 | Page Type | Image | Alt Text |
 |-----------|-------|----------|
-| Homepage | Hero showing digital profile | "Smart digital identity profile on mobile device - ProfileTap platform overview \| ProfileTap" |
-| Hub | Business card mockup | "Digital business card with NFC sharing enabled - business identity \| ProfileTap" |
-| Use Case | Doctor using card | "Doctor sharing digital business card with patient via QR code \| ProfileTap" |
-| Comparison | Feature table screenshot | "ProfileTap vs HiHello feature comparison table \| ProfileTap" |
-| Blog | Infographic | "How NFC business cards work - tap to share contact details infographic \| ProfileTap" |
-| Product | Physical card photo | "Metal NFC business card with custom design - ProfileTap physical card \| ProfileTap" |
+| Homepage | Hero showing digital profile | "Smart digital identity profile on mobile device - [PROJECT_NAME] platform overview \| [PROJECT_NAME]" |
+| Hub | Business card mockup | "Digital business card with NFC sharing enabled - business identity \| [PROJECT_NAME]" |
+| Use Case | Doctor using card | "Doctor sharing digital business card with patient via QR code \| [PROJECT_NAME]" |
+| Comparison | Feature table screenshot | "[PROJECT_NAME] vs HiHello feature comparison table \| [PROJECT_NAME]" |
+| Blog | Infographic | "How NFC business cards work - tap to share contact details infographic \| [PROJECT_NAME]" |
+| Product | Physical card photo | "Metal NFC business card with custom design - [PROJECT_NAME] physical card \| [PROJECT_NAME]" |
 
 ### Rules
 
@@ -121,7 +121,7 @@ profiletap-metal-nfc-card-product-photo.webp
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{alt text}">
-<meta property="og:site_name" content="ProfileTap">
+<meta property="og:site_name" content="[PROJECT_NAME]">
 <meta property="og:locale" content="en_IN">
 ```
 
@@ -141,7 +141,7 @@ profiletap-metal-nfc-card-product-photo.webp
 - **Format:** JPEG or PNG (not WebP — some platforms don't support it)
 - **File size:** < 300 KB
 - **Content:** Page title text overlaid on branded background
-- **Template:** Consistent ProfileTap branding (logo, colors, fonts)
+- **Template:** Consistent [PROJECT_NAME] branding (logo, colors, fonts)
 
 ### OG Image Naming
 
@@ -181,10 +181,10 @@ Include images in sitemap when:
 
 ```xml
 <url>
-  <loc>https://profiletap.com/digital-business-card-india</loc>
+  <loc>https://[SITE_URL]/digital-business-card-india</loc>
   <image:image>
-    <image:loc>https://profiletap.com/images/profiletap-digital-business-card-india-hero.webp</image:loc>
-    <image:title>Digital Business Card India - ProfileTap</image:title>
+    <image:loc>https://[SITE_URL]/images/profiletap-digital-business-card-india-hero.webp</image:loc>
+    <image:title>Digital Business Card India - [PROJECT_NAME]</image:title>
     <image:caption>Create and share digital business cards with NFC and QR in India</image:caption>
   </image:image>
 </url>

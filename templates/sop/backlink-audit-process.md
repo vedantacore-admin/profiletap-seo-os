@@ -37,23 +37,23 @@ Use the scoring matrix in `backlink_targets.csv`:
 
 Add qualified prospects to `data/backlinks/backlink_targets.csv` with:
 - `domain`, `site_type`, `da_score`, `monthly_traffic`
-- `target_page_slug` (which ProfileTap page we want the link to)
+- `target_page_slug` (which [PROJECT_NAME] page we want the link to)
 - `target_keyword`, `suggested_anchor`, `anchor_type`
 - `target_market`, `link_angle`, `priority`, `status`
 
 ---
 
-## 2. Outreach Angles (ProfileTap-Specific)
+## 2. Outreach Angles ([PROJECT_NAME]-Specific)
 
 | Angle | Description | Best For | Example Pitch |
 |-------|-------------|----------|--------------|
-| `founder_story` | ProfileTap founding story, India market insight | Startup media (YourStory, Inc42) | "Building the identity layer for India's digital economy" |
+| `founder_story` | [PROJECT_NAME] founding story, India market insight | Startup media (YourStory, Inc42) | "Building the identity layer for India's digital economy" |
 | `data_backed_category` | Digital business card market growth, NFC adoption data | Business media (BusinessWorld) | "India's digital business card market: trends and growth" |
 | `creator_marketing` | Creator economy trends, personal branding tools | Marketing media (Exchange4Media, SocialSamosa) | "How creators are replacing Linktree with identity platforms" |
-| `comparison_roundup` | Alternative/comparison article contribution | Tech blogs, comparison sites | "Include ProfileTap in your digital business card roundup" |
+| `comparison_roundup` | Alternative/comparison article contribution | Tech blogs, comparison sites | "Include [PROJECT_NAME] in your digital business card roundup" |
 | `expert_roundup` | Networking/branding expert quotes | Industry blogs | "Expert quote on professional networking trends in India" |
 | `guest_post` | Original content for relevant publications | Any relevant publication | "I'd like to contribute an article on [topic] for your readers" |
-| `resource_page` | Request inclusion on tools/resource lists | Resource aggregators | "ProfileTap would be a great addition to your digital tools list" |
+| `resource_page` | Request inclusion on tools/resource lists | Resource aggregators | "[PROJECT_NAME] would be a great addition to your digital tools list" |
 | `doctor_networking` | Healthcare professional digital tools | Healthcare media (ExpressHealthcare) | "How doctors are adopting digital business cards in India" |
 | `real_estate_branding` | Real estate agent digital tools | Real estate media (Housing.com) | "Digital identity tools for real estate professionals" |
 

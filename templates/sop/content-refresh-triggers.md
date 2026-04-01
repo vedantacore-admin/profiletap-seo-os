@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Define when and how to trigger content refreshes for published ProfileTap pages, ensuring pages stay competitive and accurate.
+Define when and how to trigger content refreshes for published [PROJECT_NAME] pages, ensuring pages stay competitive and accurate.
 
 ---
 

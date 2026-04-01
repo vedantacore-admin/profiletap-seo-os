@@ -131,7 +131,7 @@ When keyword data needs a full rebuild from source exports:
 python scripts/rebuild_keyword_system.py [path_to_source_csv_or_xlsx]
 ```
 
-- Default source: `~/Downloads/SEO Master Sheet - ProfileTap - SEO Master Sheet_temp.csv`
+- Default source: `~/Downloads/SEO Master Sheet - [PROJECT_NAME] - SEO Master Sheet_temp.csv`
 - Generates fresh `raw_keyword_bank.csv` and `execution_seo_master.csv`
 - **Always review the output before committing** — check for unexpected changes
 - Run `python scripts/validate_system.py` after rebuild to verify integrity

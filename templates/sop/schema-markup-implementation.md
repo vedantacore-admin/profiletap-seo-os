@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Define which JSON-LD schema types to implement on each ProfileTap page type, provide copy-ready templates, and establish testing/monitoring processes.
+Define which JSON-LD schema types to implement on each [PROJECT_NAME] page type, provide copy-ready templates, and establish testing/monitoring processes.
 
 ---
 
@@ -35,9 +35,9 @@ Define which JSON-LD schema types to implement on each ProfileTap page type, pro
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "ProfileTap",
-  "url": "https://profiletap.com",
-  "logo": "https://profiletap.com/images/profiletap-logo.png",
+  "name": "[PROJECT_NAME]",
+  "url": "https://[SITE_URL]",
+  "logo": "https://[SITE_URL]/images/profiletap-logo.png",
   "description": "Smart identity management platform for digital business cards, NFC sharing, QR profiles, and more.",
   "foundingDate": "2024",
   "sameAs": [
@@ -61,11 +61,11 @@ Define which JSON-LD schema types to implement on each ProfileTap page type, pro
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "ProfileTap",
-  "url": "https://profiletap.com",
+  "name": "[PROJECT_NAME]",
+  "url": "https://[SITE_URL]",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://profiletap.com/search?q={search_term_string}",
+    "target": "https://[SITE_URL]/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -86,19 +86,19 @@ Note: Only include SearchAction if the site has a search function. Remove if not
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://profiletap.com"
+      "item": "https://[SITE_URL]"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "PARENT_PAGE_TITLE",
-      "item": "https://profiletap.com/PARENT_SLUG"
+      "item": "https://[SITE_URL]/PARENT_SLUG"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "CURRENT_PAGE_TITLE",
-      "item": "https://profiletap.com/CURRENT_SLUG"
+      "item": "https://[SITE_URL]/CURRENT_SLUG"
     }
   ]
 }
@@ -152,15 +152,15 @@ Replace `PARENT_PAGE_TITLE`, `PARENT_SLUG`, `CURRENT_PAGE_TITLE`, `CURRENT_SLUG`
   "description": "META_DESCRIPTION",
   "author": {
     "@type": "Organization",
-    "name": "ProfileTap",
-    "url": "https://profiletap.com"
+    "name": "[PROJECT_NAME]",
+    "url": "https://[SITE_URL]"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "ProfileTap",
+    "name": "[PROJECT_NAME]",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://profiletap.com/images/profiletap-logo.png"
+      "url": "https://[SITE_URL]/images/profiletap-logo.png"
     }
   },
   "datePublished": "YYYY-MM-DD",
@@ -185,7 +185,7 @@ Replace `PARENT_PAGE_TITLE`, `PARENT_SLUG`, `CURRENT_PAGE_TITLE`, `CURRENT_SLUG`
   "description": "PRODUCT_DESCRIPTION",
   "brand": {
     "@type": "Brand",
-    "name": "ProfileTap"
+    "name": "[PROJECT_NAME]"
   },
   "image": "PRODUCT_IMAGE_URL",
   "offers": {
@@ -302,11 +302,11 @@ Replace `PARENT_PAGE_TITLE`, `PARENT_SLUG`, `CURRENT_PAGE_TITLE`, `CURRENT_SLUG`
 
 ### Why This Matters
 
-Google AI Overviews, ChatGPT Browse, Perplexity, and other AI models extract structured content to answer queries directly. FAQPage schema is a primary signal for AI-surfaced answers. Blocking AI crawlers in `robots.txt` silently removes ProfileTap from AI-generated responses.
+Google AI Overviews, ChatGPT Browse, Perplexity, and other AI models extract structured content to answer queries directly. FAQPage schema is a primary signal for AI-surfaced answers. Blocking AI crawlers in `robots.txt` silently removes [PROJECT_NAME] from AI-generated responses.
 
 ### robots.txt Rules for AI Crawlers
 
-Add the following to `robots.txt` on the live site. Blocking any of these removes ProfileTap content from that AI product's answers:
+Add the following to `robots.txt` on the live site. Blocking any of these removes [PROJECT_NAME] content from that AI product's answers:
 
 ```
 # Allow all AI crawlers (required for AI Overviews and LLM visibility)
@@ -331,7 +331,7 @@ Allow: /
 
 ### FAQPage Optimization for AI Overviews
 
-FAQPage schema is how Google AI Overviews and Perplexity pull ProfileTap answers into generated responses. Rules:
+FAQPage schema is how Google AI Overviews and Perplexity pull [PROJECT_NAME] answers into generated responses. Rules:
 
 - Keep answer text in schema `≤ 300 characters` — AI extraction favors concise, self-contained answers
 - Questions must be natural-language, conversational phrasing (match voice search intent)
@@ -365,8 +365,8 @@ Add these fields to the existing Organization schema on the homepage:
 ```json
 {
   "@type": "Organization",
-  "name": "ProfileTap",
-  "url": "https://profiletap.com",
+  "name": "[PROJECT_NAME]",
+  "url": "https://[SITE_URL]",
   "areaServed": {
     "@type": "Country",
     "name": "India"
@@ -387,7 +387,7 @@ Add to Article schema on all blog posts:
 }
 ```
 
-These fields help AI models correctly associate ProfileTap content with India-market queries and avoid entity confusion with similar global products.
+These fields help AI models correctly associate [PROJECT_NAME] content with India-market queries and avoid entity confusion with similar global products.
 
 ### Developer Validation Headers
 

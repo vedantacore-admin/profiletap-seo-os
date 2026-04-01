@@ -1,8 +1,8 @@
-# Technical SEO Plan — ProfileTap
+# Technical SEO Plan — [PROJECT_NAME]
 
 ## Purpose
 
-Define the technical SEO foundation for all ProfileTap pages: schema markup, meta tag formulas, canonical rules, sitemap structure, Core Web Vitals targets, and multi-market handling.
+Define the technical SEO foundation for all [PROJECT_NAME] pages: schema markup, meta tag formulas, canonical rules, sitemap structure, Core Web Vitals targets, and multi-market handling.
 
 ---
 
@@ -12,13 +12,13 @@ Define the technical SEO foundation for all ProfileTap pages: schema markup, met
 
 | Page Type | Formula | Example |
 |-----------|---------|---------|
-| Homepage | `{Brand} — {Positioning}` | `ProfileTap — Smart Identity Management Platform` |
-| Solution Hub | `{Hub Title} \| ProfileTap` | `Business Identity Platform \| ProfileTap` |
-| Category | `{Primary Keyword} \| ProfileTap` | `Digital Business Card India \| ProfileTap` |
-| Use Case | `{Primary Keyword} \| ProfileTap` | `Digital Business Card for Doctors \| ProfileTap` |
-| Comparison | `{Competitor} Alternative in India \| ProfileTap` | `HiHello Alternative in India \| ProfileTap` |
-| Blog | `{Post Title} \| ProfileTap Blog` | `NFC vs QR Business Card: Which Converts Better? \| ProfileTap Blog` |
-| Product Family | `{Product Name} \| ProfileTap Store` | `Metal Business Cards \| ProfileTap Store` |
+| Homepage | `{Brand} — {Positioning}` | `[BRAND] — [Positioning Statement]` |
+| Solution Hub | `{Hub Title} \| [PROJECT_NAME]` | `Business Identity Platform \| [PROJECT_NAME]` |
+| Category | `{Primary Keyword} \| [PROJECT_NAME]` | `Digital Business Card India \| [PROJECT_NAME]` |
+| Use Case | `{Primary Keyword} \| [PROJECT_NAME]` | `Digital Business Card for Doctors \| [PROJECT_NAME]` |
+| Comparison | `{Competitor} Alternative in India \| [PROJECT_NAME]` | `HiHello Alternative in India \| [PROJECT_NAME]` |
+| Blog | `{Post Title} \| [PROJECT_NAME] Blog` | `NFC vs QR Business Card: Which Converts Better? \| [PROJECT_NAME] Blog` |
+| Product Family | `{Product Name} \| [PROJECT_NAME] Store` | `Metal Business Cards \| [PROJECT_NAME] Store` |
 
 ### Meta Description Templates (max 155 characters)
 
@@ -98,9 +98,9 @@ Define the technical SEO foundation for all ProfileTap pages: schema markup, met
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "ProfileTap",
-  "url": "https://profiletap.com",
-  "logo": "https://profiletap.com/logo.png",
+  "name": "[PROJECT_NAME]",
+  "url": "https://[SITE_URL]",
+  "logo": "https://[SITE_URL]/logo.png",
   "description": "Smart identity management platform for digital business cards, NFC sharing, QR profiles, and more.",
   "sameAs": [
     "https://twitter.com/profiletap",
@@ -121,11 +121,11 @@ Define the technical SEO foundation for all ProfileTap pages: schema markup, met
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "ProfileTap",
-  "url": "https://profiletap.com",
+  "name": "[PROJECT_NAME]",
+  "url": "https://[SITE_URL]",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://profiletap.com/search?q={search_term_string}",
+    "target": "https://[SITE_URL]/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -138,9 +138,9 @@ Define the technical SEO foundation for all ProfileTap pages: schema markup, met
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://profiletap.com"},
-    {"@type": "ListItem", "position": 2, "name": "{Hub Name}", "item": "https://profiletap.com/{hub-slug}"},
-    {"@type": "ListItem", "position": 3, "name": "{Page Name}", "item": "https://profiletap.com/{page-slug}"}
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://[SITE_URL]"},
+    {"@type": "ListItem", "position": 2, "name": "{Hub Name}", "item": "https://[SITE_URL]/{hub-slug}"},
+    {"@type": "ListItem", "position": 3, "name": "{Page Name}", "item": "https://[SITE_URL]/{page-slug}"}
   ]
 }
 ```
@@ -172,7 +172,7 @@ Define the technical SEO foundation for all ProfileTap pages: schema markup, met
   "@type": "Product",
   "name": "{Product Name}",
   "description": "{Product description}",
-  "brand": {"@type": "Brand", "name": "ProfileTap"},
+  "brand": {"@type": "Brand", "name": "[PROJECT_NAME]"},
   "offers": {
     "@type": "Offer",
     "price": "{price}",
@@ -189,8 +189,8 @@ Define the technical SEO foundation for all ProfileTap pages: schema markup, met
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "{Blog Title}",
-  "author": {"@type": "Organization", "name": "ProfileTap"},
-  "publisher": {"@type": "Organization", "name": "ProfileTap", "logo": {"@type": "ImageObject", "url": "https://profiletap.com/logo.png"}},
+  "author": {"@type": "Organization", "name": "[PROJECT_NAME]"},
+  "publisher": {"@type": "Organization", "name": "[PROJECT_NAME]", "logo": {"@type": "ImageObject", "url": "https://[SITE_URL]/logo.png"}},
   "datePublished": "{ISO date}",
   "dateModified": "{ISO date}",
   "description": "{Meta description}",
@@ -244,7 +244,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /search?
 Disallow: /_next/
-Sitemap: https://profiletap.com/sitemap.xml
+Sitemap: https://[SITE_URL]/sitemap.xml
 ```
 
 ---
@@ -253,7 +253,7 @@ Sitemap: https://profiletap.com/sitemap.xml
 
 ### Why It Matters
 
-Google AI Overviews, Perplexity, ChatGPT Browse, and Claude extract structured content to surface direct answers. FAQPage schema is a primary extraction signal. Without explicit `Allow` directives, AI crawlers may be blocked by default robots.txt configurations, silently removing ProfileTap from AI-generated answers.
+Google AI Overviews, Perplexity, ChatGPT Browse, and Claude extract structured content to surface direct answers. FAQPage schema is a primary extraction signal. Without explicit `Allow` directives, AI crawlers may be blocked by default robots.txt configurations, silently removing [PROJECT_NAME] from AI-generated answers.
 
 ### robots.txt — Add AI Crawler Allowances
 
@@ -339,14 +339,14 @@ Currently India-first with global English. When global pages are added:
 
 ```html
 <!-- On India-specific pages -->
-<link rel="alternate" hreflang="en-IN" href="https://profiletap.com/digital-business-card-india" />
-<link rel="alternate" hreflang="en" href="https://profiletap.com/digital-business-card" />
-<link rel="alternate" hreflang="x-default" href="https://profiletap.com/digital-business-card" />
+<link rel="alternate" hreflang="en-IN" href="https://[SITE_URL]/digital-business-card-india" />
+<link rel="alternate" hreflang="en" href="https://[SITE_URL]/digital-business-card" />
+<link rel="alternate" hreflang="x-default" href="https://[SITE_URL]/digital-business-card" />
 
 <!-- On global pages -->
-<link rel="alternate" hreflang="en" href="https://profiletap.com/digital-business-card" />
-<link rel="alternate" hreflang="en-IN" href="https://profiletap.com/digital-business-card-india" />
-<link rel="alternate" hreflang="x-default" href="https://profiletap.com/digital-business-card" />
+<link rel="alternate" hreflang="en" href="https://[SITE_URL]/digital-business-card" />
+<link rel="alternate" hreflang="en-IN" href="https://[SITE_URL]/digital-business-card-india" />
+<link rel="alternate" hreflang="x-default" href="https://[SITE_URL]/digital-business-card" />
 ```
 
 ### Rules

@@ -1,4 +1,4 @@
-# Content Distribution Plan — ProfileTap
+# Content Distribution Plan — [PROJECT_NAME]
 
 ## Purpose
 
