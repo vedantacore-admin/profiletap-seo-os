@@ -1,7 +1,7 @@
 domain,site_type,da_score,monthly_traffic,target_page_slug,target_keyword,suggested_anchor,anchor_type,target_market,link_angle,priority,owner,status,notes,
 yourstory.com,startup_media,85,147.8K,/,smart identity platform,ProfileTap,brand,IN,founder_story,P1,,prospecting,top India startup media,
 inc42.com,startup_media,80,137.9K,/digital-business-card-india,digital business card india,digital business card india,exact,IN,data_backed_category,P1,,prospecting,India tech/startup news,
-entrackr.com,startup_media,72,43.6K,/digital-business-card-india,digital business card india,digital business card for Indian businesses,partial,IN,startup_growth,P1,,prospecting,India startup tracking,
+entrackr.com,startup_media,73,43.6K,/digital-business-card-india,digital business card india,digital business card for Indian businesses,partial,IN,startup_growth,P1,,prospecting,India startup tracking,DA updated from 72 to 73 on 2026-05-14
 businessworld.in,business_media,81,29.4K,/nfc-business-card-india,nfc business card india,nfc business card india,exact,IN,enterprise_networking,P1,,prospecting,India business publication,
 entrepreneur.com,entrepreneur_media,91,374.1K,/nfc-business-card-india,nfc business card india,nfc enabled business profiles,partial,IN+GLOBAL,productivity,P2,,prospecting,global entrepreneur media,
 exchange4media.com,marketing_media,77,48.5K,/digital-business-card-for-creators,digital business card for creators,digital business card for creators,exact,IN,creator_marketing,P1,,prospecting,India marketing media. Requires PR-quality pitch — assign identified PR contact in owner field before outreach.,
@@ -15,9 +15,9 @@ livemint.com,business_media,88,5M,/business-identity,business identity managemen
 economictimes.com,business_media,82,8.1M,/,smart identity platform,ProfileTap,brand,IN,founder_story,P1,,prospecting,India's largest business publication,
 techcircle.in,tech_media,74,1.5K,/business-identity,business identity management platform,digital identity platform,partial,IN,tech_innovation,P2,,prospecting,India tech business media,
 siliconindia.com,tech_media,77,7.7K,/digital-business-card-india,digital business card india,digital business card solutions,partial,IN,tech_roundup,P2,,prospecting,India tech publication,
-nextbigwhat.com,startup_blog,63,62,/tapmo-alternative,tapmo alternative,ProfileTap vs TapMo,branded,IN,comparison_roundup,P2,,prospecting,India startup blog,
+nextbigwhat.com,startup_blog,64,62,/tapmo-alternative,tapmo alternative,ProfileTap vs TapMo,branded,IN,comparison_roundup,P2,,prospecting,India startup blog,DA updated from 63 to 64 on 2026-05-14
 techpp.com,tech_blog,65,27.3K,/nfc-business-card-india,nfc business card india,best NFC business cards,partial,IN,product_review,P2,,prospecting,India tech review blog,
-freelancermap.com,freelance_platform,71,18.8K,/digital-business-card-for-freelancers,digital business card for freelancers,digital business card for freelancers,exact,IN+GLOBAL,freelancer_tools,P2,,prospecting,freelance marketplace. Verify blog exists and accepts guest posts vs. being purely a job listings directory.,
+freelancermap.com,freelance_platform,70,18.8K,/digital-business-card-for-freelancers,digital business card for freelancers,digital business card for freelancers,exact,IN+GLOBAL,freelancer_tools,P2,,prospecting,freelance marketplace. Verify blog exists and accepts guest posts vs. being purely a job listings directory.,DA updated from 71 to 70 on 2026-05-14
 petfed.org,pet_media,28,491,/pet-id-profile,pet id tag qr code,pet identity QR tags,partial,IN,pet_safety,P2,,prospecting,India pet federation. Verify site has active editorial section that accepts external links.,DA below 30 threshold as of 2026-05-06 — hold outreach
 dogexpress.in,pet_blog,28,40,/pet-id-profile,pet id tag qr code,pet ID QR code tag,partial,IN,pet_identification,P2,,prospecting,India dog/pet blog,DA below 30 threshold as of 2026-05-06 — hold outreach
 petbacker.com,pet_platform,53,77.8K,/lost-and-found-qr-tag,lost and found qr tag,lost pet QR tag,partial,IN+GLOBAL,lost_pet_recovery,P3,,prospecting,Page not live — do not outreach yet. pet services platform,
