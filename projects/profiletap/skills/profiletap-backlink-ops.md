@@ -266,3 +266,46 @@ Body: Propose 2-3 topic options relevant to the publication's audience. Offer or
 ### Template 5: Expert Contribution (for media roundups)
 Subject: Expert comment available: {topic}
 Body: Offer a ready-to-publish expert quote on a trending topic. Include the quote directly in the email. Request attribution with a link to the relevant ProfileTap page.
+
+### Template 6: Listicle Inclusion (for existing roundup posts)
+Use when targeting a roundup blog or comparison review that has *already published* a "Top X NFC business cards / digital business cards / link-in-bio tools" post. Higher response rate than cold pitch — 20-40% vs 2-5%.
+
+Hard limit: 90 words. Format:
+
+Subject: Quick suggestion for your {their roundup topic} post — one India-built option you may have missed
+
+Body:
+- Open by naming their specific roundup article and its publish date (proves you read it).
+- Note which competitors they already cover (Blinq / HiHello / Linktree / etc.) and that they are US-built.
+- Position ProfileTap as the India-built option with one differentiator (INR pricing OR WhatsApp masking OR multi-context identity).
+- Offer to send specs, images, or a comparison row.
+- Soft sign-off — "No worries if not a fit."
+
+Owner: Rutuja drafts. Pratima sign-off not required for listicle outreach (not brand-reputation risk like cold media). Tracker row → status: contacted, next_follow_up_date: today + 7 days, notes: "listicle inclusion — referenced [their article title]".
+
+### Template 7: HARO / Featured / Qwoted Expert Pitch (for inbound journalist queries)
+Use when responding to a journalist source-request platform (HARO, Featured, Qwoted, SourceBottle, Help-a-B2B-Writer). Inbound = the journalist is actively looking. Highest-ROI outreach format pre-launch.
+
+Format depends on the journalist's exact requirements — match their requested word count and format precisely (quote / paragraph / bullet list).
+
+Required structural elements:
+- Direct answer to their query in the first sentence (no preamble)
+- One concrete India-specific data point or observation
+- One quotable sentence the journalist can lift verbatim
+- 1-line founder credential: "Hariom Shah, Founder, ProfileTap (India's multi-identity NFC + QR platform, used across business, creator, family safety, pet, travel, vehicle contexts)"
+- One inline link to the most relevant /slug
+- Photo URL on request
+
+Owner: Rutuja drafts. Pratima sign-off required for any HARO pitch where the answer references ProfileTap product detail or company numbers — Rutuja flags these in the brief. Tracker row → status: contacted, next_follow_up_date: blank (HARO is one-shot), notes: "HARO pitch — [query topic] — pub: [publication] — deadline [date]".
+
+---
+
+## Template Ownership Convention
+
+Every template above is drafted by Rutuja (SEO Manager). Approval depends on the template:
+- Templates 1, 2, 4 (reporter-first media): Pratima approves before send
+- Templates 3, 5, 6 (roundup blogs, expert quotes, listicle inclusion): Rutuja sends directly, Pratima reviews 1 sample per week in the Wednesday content review block
+- Template 7 (HARO): Rutuja sends directly unless the answer makes ProfileTap-specific product claims, in which case Pratima signs off first
+- Founder-voice content (LinkedIn articles): Hariom only — Rutuja prepares a starter draft, Hariom personalises and publishes
+
+This convention is enforced by the weekly routine generator (`profiletap-weekly-routine.md`) — every task carries an `**Owner:**` tag.
