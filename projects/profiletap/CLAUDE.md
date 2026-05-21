@@ -185,4 +185,6 @@ python scripts/rebuild_keyword_system.py [optional_source_path]
 - `/profiletap-weekly-routine` — **Run every Sunday or Monday morning.** Generates the next week's team brief (Mon-Sat) for Rutuja, Pratima, and Hariom + appends a planned-row to `data/tracking/weekly_progress.csv`. Replaces the prior daily routine; pre-launch task mix prioritises directories, Hashnode/Medium dofollow articles, listicle inclusion, HARO, and AIO/GEO work over cold media outreach.
 
 ### Generic SEO Skills
-See root CLAUDE.md — 11 general-seo skills (`/keyword-research`, `/content-optimization`, `/technical-seo-audit`, `/backlink-strategy`, `/serp-analysis`, `/content-cluster-planning`, `/local-seo`, `/rank-tracking-analytics`, `/content-refresh-strategy`, `/programmatic-seo`, `/blog-writer`) are available from the root and load automatically when both CLAUDE.md files are active.
+See root CLAUDE.md — 12 general-seo skills (`/keyword-research`, `/content-optimization`, `/technical-seo-audit`, `/backlink-strategy`, `/serp-analysis`, `/content-cluster-planning`, `/local-seo`, `/rank-tracking-analytics`, `/content-refresh-strategy`, `/programmatic-seo`, `/blog-writer`, `/ubersuggest-export`) are available from the root and load automatically when both CLAUDE.md files are active.
+
+The Ubersuggest setup runbook for ProfileTap lives at `projects/profiletap/docs/06-ubersuggest-setup.md` — pair with `/ubersuggest-export` when configuring or refreshing the Ubersuggest workspace.

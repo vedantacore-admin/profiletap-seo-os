@@ -58,3 +58,4 @@ projects/
 - `/content-refresh-strategy` — Content refresh methodology
 - `/programmatic-seo` — Programmatic SEO
 - `/blog-writer` — Full blog draft generation from briefs
+- `/ubersuggest-export` — Extract tracked keywords from a project's CSVs into Ubersuggest-ready import files
