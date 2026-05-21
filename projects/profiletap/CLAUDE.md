@@ -6,6 +6,16 @@
 
 SEO operating system for **ProfileTap** — a smart identity management platform (not just an NFC card tool). Manages the full keyword → page → content → backlink pipeline.
 
+## Team Roles
+
+| Role | Person | Scope | Weekly time budget |
+|---|---|---|---|
+| **SEO Manager (junior)** | **Rutuja** | Owns 95% of execution: outreach, posting, directory listings, content drafting, tracker updates. Needs maximum hand-holding — all tasks must be copy-paste-ready, with exact thread URLs and scripted tracker updates. | 51h (Mon-Sat, 8.5h/day) |
+| **Co-Founder, Content + SEO** | **Pratima Hariom Shah** | Decisions only — weekly theme, outreach approval, content review, retro verdict. Every Pratima task is shaped as "choose A/B/C" or "approve/reject" with Rutuja's pre-work in front of her. | ≤4h |
+| **Founder (technical)** | **Hariom Shah** | Founder-only items — publishing the weekly LinkedIn founder article, signing off on schema JSON-LD specs, signing off on the weekly retro verdict. Never receives execution work. | ≤60 min |
+
+Every task in any generated weekly brief carries an explicit `**Owner:**` tag (Rutuja / Pratima / Hariom).
+
 ## File Map
 
 ```
@@ -18,6 +28,7 @@ data/
   backlinks/outreach_tracker.csv      # Outreach execution status
   tracking/rank_tracker.csv           # Rank tracking data
   tracking/monthly_metrics.csv        # Monthly metrics rollup
+  tracking/weekly_progress.csv        # Weekly routine progress + retrospective (planned vs actual + Pratima verdict + Hariom signoff)
   products/product_catalog.json       # Product catalog with variants, hub mapping, page mapping
 
 docs/
@@ -26,6 +37,9 @@ docs/
   05-measurement-plan.md              # KPIs, tools, reporting cadence
   06-competitor-serp-analysis.md      # SERP analysis workflow
   segment-feature-matrix.md           # Feature coverage by hub/segment
+  aio-geo-playbook.md                 # AI Optimization + Generative Engine Optimization playbook (schema, comparison content, AI directories, citation strategy)
+  claude-in-chrome-companion.md       # Delegation map for the parallel Claude Pro + Chrome extension session — paste-ready prompts per task type
+  schema-specs/                       # Weekly JSON-LD specs Rutuja drafts Fri, Hariom signs off Sat
 
 prompts/
   content-brief-prompt.md             # Brief generation rules for Claude
@@ -36,6 +50,10 @@ prompts/
 briefs/templates/
   page-brief-template.md              # Standard brief structure (9 sections)
   (use ../../templates/briefs/templates/page-brief-template.md as the generic base)
+
+briefs/weekly/                        # Weekly team briefs (current cadence — Mon-Sat, 3-role)
+briefs/daily/                         # Historical daily briefs (legacy — kept for reference)
+briefs/content-prep/                  # Day 1/2/3 content prep outputs from Rutuja
 
 scripts/
   rebuild_keyword_system.py           # Rebuild keyword CSVs from source exports
@@ -48,9 +66,10 @@ skills/
   profiletap-page-architecture.md     # Page architecture and structure
   profiletap-keyword-system.md        # Keyword system management
   profiletap-content-brief.md         # Content brief generation
-  profiletap-backlink-ops.md          # Backlink operations
+  profiletap-backlink-ops.md          # Backlink operations + outreach templates (Templates 1-7 + ownership convention)
   profiletap-measurement.md           # Performance measurement
   profiletap-blog-writer.md           # Full blog drafts with ProfileTap voice
+  profiletap-weekly-routine.md        # Weekly team brief generator — run every Sunday/Monday (replaces the prior daily routine)
 
 content/
   pages/                              # 21 landing and hub pages
@@ -160,9 +179,12 @@ python scripts/rebuild_keyword_system.py [optional_source_path]
 - `/profiletap-architecture` — Page architecture and structure
 - `/profiletap-keywords` — Keyword system management
 - `/profiletap-brief` — Content brief generation
-- `/profiletap-backlinks` — Backlink operations
+- `/profiletap-backlinks` — Backlink operations (Templates 1-7, ownership convention)
 - `/profiletap-measurement` — Performance measurement
 - `/profiletap-blog-writer` — Full blog drafts with ProfileTap voice and context
+- `/profiletap-weekly-routine` — **Run every Sunday or Monday morning.** Generates the next week's team brief (Mon-Sat) for Rutuja, Pratima, and Hariom + appends a planned-row to `data/tracking/weekly_progress.csv`. Replaces the prior daily routine; pre-launch task mix prioritises directories, Hashnode/Medium dofollow articles, listicle inclusion, HARO, and AIO/GEO work over cold media outreach.
 
 ### Generic SEO Skills
-See root CLAUDE.md — 11 general-seo skills (`/keyword-research`, `/content-optimization`, `/technical-seo-audit`, `/backlink-strategy`, `/serp-analysis`, `/content-cluster-planning`, `/local-seo`, `/rank-tracking-analytics`, `/content-refresh-strategy`, `/programmatic-seo`, `/blog-writer`) are available from the root and load automatically when both CLAUDE.md files are active.
+See root CLAUDE.md — 12 general-seo skills (`/keyword-research`, `/content-optimization`, `/technical-seo-audit`, `/backlink-strategy`, `/serp-analysis`, `/content-cluster-planning`, `/local-seo`, `/rank-tracking-analytics`, `/content-refresh-strategy`, `/programmatic-seo`, `/blog-writer`, `/ubersuggest-export`) are available from the root and load automatically when both CLAUDE.md files are active.
+
+The Ubersuggest setup runbook for ProfileTap lives at `projects/profiletap/docs/06-ubersuggest-setup.md` — pair with `/ubersuggest-export` when configuring or refreshing the Ubersuggest workspace.

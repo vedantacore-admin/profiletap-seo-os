@@ -1,0 +1,440 @@
+# Ubersuggest Export Report
+
+**Generated:** 2026-05-18
+**Project root:** `/Users/hariomshah/Documents/GitHub/profiletap-seo-os/projects/profiletap`
+**Total keywords:** 389
+
+## By Priority
+
+- **P1:** 126
+- **P2:** 197
+- **P3:** 66
+
+## By Hub
+
+- **business:** 189
+- **creator:** 23
+- **family_safety:** 43
+- **pet:** 39
+- **platform:** 22
+- **travel:** 34
+- **vehicle:** 39
+
+## By Priority x Hub
+
+| Priority | Hub | Count |
+|---|---|---|
+| P1 | business | 100 |
+| P1 | platform | 22 |
+| P1 | travel | 4 |
+| P2 | business | 72 |
+| P2 | creator | 19 |
+| P2 | family_safety | 29 |
+| P2 | pet | 35 |
+| P2 | travel | 13 |
+| P2 | vehicle | 29 |
+| P3 | business | 17 |
+| P3 | creator | 4 |
+| P3 | family_safety | 14 |
+| P3 | pet | 4 |
+| P3 | travel | 17 |
+| P3 | vehicle | 10 |
+
+## Keywords missing Ubersuggest metrics (382)
+
+These keywords have no `ubersuggest_volume` value in `raw_keyword_bank.csv`. Backfill after the first Ubersuggest pull.
+
+- Google business reviews
+- Google review marketing strategy
+- Google review strategy 2026
+- Google review system
+- Google reviews
+- HiHello alternative
+- Linktree alternative
+- Linktree alternative India
+- NFC business card
+- NFC business card for bloggers
+- NFC business card for doctors
+- NFC business card for freelancers
+- NFC business card for influencers
+- NFC business card for real estate agents
+- NFC business card for youtubers
+- NFC business standee
+- NFC keychain
+- NFC keychain india
+- NFC metal card
+- NFC review card india
+- NFC standee india
+- PVC NFC card
+- PVC business card NFC
+- ProfileTap vs Linktree
+- QR code business card
+- QR code profile for doctors
+- QR code profile for freelancers
+- QR code profile for influencers
+- QR code profile for real estate agents
+- QR code profile for youtubers
+- QR luggage tag india
+- QR pet tag
+- TapMo alternative India
+- TapOnn alternative India
+- affordable NFC business card
+- ai assist reviews
+- ai business assistant india
+- ai business management
+- ai business review management
+- ai for small business
+- ai review management
+- ai review online
+- ai review qr
+- ai review system
+- ai reviews app
+- ai reviews for business
+- ai tools for business india
+- ai tools for small business india
+- airport luggage qr tag
+- airtag alternative luggage tag india
+- airtag vs qr luggage tag
+- autism child safety guide india
+- autism child safety tag india
+- autism wandering id tag india
+- autism wandering prevention india
+- automotive qr code
+- bag qr tag
+- best ai tools for small business 2026
+- best captain india alternative
+- best digital business card for doctors in india
+- best dot card alternative india
+- best helmet qr sticker india
+- best instagram bio ideas for creators
+- best karetap alternative india
+- best link in bio tools india
+- best luggage tracker india
+- best mobilo alternative
+- best pet id solution india
+- best pet id solutions india
+- best uniqode alternative
+- best v1ce alternative
+- best vehitag alternative india
+- bike QR sticker
+- bike helmet safety sticker india
+- bike qr code tag
+- bike qr code tag india
+- black PVC card NFC
+- blinq alternative
+- business ai tools
+- business identity management platform
+- business standee QR code
+- buy digital business card mumbai
+- buy profiletap
+- call masking for business india
+- captain india pet tag alternative
+- captain india vs profiletap pet tag
+- car QR code sticker india
+- car owner contact qr code
+- car parking sticker QR
+- car qr code
+- car qr code sticker
+- cat qr tag
+- child safe tag
+- child safety tag QR
+- child safety tags
+- child safety tags india
+- children safety tags
+- corporate digital business card india
+- create digital profile free
+- custom luggage tag
+- delivery bike qr tag india
+- delivery rider safety sticker india
+- dementia patient id tag india
+- dementia wandering safety india
+- digital business card
+- digital business card ahmedabad
+- digital business card bangalore
+- digital business card bengaluru
+- digital business card bulk order india
+- digital business card chennai
+- digital business card delhi
+- digital business card for architects india
+- digital business card for bloggers
+- digital business card for ca india
+- digital business card for coaches india
+- digital business card for consultants india
+- digital business card for creators
+- digital business card for doctors
+- digital business card for freelancers
+- digital business card for influencers
+- digital business card for influencers guide
+- digital business card for lawyers india
+- digital business card for real estate agents
+- digital business card for teams india
+- digital business card for youtubers
+- digital business card hyderabad
+- digital business card india
+- digital business card mumbai
+- digital business card new delhi
+- digital business card pune
+- digital dog identity card india
+- digital identity card system
+- digital identity platform
+- digital identity profile
+- digital identity profile for professionals
+- digital keychain
+- digital profile builder
+- digital profile for architects
+- digital profile for coaches india
+- digital profile free
+- digital profile management system
+- digital profile system India
+- digital travel profile
+- digital visiting card ahmedabad
+- digital visiting card bangalore
+- digital visiting card chennai
+- digital visiting card delhi
+- digital visiting card for ca
+- digital visiting card for lawyers
+- digital visiting card hyderabad
+- digital visiting card india
+- digital visiting card mumbai
+- digital visiting card online
+- digital visiting card pune
+- digital visiting card vs digital business card india
+- dog qr tag
+- dog tag QR code
+- dot card alternative india
+- dot card vs profiletap
+- dot card vs profiletap india
+- elderly qr id tag india
+- elderly safety tag QR
+- elderly safety wristband india
+- emergency QR keychain
+- emergency contact car sticker
+- emergency contact card for kids
+- emergency contact qr code
+- emergency medical information qr
+- emergency profile qr code
+- emergency qr code
+- employee digital business card india
+- family safety app apk
+- family safety app kya hai
+- family safety profile
+- family safety tag QR
+- family safety tags
+- family safety tool
+- food delivery bike safety tag india
+- found item return qr tag
+- free digital business profile
+- google review NFC card
+- google review card NFC
+- google review management
+- google review nfc card guide
+- helmet qr sticker india
+- helmet safety qr sticker guide india
+- hide phone number business card india
+- hihello alternative india
+- how Google reviews work
+- how nfc business cards work
+- how pet qr tags work
+- how qr code works
+- how to add digital business card to whatsapp
+- how to build personal brand online
+- how to collect google reviews with nfc card
+- how to create a digital business card for your business
+- how to generate Google review link for customers
+- how to get more Google reviews
+- how to make dog id tag qr code
+- how to share digital business card on whatsapp india
+- how to track lost luggage india
+- how to use nfc business card
+- how to write a Google review
+- identity management platform
+- identity management solution for business
+- identity platform India
+- identity platform for businesses
+- identity platform for professionals
+- identity system for small businesses
+- increase Google reviews quickly
+- karetap alternative
+- karetap vs profiletap
+- kids safety name tags
+- kids safety tag india
+- link in bio alternative India
+- linktree alternative for creators
+- lost and found qr tag
+- lost bag at airport india
+- lost item qr tag
+- lost luggage qr tag
+- lost pet prevention tips
+- lost pet qr tag
+- lost pet tag
+- luggage qr tag
+- luggage qr tag vs airtag
+- luggage recovery tips india
+- luggage tag vs bluetooth tracker
+- medical alert tag for elderly india
+- medical emergency qr code
+- medical id for seniors india
+- medical info qr code
+- medical qr code
+- metal NFC business card
+- metal business card india
+- metal visiting card
+- mobilo alternative india
+- mobilo card alternative india
+- mobilo vs profiletap
+- mobilo vs profiletap india
+- nfc business card ahmedabad
+- nfc business card bangalore
+- nfc business card chennai
+- nfc business card delhi
+- nfc business card for architects india
+- nfc business card for ca india
+- nfc business card for coaches india
+- nfc business card for consultants india
+- nfc business card for corporate india
+- nfc business card for lawyers india
+- nfc business card hyderabad
+- nfc business card india
+- nfc business card mumbai
+- nfc business card pune
+- nfc business card vs qr code
+- nfc card for startup india
+- nfc dog tag guide india
+- nfc luggage tag vs bluetooth tracker india
+- nfc pet tag vs rfid pet tag
+- non-verbal child emergency id india
+- non-verbal child id tag india
+- online identity profile platform
+- online identity system
+- online reputation management Google reviews
+- paper business card vs digital business card
+- parking contact qr code
+- parking contact sticker
+- personal branding platform india
+- personal identity management system
+- pet ID tag QR
+- pet collar tag QR code
+- pet id qr code
+- pet id tag qr code
+- pet microchip vs qr tag india
+- pet qr tag
+- pet safety qr
+- pet safety tag
+- pets qr code
+- popl alternative india
+- premium business card NFC
+- professional NFC business card for doctors
+- professional NFC business card for freelancers
+- professional NFC business card for influencers
+- professional NFC business card for real estate agents
+- professional NFC business card for youtubers
+- professional digital business card for doctors
+- professional digital business card for freelancers
+- professional digital business card for influencers
+- professional digital business card for real estate agents
+- professional digital business card for youtubers
+- professional identity platform
+- profile sharing keychain
+- profiletap business ai
+- profiletap products
+- profiletap shop
+- profiletap store
+- profiletap vs dot card
+- profiletap vs hihello
+- profiletap vs mobilo
+- profiletap vs tapmo
+- profiletap vs v1ce
+- qr business card
+- qr code business card alternative india
+- qr code for emergency contact
+- qr code for pet identification
+- qr code for vehicle registration
+- qr code pet tag
+- qr lost and found tag
+- qr luggage tag
+- qr pet tag vs gps tracker india
+- rc qr code
+- reception desk NFC standee
+- recovery qr tag
+- return contact qr tag
+- review card for business
+- review standee
+- rider qr safety tag india
+- rider safety qr tag india
+- safety tags for children
+- school bag safety tags
+- senior citizen safety tag guide india
+- senior citizen safety tag india
+- share nfc card on whatsapp india
+- smart business card consultant india
+- smart business tools india
+- smart card architect india
+- smart card for chartered accountant india
+- smart card for lawyers india
+- smart dog tag india
+- smart identity platform
+- smart keychain NFC
+- smart lost and found tag
+- smart luggage tag
+- smart luggage tag QR
+- smart luggage tag guide
+- smart luggage tag vs airtag india
+- smart luggage tag vs airtag india blog
+- smart pet tag india
+- smart profile platform
+- special needs child id bracelet india
+- special needs child safety tips india
+- suitcase qr tag
+- tap to review card
+- tap to review card setup india
+- tapmo alternative
+- taponn alternative
+- tourist qr code
+- travel bag qr tag
+- travel contact qr code
+- travel digital card
+- travel identity card
+- travel luggage tag QR
+- travel qr code
+- travel safety qr
+- travel safety tips qr codes
+- two wheeler helmet sticker qr
+- two wheeler safety sticker guide
+- unified identity platform
+- uniqode alternative india
+- uniqode vs profiletap india
+- v1ce alternative for india
+- v1ce alternative india
+- v1ce vs profiletap
+- v1ce vs profiletap india
+- vehicle QR sticker
+- vehicle details qr code
+- vehicle emergency sticker guide
+- vehicle owner contact qr
+- vehicle qr code
+- vehicle qr code sticker
+- vehicle qr sticker alternative india
+- vehicle verification qr code
+- vehitag alternative
+- vehitag vs profiletap
+- visiting card vs business card india
+- what are Google reviews
+- what is call masking in india
+- what is digital business card
+- what is nfc pet tag
+- what to do when luggage is lost india
+- white PVC business card
+- wrong parking qr sticker
+- zomato swiggy rider qr tag
+
+## Cross-page duplicate keywords (7)
+
+Keywords appearing on multiple pages. Per the one-keyword-one-page rule, these should be reviewed.
+
+- `ai business assistant india` on: /blog/ai-assistant-indian-business-guide, /business-ai
+- `dot card alternative india` on: /dot-card-alternative-india, /profiletap-vs-dot-card
+- `medical emergency qr code` on: /blog/medical-emergency-qr-code-guide, /emergency-qr-code
+- `mobilo alternative india` on: /mobilo-alternative-india, /profiletap-vs-mobilo
+- `parking contact qr code` on: /blog/parking-contact-qr-code-guide, /vehicle-qr-code-sticker
+- `smart luggage tag` on: /products/luggage-tags, /qr-luggage-tag
+- `v1ce alternative india` on: /profiletap-vs-v1ce, /v1ce-alternative-india
